@@ -1,0 +1,207 @@
+# __Appunti lezione venerdì 16 aprile__
+
+## __Circuiti Sequenziali__ 
+Sono circuiti le cui uscite dipendono sia dagli ingressi che da stati digitali all'interno del circuito.
+Che memorizzano una storia passata degli input.
+
+![alt text](img1.png)
+
+
+la funzionio entrate uscita legano le varie uscite da tutti gli ingressi e gli stati che dipendono dagli ingressi e da da stati precendenti.
+
+### Latch
+
+![alt text](img2.png)
+
+
+sono i circuiti più semplici che rappresentano circuitti sequenziali e sono fatti da porte NOR.
+Hanno una forma di controreazione(uscita di una porta va in ingresso nell'altra e viceversa).
+- due ingressi S e R
+- due uscite Q u Q segnata
+
+con entrambi gli ingressi uguali a zero ci possono essere due situazione:
+
+1. con Q uguale a zero avrò che Q segnato è uguale ad 1
+2. con Q=1 Q segnato sarà 0
+
+###### Se S diventa 1
+
+![alt text](img3.png)
+
+
+la Q viene settata ad 1. Poi quando rimetto la S a 0 Q rimarrà 1, quindi questi dispositivi sono celle di memoria fondamentali. In qualunque stato mi trovi se metto S=1 finiro nello stato in figura
+
+###### Se R diventa 1
+se mi trovo nello stato in figura e metto R uguale a uno porterò Q uguale a zero
+
+![alt text](img4.png)
+
+
+arrivando nello stato descritto qui sotto
+
+![alt text](img5.png)
+ 
+ 
+ __*Che cosa succede con S e R uguale a ?*__
+ 
+ Se metto S e R entrambi uguali a 1 sembra che vada a finire in uno stato stabile cioè con Q e Q segnato uguale a 0. Il problema arriva quando rimetto gli input a zero e non so in quale situazione vado a finire(se quella di destra o di sinistra).
+ 
+ ![alt text](img6.png)
+ 
+ 
+ Se arrivo nello stato a desta o a sinistra dipende chi tra S e R torno prima a zero.
+ >S e R non devono mai stare insieme a 1 
+
+### Latch con clock
+
+![alt text](img7.png)
+
+è un latch che ha delle porte AND che impediscono che entranbi S e R vadano a 1.Questew due porte AND vengono controllate da un clock. Se in clock è a 0 si _ignorano_ gli altri input
+
+### Latch D (Delay)
+
+![alt text](img8.png)
+
+Latch con un solo segnale d'ingresso.
+Qunado il clock è ad 1 memorizza in Q il valore di D
+
+
+Se volgio fare il Set metto D=1 ed il clock uguale a 1 mentr quando voglio fare il Reset metto D=0 e alzo il clock ad 1 
+
+### Flip Flop
+Aggiungendo un generatore di impulsi ad un latch otteniamo un flip flop, una variande di latch che commuta sui frontoni del clock. 
+
+![alt text](img9.png)
+
+A prima vista un generatore di impulsi può sembrare un circuito inutile perché è fatto da una porta AND i cui ingressi sono uno il negato dell'altro quindi ci si aspetta sempre un output 0. Questo è dato dal tempo di commutazione delle varie porte logiche dei circuiti, che pur avendo un tempo di commutazione molto piccolo è diverso da zero.
+
+![alt text](img10.png)
+
+Come esposto dalla figura qui sopra, quando _a_ arriva ad 1 _c_ diviene immediatamente 1 dato che è collegato direttamente con _a_ ma _b_ non diventa subito zero perché bisogna tener conto dei tempi di attraversamento della porta NOT. Questo porta ad un piccolissimo momento durante il quale sia _a_ che _b_ sono uguali ad 1(detto delta) e quindi anche _d_ sarà uguale ad uno, producendo un impulso.
+
+>il flip flop e migliore del latch perché la commutazione è istantanea e si sa con esattezza il momento in cui avviene(nel momento preciso in cui il clock passa ad 1)
+
+**Proviamo a chiudere la scatola guardando i latch e i flip flop dall'esterno**
+
+![alt text](img11.png)
+
+la differenza tra la rappresentazione esterna tra il flip flop e il latch è il triangolino che si trova all'entrata del clock. Per il resto entrambi hanno un entrati per l'input(_d_) e un'uscita _Q_.
+
+Abbiamo sempre detto che questi circuiti fanno qualcosa se il clock è a 1, ma possiamo ragionare con ma logica inversa(logica negata). Per il latch la commutazione avvienne quando il clock è a 0 mentre per il flip flop avviene quando il clock passa da 1 a 0.
+
+### Registri
+
+![alt text](img12.png)
+
+Per realizzare dei registri basta collegare opportunamente dei flip flop(in figura rigistro ad 8 bit). collegati tutti insieme ad un solo clock.
+
+>Ogni flip flop è formato da 6-10 transistor
+
+### Organizzazione delle memoria
+
+![alt text](img13.png)
+
+Questa è una piccola Ram fatta da 4 locazioni(word) di tre bit.
+
+in questo caso abbiamo tre ingressi e tre uscite, e due segnali di ingresso(address) per selezionare la zona di memoria.
+
+CS -> __Chip select__ che va messo ad uno per fare qualcosa con il chip
+
+RD -> __Read__ se lo metto ad uno voglio fare una lettura in memoria se è a zero voglio scrivere nella memoria
+
+OE ->__Output enable__ abilita gli output
+
+### Dispositivi a tre stati
+
+![alt text](img14.png)
+
+>Questi dispositivi sono veri e propri interruttori velocissimi
+
+- Se il controllo è 1 in circuito si comporte come circuito chiuso
+
+- Se il controllo è 0 si comporta come un circuito aperto la cui uscita non è determinata
+
+Questi circuiti servono per ridurre il numero di piedini dei chip permettendo l'utilizzo di una sola linea per ingressi e uscite.
+
+### Chip di memoria
+
+![alt text](img15.png)
+
+_Come faccia a ridurre al minimo il numero di piedini?_
+C'è uan tecnica che permette di ridurre il numero di piedini per la specifica degli indirizzi ed è __matrice di selezione__ che riduce n° piedini dimezzandoli.
+
+>Per indirizzare una memoria di 4GB ho bisogno di 32 piedini per la specifica degli indirizzi
+
+
+Si realizza la memoria come una matrice ed ogni elemento della matrice memorizza un bitcdi informazione.
+
+![alt text](img16.png)
+
+Per leggere o scrivere devo specificare una valore di riga e di colonna attraverso un decodificatore.
+
+
+![alt text](img17.png)
+
+se non usassi la matrice di selezione per avrei bisogno di 22 linee di indirizzo per 4M parole.
+
+- Specifico prima la prima porzione di indirizzo 
+- E poi la seconda metà
+
+il mio indirizzo di 22 bit vinene spezzato in due porzioni
+
+1. la prima metà specifia la riga 
+2. la seconda metà la colonna 
+
+l'intersezione tra le due l'elemento di cui ho bisogno
+
+quindi me la cavo con 11 linee di indirizzo invece che 22, l'unica cosa che vedo agguingere sono due linee di conrtollo che mi dicono quale porzione dell'indirizzo specifica la riga e quale la colonna
+
+Un'altro vantaggio della matrice di selezione è il fatto che potrò utilizzare meno porte AND.Un decoder ha una porta AND per uscita
+
+
+#### Altri esempi ci chip di memoria
+
+![alt text](img18.png)
+
+__chip sinistra con decodifica completa__:
+- 19 segnali indirizzi
+- 8 segnali entrate uscita dati
+- 3 segnali controllo
+
+__chip destra matrice di selezione__
+- 11 segnali per indirizzi
+- questi segnali sono per identificare se l'indirizzo è della riga o della colonna![alt text](img19.png)
+- un solo segnale per i dati
+- 3 segnali di controllo
+
+![alt text](img20.png)
+
+- RAM(Random Acces Memory): posso accere in manie
+- ROM : lette ma non scritte, scritte una volta per tutte
+- SRAM:
+- DRAM: non realizzata con flip flop ma solo con condensatori. Se in condensatore è carico vale uno e se è scarico vale zero. tempi ci commutazione più o meno 70 nsec
+- FPM : selezione a matrice
+- EDO : (Extended Data Output) 
+- SDRAM : 
+- DDR : 
+- PROM : 
+- EPROM : cancella tramite gli ultravioletti
+- EEPROM : cancellabili elettricamente
+
+
+![alt text](img21.png)
+
+
+![alt text](img22.png)
+
+
+
+
+
+
+
+
+
+
+
+
