@@ -1,0 +1,32 @@
+package it.uniroma3.DiaDia;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import it.uniroma3.DiaDia.Ambienti.Stanza;
+import it.uniroma3.DiaDia.Ambienti.StanzaBloccata;
+import it.uniroma3.DiaDia.Attrezzi.Attrezzo;
+
+public class StanzaBloccataTest {
+	private Partita p = new Partita();
+	private Attrezzo att = new Attrezzo("piedediporco", 1);
+	private String dirBlock = new String("nord");
+	private String dir = "sud";
+	
+	@Test
+	public void testGetStanzaAdiacenteNoAtrezzo() {
+		
+	}
+	
+	@Test
+	public void testGetStanzaAdiacenteHoAtrezzo() {
+		
+	}
+
+	@Test
+	public void testGetDescrizione() {
+		assertEquals(p.getStanzaCorrente().toString(),p.getStanzaCorrente().getDescrizione());
+	}
+
+}

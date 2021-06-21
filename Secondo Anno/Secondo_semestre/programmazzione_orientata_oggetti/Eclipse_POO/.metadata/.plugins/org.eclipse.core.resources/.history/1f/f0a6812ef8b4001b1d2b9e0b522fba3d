@@ -1,0 +1,19 @@
+package it.uniroma3.DiaDia;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class StanzaBuiaTest {
+
+	@Test
+	public void testGetDescrizione() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testStanzaBuia() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,24 @@
+package it.uniroma3.DiaDia.Ambienti;
+
+import it.uniroma3.DiaDia.IO;
+
+public class StanzaBuia extends Stanza {
+	private String s;
+	private IO io;
+	
+	public StanzaBuia(String nome, IO io) {
+		super(nome);
+		this.s = new String("lanterna");
+		this.io = io;
+	}
+	
+	@Override
+	public String getDescrizione() {
+//		if(this.hasAttrezzo(s)) {
+//			return this.toString();
+//		}
+		 this.io.mostraMessaggio("Qui c'è buio pesto!!");
+		 return null;
+	}
+
+}

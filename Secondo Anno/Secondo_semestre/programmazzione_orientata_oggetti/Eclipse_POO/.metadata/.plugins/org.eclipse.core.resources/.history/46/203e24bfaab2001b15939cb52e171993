@@ -1,0 +1,18 @@
+package it.uniroma3.DiaDia.Ambienti;
+
+public class StanzaBuia extends Stanza {
+	String s = new String("lanterna");
+	public StanzaBuia(String nome) {
+		super(nome);
+	}
+	
+	@Override
+	public String getDescrizione() {
+		if(this.hasAttrezzo(s)) {
+			return this.toString();
+		}
+		System.out.println("Qui c'è buio pesto!!");
+		return null;
+	}
+
+}

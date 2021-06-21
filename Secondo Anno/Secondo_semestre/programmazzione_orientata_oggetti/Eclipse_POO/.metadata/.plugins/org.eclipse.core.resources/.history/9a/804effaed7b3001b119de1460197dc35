@@ -1,0 +1,19 @@
+package it.uniroma3.DiaDia.Ambienti;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class StanzaBloccataTest {
+
+	@Test
+	public void testGetStanzaAdiacente() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetDescrizione() {
+		fail("Not yet implemented");
+	}
+
+}

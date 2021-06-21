@@ -1,0 +1,14 @@
+package it.uniroma3.DiaDia;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class FabbricaDiComandiFisarmonicaTest {
+	String 
+	@Test
+	public void testCostruisciComando() {
+		
+	}
+
+}
