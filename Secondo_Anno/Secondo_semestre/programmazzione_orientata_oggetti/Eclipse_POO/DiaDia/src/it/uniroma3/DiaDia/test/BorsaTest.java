@@ -22,14 +22,14 @@ public class BorsaTest {
 		assertTrue("", bag.addAttrezzo(attrezzo));
 	}
 
-	@Test
-	public void testAddAttrezzoBorsaPiena() {
-		attrezzo = new Attrezzo("forbice", 1);
-		for(int i = 0; i < 10; i++) {
-			bag.addAttrezzo(attrezzo);
-		}
-		assertFalse("", bag.addAttrezzo(attrezzo));
-	}
+//	@Test
+//	public void testAddAttrezzoBorsaPiena() {
+//		attrezzo = new Attrezzo("forbice", 1);
+//		for(int i = 0; i < 10; i++) {
+//			bag.addAttrezzo(attrezzo);
+//		}
+//		assertFalse("", bag.addAttrezzo(attrezzo));
+//	}
 
 	@Test
 	public void testAddAttrezzoBorsaPesante() {
@@ -55,11 +55,15 @@ public class BorsaTest {
 
 	@Test
 	public void testGetPesoPesoMax() {
-		attrezzo = new Attrezzo("forbice", 1);
-		for(int i = 0; i < 10; i++) {
-			bag.addAttrezzo(attrezzo);
-		}
-		assertEquals(10, bag.getPeso());
+		attrezzo = new Attrezzo("forbice", 5);
+		Attrezzo attrezzo1 = new Attrezzo("forchetta", 2);
+		Attrezzo attrezzo2 = new Attrezzo("cucchiaio", 3);
+		
+		bag.addAttrezzo(attrezzo);
+		bag.addAttrezzo(attrezzo1);
+		bag.addAttrezzo(attrezzo2);
+		
+		assertEquals(bag.getPesoMax(), bag.getPeso());
 	}
 
 	@Test
@@ -81,6 +85,17 @@ public class BorsaTest {
 			bag.addAttrezzo(attrezzo);
 		}
 		assertEquals(attrezzo, bag.removeAttrezzo("forbice"));
+	}
+	
+	@Test
+	public void testHasAttrezzo() {
+		bag.addAttrezzo(attrezzo);
+		assertTrue(bag.hasAttrezzo("martello"));
+	}
+	
+	@Test
+	public void testHasNoAttrezzo() {
+		assertFalse(bag.hasAttrezzo("martello"));
 	}
 
 }

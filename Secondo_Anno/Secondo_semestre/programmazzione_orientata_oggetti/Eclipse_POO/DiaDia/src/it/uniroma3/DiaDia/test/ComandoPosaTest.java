@@ -9,6 +9,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import it.uniroma3.DiaDia.IO;
+import it.uniroma3.DiaDia.IOConsole;
+import it.uniroma3.DiaDia.Partita;
 import it.uniroma3.DiaDia.Attrezzi.Attrezzo;
 import it.uniroma3.DiaDia.Comandi.ComandoPosa;
 

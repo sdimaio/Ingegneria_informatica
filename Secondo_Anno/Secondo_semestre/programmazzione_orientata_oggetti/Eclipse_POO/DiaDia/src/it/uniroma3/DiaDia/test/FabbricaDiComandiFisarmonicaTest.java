@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import it.uniroma3.DiaDia.IO;
+import it.uniroma3.DiaDia.IOConsole;
 import it.uniroma3.DiaDia.Comandi.Comando;
 import it.uniroma3.DiaDia.Comandi.FabbricaDiComandi;
 import it.uniroma3.DiaDia.Comandi.FabbricaDiComandiFisarmonica;

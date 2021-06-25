@@ -1,5 +1,7 @@
 package it.uniroma3.DiaDia.Ambienti;
 
+import java.util.Set;
+
 import it.uniroma3.DiaDia.Attrezzi.Attrezzo;
 
 public class StanzaBloccata extends Stanza{

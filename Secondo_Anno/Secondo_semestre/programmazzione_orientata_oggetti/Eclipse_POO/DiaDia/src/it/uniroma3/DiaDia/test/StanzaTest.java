@@ -46,7 +46,7 @@ public class StanzaTest {
 		assertTrue("Aggiunto con successo",stanza.addAttrezzo(martello));
 	}
 	
-	@Test
+	/*@Test
 	public void testAddAttrezziFull() {
 		this.stanza = new Stanza("atrio");
 		Attrezzo martello = new Attrezzo("martello", 1000);
@@ -54,7 +54,7 @@ public class StanzaTest {
 			stanza.addAttrezzo(martello);
 		}
 		assertFalse("L'aggiunta non dovrebbe avvenire  ",stanza.addAttrezzo(martello));
-	}
+	}*/
 	
 	@Test
 	public void testAddAttrezziNull() {
@@ -63,11 +63,21 @@ public class StanzaTest {
 	}
 
 	@Test
-	public void testGetAttrezzo() {
+	public void testGetAttrezzoNull() {
 		this.stanza = new Stanza("atrio");
 		Attrezzo martello = new Attrezzo("martello", 1000);
 		stanza.addAttrezzo(martello);
-		assertNull("piccone", stanza.getAttrezzo("freccia"));
+		assertNull(stanza.getAttrezzo("freccia"));
+	}
+	
+	@Test
+	public void testGetAttrezzo() {
+		this.stanza = new Stanza("atrio");
+		Attrezzo martello = new Attrezzo("martello", 1000);
+		Attrezzo catapulta = new Attrezzo("catapulta", 2000);
+		stanza.addAttrezzo(martello);
+		stanza.addAttrezzo(catapulta);
+		assertEquals(catapulta ,stanza.getAttrezzo("catapulta"));
 	}
 
 }
