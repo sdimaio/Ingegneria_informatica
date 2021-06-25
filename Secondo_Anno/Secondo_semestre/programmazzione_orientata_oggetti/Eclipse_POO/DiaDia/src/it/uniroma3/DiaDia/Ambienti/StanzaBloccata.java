@@ -43,6 +43,8 @@ public class StanzaBloccata extends Stanza{
 		}
 		return risultato.toString();
 	}
+	
+	
 
 	@Override 
 	public String getDescrizione() {
@@ -50,7 +52,7 @@ public class StanzaBloccata extends Stanza{
 	}
 	//	@Override
 	//	public String getDescrizione() {
-	//		System.out.println("Questa è una stanza bloccata nella direzione "+ dir );
+	//		System.out.println("Questa ï¿½ una stanza bloccata nella direzione "+ dir );
 	//		return this.toString();
 	//	}
 

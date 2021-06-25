@@ -148,14 +148,11 @@ public class Stanza {
 		return this.attrezzi.remove(attrezzo);
 	}
 
+	
+	public Set<String> getDirezioni() {
+		return this.stanzeAdiacenti.keySet();
+	}
 	/*
-	public String[] getDirezioni() {
-		String[] direzioni = new String[this.getNumeroStanzeAdiacenti()];
-	    for(int i=0; i<this.getNumeroStanzeAdiacenti(); i++)
-	    	direzioni[i] = this.direzioni[i];
-	    return direzioni;
-    }
-
 	public int getNumeroStanzeAdiacenti() {
 		return numeroStanzeAdiacenti;
 	}
