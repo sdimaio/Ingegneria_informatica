@@ -14,17 +14,42 @@ public class RubricaTest {
 	
 	@Test
 	public void testInserisci() {
-		fail("Not yet implemented");
+		String s1 = new String("Paolo");
+		r.inserisci(s1, 5446654);
+		
+		assertEquals(5446654 ,r.dammiIlNumeroDi(s1).intValue());
 	}
 
 	@Test
 	public void testRimuovi() {
-		fail("Not yet implemented");
+		String s1 = new String("Paolo");
+		r.inserisci(s1, 5446654);
+		r.rimuovi(s1);
+		assertNull(r.dammiIlNumeroDi(s1));
 	}
 
 	@Test
-	public void testNomiInRubrica() {
-		assertSame("[]", r.nomiInRubrica());
+	public void testNomiInRubricaVuota() {
+		String s1 = new String("Paolo");
+		String s2 = new String("Pippo");
+		r.inserisci(s1, 684647);
+		r.inserisci(s2, 684547);
+		Rubrica r2 = new Rubrica();
+		assertNotEquals(r.nomiInRubrica(), r2.nomiInRubrica());
+	
+	}
+	
+	@Test
+	public void testNomiInRubricaPiena() {
+		String s1 = new String("Paolo");
+		String s2 = new String("Pippo");
+		r.inserisci(s1, 684647);
+		r.inserisci(s2, 684547);
+		Rubrica r2 = new Rubrica();
+		r2.inserisci(s1, 684647);
+		r2.inserisci(s2, 684547);
+		assertEquals(r2.nomiInRubrica(), r.nomiInRubrica());
+	
 	}
 
 	@Test
