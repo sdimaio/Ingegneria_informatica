@@ -59,7 +59,7 @@ public class StanzaTest {
 	@Test
 	public void testAddAttrezziNull() {
 		this.stanza = new Stanza("atrio");
-		assertTrue("L'aggiunta dovrebbe avvenire anche se l'oggeto e' null",stanza.addAttrezzo(null));
+		assertFalse("L'aggiunta dovrebbe avvenire anche se l'oggeto e' null",stanza.addAttrezzo(null));
 	}
 
 	@Test

@@ -1,8 +1,6 @@
 package it.uniroma3.DiaDia.Ambienti;
 
-import java.util.Set;
 
-import it.uniroma3.DiaDia.Attrezzi.Attrezzo;
 
 public class StanzaBloccata extends Stanza{
 	private String dir;
@@ -25,23 +23,9 @@ public class StanzaBloccata extends Stanza{
 
 	@Override 
 	public String toString() {
-		StringBuilder risultato = new StringBuilder();
-		risultato.append(getNome());
-		risultato.append("\nUscite: ");
-		for (String direzione : getDirezioni())
-			if (direzione!=null) {
-				if(!dir.equals(direzione))
-					risultato.append(" " + direzione);
-				else
-					risultato.append(" " + "bloccata(" + dir + ")");
-			}
-		risultato.append("\nAttrezzi nella stanza: ");
-		for (Attrezzo attrezzo : getAttrezzi()) {
-			if(attrezzo!=null) {
-				risultato.append(attrezzo.toString()+" ");
-			}
-		}
-		return risultato.toString();
+		super.toString();
+		return "La stanza è bloccata nella direzione:" + dir;
+		
 	}
 	
 	
