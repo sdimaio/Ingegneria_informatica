@@ -1,9 +1,17 @@
 package it.uniroma3.DiaDia.Giocatore;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import it.uniroma3.DiaDia.Attrezzi.Attrezzo;
+import it.uniroma3.DiaDia.Attrezzi.ComparatoreAttrezziPerPeso;
 
 public class Borsa {
 	public final static int DEFAULT_PESO_MAX_BORSA = 10;
@@ -71,5 +79,35 @@ public class Borsa {
 		else 
 			s.append("Borsa vuota");
 		return s.toString();
+	}
+	
+	public List<Attrezzo> getContenutoOrdinatoPerPeso(){
+		List<Attrezzo> app = new ArrayList<>(this.attrezzi.values());
+		Collections.sort(app, new ComparatoreAttrezziPerPeso());
+		
+		return app;
+		
+	}
+	
+	public SortedSet<Attrezzo> getContenutoOrdinatoPerNome(){
+		return new TreeSet<>(this.attrezzi.values());
+	}
+	
+	public Map<Integer,Set<Attrezzo>> getContenutoRaggruppatoPerPeso(){
+		Map<Integer, Set<Attrezzo>> crpp = new HashMap<>();
+		for(Attrezzo a : this.attrezzi.values() ) {
+			Set<Attrezzo> aP = crpp.get(a.getPeso());
+			if(aP == null) {
+				aP = new HashSet<>();
+				crpp.put(a.getPeso(), aP);
+			}
+			aP.add(a);
+		}
+		
+		return crpp;
+	}
+	
+	public SortedSet<Attrezzo> getSortedSetOrdinatoPerPeso(){
+		
 	}
 }
