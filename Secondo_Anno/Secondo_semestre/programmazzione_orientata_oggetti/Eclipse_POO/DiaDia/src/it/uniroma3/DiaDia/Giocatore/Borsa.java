@@ -108,6 +108,20 @@ public class Borsa {
 	}
 	
 	public SortedSet<Attrezzo> getSortedSetOrdinatoPerPeso(){
+		ComparatoreAttrezziPerPeso cmp = new ComparatoreAttrezziPerPeso();
+		SortedSet<Attrezzo> ordinati = new TreeSet<>(cmp);
+		ordinati.addAll(this.attrezzi.values());
 		
+		return ordinati;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

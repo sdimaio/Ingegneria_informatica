@@ -138,7 +138,7 @@ public class Stanza {
 	 * @return true se l'attrezzo e' stato rimosso, false altrimenti
 	 */
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
-		return this.attrezzi.remove((Object)attrezzo) != null;
+		return this.attrezzi.remove(attrezzo.getNome()) == attrezzo;
 	}
 
 	

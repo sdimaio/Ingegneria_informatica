@@ -97,5 +97,49 @@ public class BorsaTest {
 	public void testHasNoAttrezzo() {
 		assertFalse(bag.hasAttrezzo("martello"));
 	}
+	
+	@Test
+	public void testSortedSetOrdinatoPerPeso_PesiUguali() {
+		Attrezzo pala = new Attrezzo("pala", 5);
+		bag.addAttrezzo(pala);
+		bag.addAttrezzo(attrezzo);
+		assertEquals("[martello (5kg), pala (5kg)]",bag.getSortedSetOrdinatoPerPeso().toString());
+	}
+	
+	@Test
+	public void testSortedSetOrdinatoPerPeso_PesiDiversi() {
+		Attrezzo piccone = new Attrezzo("piccone", 3);
+		bag.addAttrezzo(attrezzo);
+		bag.addAttrezzo(piccone);
+		assertEquals("[piccone (3kg), martello (5kg)]",bag.getSortedSetOrdinatoPerPeso().toString());
+	}
+	
+	@Test
+	public void testgetContenutoOrdinatoPerPeso() {
+		Attrezzo piccone = new Attrezzo("piccone", 3);
+		bag.addAttrezzo(attrezzo);
+		bag.addAttrezzo(piccone);
+		assertEquals("[piccone (3kg), martello (5kg)]",bag.getContenutoOrdinatoPerPeso().toString());
+	}
+	
+	@Test
+	public void testgetContenutoOrdinatoPerNome() {
+		Attrezzo piccone = new Attrezzo("piccone", 3);
+		bag.addAttrezzo(attrezzo);
+		bag.addAttrezzo(piccone);
+		assertEquals("[martello (5kg), piccone (3kg)]",bag.getContenutoOrdinatoPerNome().toString());
+	}
+	
+	@Test
+	public void testgetContenutoRaggruppatoPerPeso() {
+		Attrezzo piccone = new Attrezzo("piccone", 1);
+		Attrezzo pala = new Attrezzo("pala", 1);
+		bag.addAttrezzo(attrezzo);
+		bag.addAttrezzo(piccone);
+		bag.addAttrezzo(pala);
+		assertEquals("{1=[pala (1kg), piccone (1kg)], 5=[martello (5kg)]}",bag.getContenutoRaggruppatoPerPeso().toString());
+	}
+	
+	
 
 }
