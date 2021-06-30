@@ -9,7 +9,7 @@ import it.uniroma3.DiaDia.Ambienti.StanzaBuia;
 import it.uniroma3.DiaDia.Attrezzi.Attrezzo;
 
 public class StanzaBuiaTest {
-	private Stanza s = new StanzaBuia("DarkRoom");
+	private Stanza s = new StanzaBuia("DarkRoom", "lanterna");
 	private Attrezzo att = new Attrezzo("lanterna", 2);
 	
 	@Test

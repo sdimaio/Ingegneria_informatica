@@ -19,8 +19,8 @@ public class Labirinto {
 		Attrezzo piedediporco = new Attrezzo("piedediporco", 1);
 
 		/* crea stanze del labirinto */
-		Stanza atrio = new StanzaBloccata("Atrio");
-		Stanza aulaN11 = new StanzaBuia("Aula N11");
+		Stanza atrio = new StanzaBloccata("Atrio", "nord", "piedediporco");
+		Stanza aulaN11 = new StanzaBuia("Aula N11", "lanterna");
 		Stanza aulaN10 = new StanzaMagica("Aula N10");
 		Stanza laboratorio = new Stanza("Laboratorio Campus");
 		Stanza biblioteca = new Stanza("Biblioteca");
@@ -57,6 +57,10 @@ public class Labirinto {
 	public Stanza getStanzaVincente() {
 		return stanzaVincente;
 	}
+	
+	public Stanza setStanzaVincente(Stanza stanzaVincente) {
+		return this.stanzaVincente;
+	}
 
 	public void setStanzaCorrente(Stanza stanzaCorrente) {
 		this.stanzaCorrente = stanzaCorrente;
@@ -69,5 +73,7 @@ public class Labirinto {
 	public void setIO(IO io) {
 		this.io = io;
 	}
+	
+	
 	
 }

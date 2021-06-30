@@ -5,10 +5,10 @@ package it.uniroma3.DiaDia.Ambienti;
 public class StanzaBloccata extends Stanza{
 	private String dir;
 	private String att;
-	public StanzaBloccata(String nome) {
+	public StanzaBloccata(String nome, String attrezzoSbloccante, String direzioneBloccata) {
 		super(nome);
-		this.dir = new String("nord");
-		this.att = new String("piedediporco");
+		this.dir = attrezzoSbloccante;
+		this.att = direzioneBloccata;
 	}
 
 	

@@ -140,6 +140,5 @@ public class BorsaTest {
 		assertEquals("{1=[pala (1kg), piccone (1kg)], 5=[martello (5kg)]}",bag.getContenutoRaggruppatoPerPeso().toString());
 	}
 	
-	
 
 }
