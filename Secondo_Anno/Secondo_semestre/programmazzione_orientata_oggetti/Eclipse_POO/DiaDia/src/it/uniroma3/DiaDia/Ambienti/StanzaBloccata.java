@@ -7,8 +7,8 @@ public class StanzaBloccata extends Stanza{
 	private String att;
 	public StanzaBloccata(String nome, String attrezzoSbloccante, String direzioneBloccata) {
 		super(nome);
-		this.dir = attrezzoSbloccante;
-		this.att = direzioneBloccata;
+		this.att = attrezzoSbloccante;
+		this.dir = direzioneBloccata;
 	}
 
 	
@@ -23,8 +23,8 @@ public class StanzaBloccata extends Stanza{
 
 	@Override 
 	public String toString() {
-		super.toString();
-		return "La stanza è bloccata nella direzione:" + dir;
+		
+		return (super.toString()+"\nLa stanza è bloccata nella direzione:" + dir);
 		
 	}
 	

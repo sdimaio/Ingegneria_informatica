@@ -42,7 +42,7 @@ public class LabirintoBuilder {
 	}
 	
 	public LabirintoBuilder addStanzaBloccata(String s, String attrezzoSloccante, String direzioneBloccata) {
-		Stanza stanza = new StanzaBloccata(s, attrezzoSloccante, attrezzoSloccante);
+		Stanza stanza = new StanzaBloccata(s, attrezzoSloccante, direzioneBloccata);
 		this.aggiungiAMappaEAggiornaUltima(stanza);
 		return this;
 	}
@@ -67,8 +67,8 @@ public class LabirintoBuilder {
 	}
 	
 	private void aggiungiAMappaEAggiornaUltima(Stanza s) {
-		this.stanze.put(s.getNome(), s);
 		this.ultimaAggiunta = s;
+		this.stanze.put(s.getNome(), s);
 	}
 
 }

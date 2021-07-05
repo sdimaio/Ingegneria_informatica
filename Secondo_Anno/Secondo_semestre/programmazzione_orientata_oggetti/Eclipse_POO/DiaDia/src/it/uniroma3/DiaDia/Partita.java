@@ -23,9 +23,9 @@ public class Partita {
 	public Labirinto labirintoCorrente;
 	public Giocatore ciocatore;
 	
-	public Partita(){
-		labirintoCorrente = new Labirinto();
-		this.labirintoCorrente.creaStanze();
+	public Partita(Labirinto labirinto){
+		labirintoCorrente = labirinto;
+		//this.labirintoCorrente.creaStanze();
 		this.finita = false;
 		ciocatore = new Giocatore();
 		ciocatore.setCfu(CFU_INIZIALI);
@@ -74,6 +74,10 @@ public class Partita {
 	
 	public boolean GiocatoreIsVivo() {
 		return ciocatore.isVivo();
+	}
+	
+	public void setLabirinto(Labirinto labirinto) {
+		this.labirintoCorrente = labirinto;
 	}
 	
 	

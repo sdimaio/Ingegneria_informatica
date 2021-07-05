@@ -6,14 +6,21 @@ import org.junit.Before;
 import org.junit.Test;
 
 import it.uniroma3.DiaDia.Partita;
+import it.uniroma3.DiaDia.Ambienti.Labirinto;
+import it.uniroma3.DiaDia.Ambienti.LabirintoBuilder;
 
 public class PartitaTest {
 
 	private Partita p;
+	private Labirinto lab = new LabirintoBuilder()
+			 .addStanzaIniziale("LabCampusOne")
+			 .addStanzaVincente("Biblioteca")
+			 .addAdiacenza("LabCampusOne","Biblioteca","ovest")
+			 .getLabirinto();
 	
 	@Before
 	public void setUp() {
-		p = new Partita();
+		p = new Partita(lab);
 	}
 	
 	/*TEST REALIZZATI PRIMA DI INTRODURRE LA CLASSE GIOCATORE*/

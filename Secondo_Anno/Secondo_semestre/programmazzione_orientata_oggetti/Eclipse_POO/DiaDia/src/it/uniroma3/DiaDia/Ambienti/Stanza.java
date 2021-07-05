@@ -105,11 +105,11 @@ public class Stanza {
     	
     	risultato.append(this.stanzeAdiacenti.keySet().toString());
     	//risultato.append(stanzeAdiacenti.get(d).getNome());
-    	
+    	risultato.append("\n Attrezzi nella stanza: ");
     	if(!this.attrezzi.isEmpty()) 
-    		risultato.append("\n"+attrezzi.values().toString()+" ");
+    		risultato.append(this.attrezzi.values().toString());
     	else 
-    		risultato.append("Non ci sono attrezzi nella stanza!!");
+    		risultato.append("\nNon ci sono attrezzi nella stanza!!");
     	
     	return risultato.toString();
     }
