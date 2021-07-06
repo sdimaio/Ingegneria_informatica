@@ -1,12 +1,14 @@
 package ama.simulatore;
 
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
+import java.util.TreeMap;
 
 import ama.CentroDiRaccolta;
 import ama.Citta;
@@ -78,6 +80,17 @@ public class Statistiche {
 	public Map<Class<?>, Integer> raccoltoPerPolitica(Set<Rifiuto> smaltiti) {
 		final Map<Class<?>,Integer> politica2quantita = new HashMap<>();
 		// DA COMPLETARE (VEDI DOMANDA 4)
+		Integer n;
+		for(Rifiuto r : smaltiti) {
+			if(politica2quantita.containsKey(r.getRaccoglitore().getPolitica().getClass())) {
+				n = politica2quantita.get(r.getRaccoglitore().getPolitica().getClass());
+				politica2quantita.put(r.getRaccoglitore().getPolitica().getClass(), ++n);
+			}
+			else {
+				n = 1;
+				politica2quantita.put(r.getRaccoglitore().getPolitica().getClass(), n);
+			}
+		}
 		return politica2quantita;
 	}
 
@@ -93,7 +106,14 @@ public class Statistiche {
 	
 	public List<Class<?>> ordinaPolitichePerRaccolta(final Map<Class<?>, Integer> politica2quantita) {
 		// DA COMPLETARE (VEDI DOMANDA 5)
-		return Collections.emptyList();
+		ComparatorePolitiche cmp = new ComparatorePolitiche(politica2quantita);
+		Map<Class<?>, Integer> mappa = new TreeMap<>(cmp);
+		mappa.putAll(politica2quantita);
+		
+		List<Class<?>> listaOrdinata = new ArrayList<>();
+		listaOrdinata.addAll(mappa.keySet());
+		
+		return listaOrdinata;
 	}
 
 	//  UTILE PER STAMPARE RISULTATI DOMANDA 5
