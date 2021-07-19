@@ -1,0 +1,2173 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>.:: SISTEMA QUIZ ::.</title>
+  <link rel="stylesheet" href="themes/default/style.css" type="text/css"/>
+ <script src="JQuery/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	<script language="JavaScript">
+	function confirmAction(domanda, link)
+	{
+	  action = confirm(domanda);
+	  if (action==true) {
+	    self.location.href = link;
+	  }
+	  if (action==false)
+	    self.focus();
+	}
+	</script>
+	
+	<style type="text/css">
+	
+.myMarker {
+  position:absolute;
+  background:rgba(255,0,0,0.5);
+  z-index:20
+}
+
+button {
+    position: relative;
+}
+
+#editor { height: 500px; 
+			z-index:1;}
+
+
+#testReadOnly { height: 350px; }
+
+
+
+
+/* The alert message box */
+.alert {
+	padding: 20px;
+	background-color: #f66055; /* Red */
+	color: white;
+	margin-bottom: 6px;
+	border-radius: 6px;
+	text-shadow: 1px 1px #000000;
+	word-break: break-all
+}
+
+.success {
+	padding: 20px;
+	background-color: #71c171; /* Grees */
+	color: white;
+	margin-bottom: 6px;
+	border-radius: 6px;
+	text-shadow: 1px 1px #000000;
+	word-break: break-all
+}
+
+pre {
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ overflow-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+
+
+/* The close button */
+.closebtn {
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+	color: black;
+}
+</style>
+	
+</head>
+<body>
+
+<div class="container">
+  <table border="0" align="center" id="tabella_principale">
+    <tr>
+      <td class="menu"></td>
+    </tr>
+    <tr>
+      <td class="corpo">
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1>Visualizza Compito</h1>
+
+<div align="center"><a href="edit_metacompito.do?codice_metacompito=150724">torna indietro</a></div>
+
+<h2>Compito Prima Prova (Compito 07)</h2>
+
+
+
+<h2>Domanda 1 - [Puntuale] - Riferimento Nullo - (Quadrato) - (PI1)</h2>
+<form>
+<table width="100%">
+<tr><td class="tab_risp_chiusa" colspan="2">
+Cosa stampa questo codice? </br>
+<pre>
+class Punto {
+    private int x;
+    private int y;
+        
+    public Punto(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+        
+    public String toString(){
+        return this.x + " - " + this.y;
+    }
+}
+
+public class Quadrato {
+    
+    private Punto coordinate;
+    private int lato;
+
+    public Quadrato(int lato) {
+        this.lato = lato;
+    }
+    
+    public void setCoordinate(int x, int y) {
+        Punto p = new Punto(x, y);
+        this.coordinate = p;
+    }
+    
+    public int getLato() { return this.lato; }
+    
+    public Punto getCoordinate() { return this.coordinate; }
+
+    public String toString() {
+        return "Quadrato di lato: " + this.lato;
+    }
+
+    public static void main(String[] args) {
+        Quadrato quad = new  Quadrato(15);
+
+        System.out.println(quad.getCoordinate().toString());
+
+    }
+}
+</pre></td></tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150734" /></td>
+<td class="risposta_compito">nessuna delle altre</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150735" /></td>
+<td class="risposta_compito">Quadrato di lato: 15</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150736" /></td>
+<td class="risposta_compito">null</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150737" /></td>
+<td class="risposta_compito">il codice non compila</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150738" /></td>
+<td class="risposta_compito">viene sollevata una NullPointerException</td>
+</tr>
+</table>
+<p><input type="submit" name="button" value="salva risposta" /></p>
+
+</form>
+
+
+<h2>Domanda 2 - [Puntuale] - Parametri - (Scuderia) - (PI1)</h2>
+<form>
+<table width="100%">
+<tr><td class="tab_risp_chiusa" colspan="2">
+Cosa stampa questo codice?
+<pre>
+class Scuderia {
+    public void cambiaPilota(Monoposto vettura, String nuovoNome) {
+        vettura.setNomePilota(nuovoNome);
+    }
+}
+
+public class Monoposto {
+    private String nomePilota;
+
+    public Monoposto(String nome) {
+        this.nomePilota = nome;
+    }
+
+    public void setNomePilota(String nome) {
+        this.nomePilota = nome;
+    }
+
+    public String getNomePilota() {
+        return this.nomePilota;
+    }
+
+    public static void main(String[] args) {
+        Scuderia ferrari = new Scuderia();
+        Monoposto f1 = new Monoposto("BBBB");
+        
+        System.out.print(f1.getNomePilota());
+        System.out.print(" - ");
+        ferrari.cambiaPilota(f1, "AAAA");
+        System.out.print(f1.getNomePilota());
+    }
+}
+</pre></td></tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150754" /></td>
+<td class="risposta_compito">BBBB - BBBB</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150755" /></td>
+<td class="risposta_compito">AAAA - BBBB</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150756" /></td>
+<td class="risposta_compito">nessuna delle altre</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150757" /></td>
+<td class="risposta_compito">AAAA - AAAA</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150758" checked /></td>
+<td class="risposta_compito">BBBB - AAAA</td>
+</tr>
+</table>
+<p><input type="submit" name="button" value="salva risposta" /></p>
+
+</form>
+
+
+<h2>Domanda 3 - [Compilazione] - Equals + Object (Studente) - (PI2)</h2>
+<form>
+Se si prova ad eseguire il test sul codice fornito si noterà che questo non andrà a buon fine. <br>
+Completare/correggere la classe fornita di modo che i test vengano eseguiti correttamente.<br /><br /><div id="hidden_codice_default" style="display: none;">public class Studente {
+    
+    private String nome;
+    private int matricola;
+    
+    public Studente(String nome, int matricola) {
+        this.nome = nome;
+        this.matricola = matricola;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getMatricola() {
+        return matricola;
+    }
+
+    public void setMatricola(int eta) {
+        this.matricola = eta;
+    }
+    
+    public boolean equals(Studente that) {
+        if (this.getNome().equals(that.getNome())) {
+            return this.getMatricola() == that.getMatricola();
+        }
+        
+        return false;
+    }
+
+}
+</div><table width="100%" style="border-radius:6px;/*! -moz-border-radius:6px; *//*! -webkit-border-radius: 5px; */background-color: #EBEBEB;padding: 6px 6px 6px 6px;"><tr><td colspan="2" style="padding: 0px 0px 0px 0px" ><div id="resultTesting"><div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span><b>Esito della compilazione:</b><br><pre><b><ul><li><a href="javascript:goToLineCode(33);">Studente.java:33</a>: error: reached end of file while parsing
+}
+ ^</li>
+</ul></b></pre></div><div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span><b>Esito dei test:</b><br><pre><b>Non ho eseguito i test, il codice non compila.</b></pre></div></div></td></tr><tr><td width="20%" valign="top" bgcolor="#A2A2A2" style="border-radius: 6px"><button id="buttonTesting" type="button" style="width:100%"><table><tr><td><span class="ui-icon ui-icon-play"></td><td style="font-size:10pt">Compila, Salva ed esegui i test</td></tr></table></button><br><button id="deleteRisp" type="button"  style="width:100%"><table><tr><td><span class="ui-icon ui-icon-trash"></td><td style="font-size:9pt">Elimina risposta</td></tr></table></button></td><td width="80%" valign="top" bgcolor="#EBEBEB"><textarea data-hidden-code="234e5891f8734fcfb4a170c5f987496f" name="codice_java" id="java_code" class="textarea_domanda_compilazione" style="display:none;" >public class Studente {
+    
+    private String nome;
+    private int matricola;
+    
+    public Studente(String nome, int matricola) {
+        this.nome = nome;
+        this.matricola = matricola;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getMatricola() {
+        return matricola;
+    }
+
+    public void setMatricola(int eta) {
+        this.matricola = eta;
+    }
+    
+    public boolean equals(Studente that) {
+     if(this.getNome().equals(that.getNome())&& this.getMatricola() == that.getMatricola()) {
+           return true;
+      
+    }
+    return flase;
+}
+</textarea><h3 style="margin: 0px 0px; ">Codice Java</h3><font size="2">(Nota: <i>Questa è la parte modificabile dallo studente.</i>)</font><br><br><div id="editor" data-editor="234e5891f8734fcfb4a170c5f987496f" style="display:none;">public class Studente {
+    
+    private String nome;
+    private int matricola;
+    
+    public Studente(String nome, int matricola) {
+        this.nome = nome;
+        this.matricola = matricola;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getMatricola() {
+        return matricola;
+    }
+
+    public void setMatricola(int eta) {
+        this.matricola = eta;
+    }
+    
+    public boolean equals(Studente that) {
+     if(this.getNome().equals(that.getNome())&& this.getMatricola() == that.getMatricola()) {
+           return true;
+      
+    }
+    return flase;
+}
+</div><br><h3 style="margin: 0px 0px; ">Test di unità</h3><font size="2">(Nota: <i>Questi test non sono modificabili.</i>)</font><br><br><div id="testReadOnly" data-test-editor="43b4994a505e40668963bf702c6296cd" style="display:none; border: 1px solid gray; outline: gray inset thick;">import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class StudenteTest {
+	
+	private Object mario;
+
+	@Before
+	public void setUp() throws Exception {
+		this.mario = new Studente("Mario", 4555); 
+	}
+
+	@Test
+	public void testEquals_uguali() {
+		Object marioBis = new Studente("Mario", 4555);
+		assertEquals(marioBis, this.mario);
+	}
+	
+	@Test
+	public void testEquals_diversi() {
+		Object marioBis = new Studente("Mario", 2255);
+		assertFalse(marioBis.equals(this.mario));
+	}
+	
+
+}
+</div><br></td></tr></table>
+
+</form>
+
+
+<h2>Domanda 4 - [Puntuale] - Interfacce + Overloading (Strumento) - (PI2)</h2>
+<form>
+<table width="100%">
+<tr><td class="tab_risp_chiusa" colspan="2">
+Cosa stampa questo programma? <br>
+<pre>
+interface Strumento {
+    public void suona();
+}
+
+class Oboe implements Strumento {
+    public Oboe() {}
+    public void suona() {}
+}
+
+class Sitar implements Strumento {
+       public Sitar() {}
+       public void suona(){}
+}
+
+public class Quiz {
+    public void scrivi(Strumento a) { 
+        System.out.print("Strumento "); 
+    }
+    
+    public void scrivi(Oboe b) { 
+        System.out.print("Oboe "); 
+    }
+    
+    public void scrivi(Sitar c) { 
+        System.out.print("Sitar "); 
+    }
+
+    public static void main(String args[]) {
+        Quiz  m = new Quiz();
+
+        Oboe g = new Oboe();
+        Sitar c = new Sitar();
+        Strumento s = new Oboe();
+      
+        s = c;
+      
+        m.scrivi(s);
+        m.scrivi(c);
+        m.scrivi(g);
+    }
+}
+</pre>
+
+</td></tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150770" /></td>
+<td class="risposta_compito">Strumento Strumento Oboe
+</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150771" /></td>
+<td class="risposta_compito">Strumento Strumento Strumento
+</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150772" checked /></td>
+<td class="risposta_compito">Strumento Sitar Oboe
+</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150773" /></td>
+<td class="risposta_compito">Oboe Sitar Oboe
+</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150774" /></td>
+<td class="risposta_compito">Sitar Sitar Strumento</td>
+</tr>
+</table>
+<p><input type="submit" name="button" value="salva risposta" /></p>
+
+</form>
+
+
+<h2>Domanda 5 - [Affaticamento] Cambio Tipo Ritorno - (PI2)</h2>
+<form>
+<table width="100%">
+<tr><td class="tab_risp_chiusa" colspan="2">
+Cosa stampa questo programma?
+<pre>
+class W {
+    public void m() {
+        System.out.println("W");
+    }
+}
+
+class A extends W {
+    @Override
+    public void m() {
+        System.out.println("A");
+    }
+}
+
+class S {
+    protected W n() {
+        return new W();
+    }
+}
+
+class D extends S {
+    @Override
+    public A n() {
+        return new A();
+    }
+}
+
+class X {
+    public void print(W w) {
+        System.out.println("print(W)");
+        w.m();
+    }
+    
+    public void print(A a) {
+        System.out.println("print(A)");
+        a.m();
+    }
+}
+
+
+public class Quiz{
+
+     public static void main(String []args){
+        D d = new D();
+        
+        W obj = d.n();
+        
+        X x = new X();
+        x.print(obj);
+     }
+     
+}
+</pre></td></tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150776" /></td>
+<td class="risposta_compito">print(W)<br>
+A<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150777" /></td>
+<td class="risposta_compito">print(A)<br>
+A<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150778" checked /></td>
+<td class="risposta_compito">print(W)<br>
+W<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150779" /></td>
+<td class="risposta_compito">print(A)<br>
+W<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150780" /></td>
+<td class="risposta_compito">Il codice non compila<br><br></td>
+</tr>
+</table>
+<p><input type="submit" name="button" value="salva risposta" /></p>
+
+</form>
+
+
+<h2>Domanda 6 - [Affaticamento] - Overriding + Overloading (ABC) - (PI2)</h2>
+<form>
+<table width="100%">
+<tr><td class="tab_risp_chiusa" colspan="2">
+Cosa stampa il seguente programma?<br>
+<pre>
+class A {
+    public void dim(A a) {
+        System.out.println("A.dim(A) ");
+    }
+    public void dim(B b) {
+        System.out.println("A.dim(B) ");
+    }
+    public void dim(C c) {
+        System.out.println("A.dim(C) ");
+    }
+}
+
+class C extends A {
+    public void dim(A a) {
+        System.out.println("C.dim(A) ");
+    }
+    public void dim(B b) {
+        System.out.println("C.dim(B) ");
+    }
+    public void dim(C c) {
+        System.out.println("C.dim(C) ");
+    }
+}
+
+public class B extends A {
+    public void dim(A a) {
+        System.out.println("B.dim(A) ");
+    }
+
+    public void dim(B b) {
+        System.out.println("B.dim(B) ");
+    }
+    public void dim(C c) {
+        System.out.println("B.dim(C) ");
+    }
+    public static void main(String args[]) {
+        A a = new C();
+        B b = new B();
+        a.dim(b);
+        B a1 = new B();
+        a1.dim(a);
+    }
+}
+</pre></td></tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150788" /></td>
+<td class="risposta_compito">nessuna delle altre<br><br>
+</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150789" /></td>
+<td class="risposta_compito">A.dim(B) <br>
+B.dim(C) <br><br>
+
+</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150790" /></td>
+<td class="risposta_compito">A.dim(B) <br>
+B.dim(A) <br><br>
+
+C.dim(B) <br>
+B.dim(C) <br><br>
+
+</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150791" /></td>
+<td class="risposta_compito">C.dim(B) <br>
+B.dim(A) <br><br>
+
+</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150792" /></td>
+<td class="risposta_compito">A.dim(A) <br>
+A.dim(A) <br><br></td>
+</tr>
+</table>
+<p><input type="submit" name="button" value="salva risposta" /></p>
+
+</form>
+
+
+<h2>Domanda 7 - [Puntuale] - Overriding Classi (Cane) - (PI2)</h2>
+<form>
+<table width="100%">
+<tr><td class="tab_risp_chiusa" colspan="2">
+Cosa stampa questo programma? <br>
+<pre>
+class Cane {
+    public void verso() {
+        System.out.println("Wouf!");
+    }
+}
+
+class Mastino extends Cane {
+
+    @Override
+    public void verso() {
+        System.out.println("WOOUF WOOUF!!!");
+    }
+    
+}
+
+
+public class Quiz {
+    
+    public static void main(String[] args) {
+        Cane a = new Mastino();
+        Cane b = new Cane();
+        
+        a.verso();
+        b.verso();
+    }
+}
+</pre></td></tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150794" checked /></td>
+<td class="risposta_compito">WOOUF WOOUF!!!<br>
+Wouf!<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150795" /></td>
+<td class="risposta_compito">nessuna delle altre<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150796" /></td>
+<td class="risposta_compito">Wouf!<br>
+Wouf!<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150797" /></td>
+<td class="risposta_compito">Wouf!<br>
+WOOUF WOOUF!!!<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150798" /></td>
+<td class="risposta_compito">WOOUF WOOUF!!!<br>
+WOOUF WOOUF!!!<br><br></td>
+</tr>
+</table>
+<p><input type="submit" name="button" value="salva risposta" /></p>
+
+</form>
+
+
+<h2>Domanda 8 - [Puntuale] Metodo superclasse (Zaino) - (PI2)</h2>
+<form>
+<table width="100%">
+<tr><td class="tab_risp_chiusa" colspan="2">
+Cosa stampa questo programma?<br>
+<pre>
+class Attrezzo {}
+
+class Contenitore{
+    private Attrezzo[] attrezzi;
+    
+    public Contenitore() {
+        this.attrezzi = new Attrezzo[5];
+    }
+     
+    public void addAttrezzo(Attrezzo a, int i) {
+         this.attrezzi[i] = a;
+         System.out.println("Contenitore.addAttrezzo() --- aggiunto in "+i);
+    }
+    
+    public Attrezzo[] getAttrezzi(){
+        return this.attrezzi;
+    }
+}
+
+public class Zaino extends Contenitore {
+    
+    public void addAttrezzo(Attrezzo a) {
+        
+        System.out.println("Zaino.addAttrezzo()");
+        
+        Attrezzo[] att = this.getAttrezzi();
+        for (int i = 0; i < att.length; i++){
+            if(att[i] == null){
+                this.addAttrezzo(a,i);
+                break;
+            }
+        }
+    }
+    
+    public static void main(String[]args){
+        Zaino zaino = new Zaino();
+        Attrezzo attrezzo = new Attrezzo();
+        
+        zaino.addAttrezzo(attrezzo);
+        zaino.addAttrezzo(attrezzo);
+        zaino.addAttrezzo(attrezzo, 1);
+    }
+
+}
+</pre></td></tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150800" checked /></td>
+<td class="risposta_compito">Zaino.addAttrezzo()<br>
+Contenitore.addAttrezzo() --- aggiunto in 0<br>
+Zaino.addAttrezzo()<br>
+Contenitore.addAttrezzo() --- aggiunto in 1<br>
+Contenitore.addAttrezzo() --- aggiunto in 1<br>
+<BR/></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150801" /></td>
+<td class="risposta_compito"><SPAN>il codice non compila</SPAN>
+<BR/>&nbsp;<BR/>
+</td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150802" /></td>
+<td class="risposta_compito">Zaino.addAttrezzo()<br>
+Contenitore.addAttrezzo() --- aggiunto in 0<br>
+
+Contenitore.addAttrezzo() --- aggiunto in 1<br>
+Contenitore.addAttrezzo() --- aggiunto in 2<br>
+<BR/></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150803" /></td>
+<td class="risposta_compito">Zaino.addAttrezzo()<br>
+Contenitore.addAttrezzo() --- aggiunto in 0<br>
+Zaino.addAttrezzo()<br>
+Contenitore.addAttrezzo() --- aggiunto in 1<br>
+Contenitore.addAttrezzo() --- aggiunto in 2<br>
+<BR/></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150804" /></td>
+<td class="risposta_compito">Contenitore.addAttrezzo() --- aggiunto in 0<br>
+Zaino.addAttrezzo()<br>
+Contenitore.addAttrezzo() --- aggiunto in 1<br>
+Contenitore.addAttrezzo() --- aggiunto in 1<br>
+<BR/></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150805" /></td>
+<td class="risposta_compito">Zaino.addAttrezzo()<br>
+Contenitore.addAttrezzo() --- aggiunto in 0<br>
+Zaino.addAttrezzo()<br>
+Contenitore.addAttrezzo() --- aggiunto in 2<br>
+Contenitore.addAttrezzo() --- aggiunto in 1<br>
+<BR/></td>
+</tr>
+</table>
+<p><input type="submit" name="button" value="salva risposta" /></p>
+
+</form>
+
+
+<h2>Domanda 9 - [Puntuale] - Overloading (Simple KJ)) - (PI2)</h2>
+<form>
+<table width="100%">
+<tr><td class="tab_risp_chiusa" colspan="2">
+Cosa fa il seguente programma?<br>
+<pre>
+class K {
+    
+    public void me(){
+        System.out.println("K");
+    }
+    
+    public void greet(K k) {
+        System.out.println("greet(K)");
+    }
+
+}
+
+class J extends K {
+    @Override
+    public void me(){
+        System.out.println("J");
+    }
+    
+    public void greet(J j) {
+        System.out.println("greet(J)");
+    } 
+    
+}
+
+public class Quiz {
+    public static void main (String[] args) {
+        K a = new J();
+        J b = new J();
+        
+        a.me();
+        a.greet(b);
+        a.greet(a);
+    }
+    
+}
+</pre></td></tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150807" checked /></td>
+<td class="risposta_compito">J<br>
+greet(J)<br>
+greet(K)<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150808" /></td>
+<td class="risposta_compito">K<br>
+greet(J)<br>
+greet(K)<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150809" /></td>
+<td class="risposta_compito">K<br>
+greet(J)<br>
+greet(J)<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150810" /></td>
+<td class="risposta_compito">J<br>
+greet(K)<br>
+greet(K)<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150811" /></td>
+<td class="risposta_compito">il codice non compila</td>
+</tr>
+</table>
+<p><input type="submit" name="button" value="salva risposta" /></p>
+
+</form>
+
+
+<h2>Domanda 10 - [Compilazione] - Mappa (RaggruppatoreProdottiPerMarca) - (PI3)</h2>
+<form>
+Scrivere il metodo <tt>marca2prodotti()</tt> della classe <tt>RaggruppatoreProdottiPerMarca</tt>
+che restituisce una mappa le cui chiavi sono marche di prodotti; la
+mappa associa ad ogni marca una la lista di tutti
+gli oggetti <tt>Prodotto</tt> di tale marca<br /><br /><div id="hidden_codice_default" style="display: none;">import java.util.*;
+
+class Prodotto {
+    private String codice;
+    private String marca;
+
+    public Prodotto(String codice, String marca) {
+        this.codice = codice;
+        this.marca = marca;
+    }
+
+    public String getCodice() {
+        return this.codice;
+    }
+
+    public String getMarca() {
+        return this.marca;
+    }
+
+}
+
+public class RaggruppatoreProdottiPerMarca {
+    private List&lt;Prodotto&gt; elencoProdotti;
+
+    public RaggruppatoreProdottiPerMarca() {
+        this.elencoProdotti = new ArrayList&lt;Prodotto&gt;();
+    }
+
+    public void aggiungiProdotto(Prodotto prodotto) {
+        this.elencoProdotti.add(prodotto);
+    }
+
+    public Map&lt;String, List&lt;Prodotto&gt;&gt; marca2prodotto() {
+        Map&lt;String, List&lt;Prodotto&gt;&gt; marca2prodotto = new HashMap&lt;String, List&lt;Prodotto&gt;&gt;();
+
+        // COMPLETARE QUESTO METODO
+
+        return marca2prodotto;
+    }
+    
+}
+</div><table width="100%" style="border-radius:6px;/*! -moz-border-radius:6px; *//*! -webkit-border-radius: 5px; */background-color: #EBEBEB;padding: 6px 6px 6px 6px;"><tr><td colspan="2" style="padding: 0px 0px 0px 0px" ><div id="resultTesting"><div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span><b>Esito della compilazione:</b><br><pre><b><ul><li><a href="javascript:goToLineCode(36);">RaggruppatoreProdottiPerMarca.java:36</a>: error: ')' expected
+            if(!marca2prodotto.containsKey(p.getMarca){
+                                                      ^</li>
+</ul></b></pre></div><div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span><b>Esito dei test:</b><br><pre><b>Non ho eseguito i test, il codice non compila.</b></pre></div></div></td></tr><tr><td width="20%" valign="top" bgcolor="#A2A2A2" style="border-radius: 6px"><button id="buttonTesting" type="button" style="width:100%"><table><tr><td><span class="ui-icon ui-icon-play"></td><td style="font-size:10pt">Compila, Salva ed esegui i test</td></tr></table></button><br><button id="deleteRisp" type="button"  style="width:100%"><table><tr><td><span class="ui-icon ui-icon-trash"></td><td style="font-size:9pt">Elimina risposta</td></tr></table></button></td><td width="80%" valign="top" bgcolor="#EBEBEB"><textarea data-hidden-code="e302d6656a444be8b9ba6e227c1d84d8" name="codice_java" id="java_code" class="textarea_domanda_compilazione" style="display:none;" >import java.util.*;
+
+class Prodotto {
+    private String codice;
+    private String marca;
+
+    public Prodotto(String codice, String marca) {
+        this.codice = codice;
+        this.marca = marca;
+    }
+
+    public String getCodice() {
+        return this.codice;
+    }
+
+    public String getMarca() {
+        return this.marca;
+    }
+
+}
+
+public class RaggruppatoreProdottiPerMarca {
+    private List<Prodotto> elencoProdotti;
+
+    public RaggruppatoreProdottiPerMarca() {
+        this.elencoProdotti = new ArrayList<Prodotto>();
+    }
+
+    public void aggiungiProdotto(Prodotto prodotto) {
+        this.elencoProdotti.add(prodotto);
+    }
+
+    public Map<String, List<Prodotto>> marca2prodotto() {
+        Map<String, List<Prodotto>> marca2prodotto = new HashMap<String, List<Prodotto>>();
+        for(Prodotto p:elencoProdotti){
+            if(!marca2prodotto.containsKey(p.getMarca){
+                marca2prodotto.add(p.getMarca,new HashSet<Prodotto>());
+            }
+            else{
+               
+                lista.add(p);
+                
+            }
+        }
+        // COMPLETARE QUESTO METODO
+
+        return marca2prodotto;
+    }
+    
+}
+</textarea><h3 style="margin: 0px 0px; ">Codice Java</h3><font size="2">(Nota: <i>Questa è la parte modificabile dallo studente.</i>)</font><br><br><div id="editor" data-editor="e302d6656a444be8b9ba6e227c1d84d8" style="display:none;">import java.util.*;
+
+class Prodotto {
+    private String codice;
+    private String marca;
+
+    public Prodotto(String codice, String marca) {
+        this.codice = codice;
+        this.marca = marca;
+    }
+
+    public String getCodice() {
+        return this.codice;
+    }
+
+    public String getMarca() {
+        return this.marca;
+    }
+
+}
+
+public class RaggruppatoreProdottiPerMarca {
+    private List&lt;Prodotto&gt; elencoProdotti;
+
+    public RaggruppatoreProdottiPerMarca() {
+        this.elencoProdotti = new ArrayList&lt;Prodotto&gt;();
+    }
+
+    public void aggiungiProdotto(Prodotto prodotto) {
+        this.elencoProdotti.add(prodotto);
+    }
+
+    public Map&lt;String, List&lt;Prodotto&gt;&gt; marca2prodotto() {
+        Map&lt;String, List&lt;Prodotto&gt;&gt; marca2prodotto = new HashMap&lt;String, List&lt;Prodotto&gt;&gt;();
+        for(Prodotto p:elencoProdotti){
+            if(!marca2prodotto.containsKey(p.getMarca){
+                marca2prodotto.add(p.getMarca,new HashSet&lt;Prodotto&gt;());
+            }
+            else{
+               
+                lista.add(p);
+                
+            }
+        }
+        // COMPLETARE QUESTO METODO
+
+        return marca2prodotto;
+    }
+    
+}
+</div><br><h3 style="margin: 0px 0px; ">Test di unità</h3><font size="2">(Nota: <i>Questi test non sono modificabili.</i>)</font><br><br><div id="testReadOnly" data-test-editor="ca1108ac4714423a9088d756e6f09e00" style="display:none; border: 1px solid gray; outline: gray inset thick;">import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.junit.Before;
+import org.junit.Test;
+
+public class RaggruppatoreProdottiPerMarcaTest {
+	private RaggruppatoreProdottiPerMarca raggruppatore;
+	private Prodotto tastiera;
+	private Prodotto mouse;
+	private Prodotto schermo;
+	
+	@Before
+	public void setUp() throws Exception {
+		raggruppatore = new RaggruppatoreProdottiPerMarca();
+		tastiera = new Prodotto("AB0001", "Rossi Computer");
+		mouse = new Prodotto("AB0003", "Rossi Computer");
+		schermo = new Prodotto("VB0002", "Verdi Hardware");
+	}
+
+	@Test
+	public void testNessunProdotto() {
+		assertEquals(raggruppatore.marca2prodotto(), new HashMap&lt;String, List&lt;Prodotto&gt;&gt;());
+	}
+	
+	@Test
+	public void testUnSoloProdotto() {
+		raggruppatore.aggiungiProdotto(tastiera);
+		assertEquals(raggruppatore.marca2prodotto(), Collections.singletonMap("Rossi Computer", Collections.singletonList(tastiera)));
+	}
+	
+	@Test
+	public void testProdottiDiversiStessaMarca() {		
+		raggruppatore.aggiungiProdotto(tastiera);
+		raggruppatore.aggiungiProdotto(mouse);
+		
+		Map&lt;String, List&lt;Prodotto&gt;&gt; map = new HashMap&lt;&gt;();
+		map.put("Rossi Computer", new ArrayList&lt;&gt;());
+		map.get("Rossi Computer").add(tastiera);
+		map.get("Rossi Computer").add(mouse);
+		
+		assertEquals(raggruppatore.marca2prodotto(), map);
+	}
+	
+	@Test
+	public void testProdottiDiversiDiversaMarca() {
+		raggruppatore.aggiungiProdotto(tastiera);
+		raggruppatore.aggiungiProdotto(schermo);
+		raggruppatore.aggiungiProdotto(mouse);
+		
+		Map&lt;String, List&lt;Prodotto&gt;&gt; map = new HashMap&lt;&gt;();
+		map.put("Rossi Computer", new ArrayList&lt;&gt;());
+		map.get("Rossi Computer").add(tastiera);
+		map.get("Rossi Computer").add(mouse);
+		
+		map.put("Verdi Hardware", new ArrayList&lt;&gt;());
+		map.get("Verdi Hardware").add(schermo);
+		
+		assertEquals(raggruppatore.marca2prodotto(), map);
+	}
+}
+</div><br></td></tr></table>
+
+</form>
+
+
+<h2>Domanda 11 - [Compilazione] - Comparatore (Studente) - (PI3)</h2>
+<form>
+Senza cambiare la classe <tt>Studente</tt>, riscrivere i due metodi <tt>compare()</tt> di
+<tt>ComparatoreStudentePerEtaMatricola</tt>, ed <tt>elencoOrdinatoPerEtaMatricola()</tt>
+di <tt>Immatricolazioni</tt> affinche' quest'ultimo restituisca l'elenco degli studenti
+ordinato per eta' ed in subordine, a parita' di eta', per matricola<br /><br /><div id="hidden_codice_default" style="display: none;">import java.util.*;
+
+class Studente implements Comparable&lt;Studente&gt; {
+    //NON toccare il codice di questa classe
+    private String matricola;
+    private int eta;
+
+    public Studente(String matricola, int eta) {
+        this.matricola = matricola;
+        this.eta = eta;
+    }
+    //NON toccare il codice di questa classe
+    public String getMatricola() {
+        return this.matricola;
+    }
+
+    public int getEta() {
+        return this.eta;
+    }
+
+    public int compareTo(Studente studente) {
+        return this.getEta() - studente.getEta();
+    }
+    //NON toccare il codice di questa classe
+}
+
+class ComparatoreStudentePerEtaMatricola implements Comparator&lt;Studente&gt; {
+
+    public int compare(Studente s1, Studente s2) {
+        // COMPLETARE QUESTO METODO
+    }
+    
+}
+
+public class Immatricolazioni {
+    private List&lt;Studente&gt; elenco;
+
+    public Immatricolazioni() {
+        this.elenco = new ArrayList&lt;Studente&gt;();
+    }
+
+    public void aggiungiStudente(Studente studente) {
+        this.elenco.add(studente);
+    }
+
+    public List&lt;Studente&gt; elencoOrdinatoPerEtaMatricola() {
+        List&lt;Studente&gt; elencoOrdinato = new ArrayList&lt;Studente&gt;();
+
+        // COMPLETARE QUESTO METODO
+
+        return elencoOrdinato;
+    }
+    
+}</div><table width="100%" style="border-radius:6px;/*! -moz-border-radius:6px; *//*! -webkit-border-radius: 5px; */background-color: #EBEBEB;padding: 6px 6px 6px 6px;"><tr><td colspan="2" style="padding: 0px 0px 0px 0px" ><div id="resultTesting"></div></td></tr><tr><td width="20%" valign="top" bgcolor="#A2A2A2" style="border-radius: 6px"><button id="buttonTesting" type="button" style="width:100%"><table><tr><td><span class="ui-icon ui-icon-play"></td><td style="font-size:10pt">Compila, Salva ed esegui i test</td></tr></table></button><br><button id="deleteRisp" type="button" disabled style="width:100%"><table><tr><td><span class="ui-icon ui-icon-trash"></td><td style="font-size:9pt">Elimina risposta</td></tr></table></button></td><td width="80%" valign="top" bgcolor="#EBEBEB"><textarea data-hidden-code="d9cac956fbe44b9999e9e51822ed76f2" name="codice_java" id="java_code" class="textarea_domanda_compilazione" style="display:none;" >import java.util.*;
+
+class Studente implements Comparable<Studente> {
+    //NON toccare il codice di questa classe
+    private String matricola;
+    private int eta;
+
+    public Studente(String matricola, int eta) {
+        this.matricola = matricola;
+        this.eta = eta;
+    }
+    //NON toccare il codice di questa classe
+    public String getMatricola() {
+        return this.matricola;
+    }
+
+    public int getEta() {
+        return this.eta;
+    }
+
+    public int compareTo(Studente studente) {
+        return this.getEta() - studente.getEta();
+    }
+    //NON toccare il codice di questa classe
+}
+
+class ComparatoreStudentePerEtaMatricola implements Comparator<Studente> {
+
+    public int compare(Studente s1, Studente s2) {
+        // COMPLETARE QUESTO METODO
+    }
+    
+}
+
+public class Immatricolazioni {
+    private List<Studente> elenco;
+
+    public Immatricolazioni() {
+        this.elenco = new ArrayList<Studente>();
+    }
+
+    public void aggiungiStudente(Studente studente) {
+        this.elenco.add(studente);
+    }
+
+    public List<Studente> elencoOrdinatoPerEtaMatricola() {
+        List<Studente> elencoOrdinato = new ArrayList<Studente>();
+
+        // COMPLETARE QUESTO METODO
+
+        return elencoOrdinato;
+    }
+    
+}</textarea><h3 style="margin: 0px 0px; ">Codice Java</h3><font size="2">(Nota: <i>Questa è la parte modificabile dallo studente.</i>)</font><br><br><div id="editor" data-editor="d9cac956fbe44b9999e9e51822ed76f2" style="display:none;">import java.util.*;
+
+class Studente implements Comparable&lt;Studente&gt; {
+    //NON toccare il codice di questa classe
+    private String matricola;
+    private int eta;
+
+    public Studente(String matricola, int eta) {
+        this.matricola = matricola;
+        this.eta = eta;
+    }
+    //NON toccare il codice di questa classe
+    public String getMatricola() {
+        return this.matricola;
+    }
+
+    public int getEta() {
+        return this.eta;
+    }
+
+    public int compareTo(Studente studente) {
+        return this.getEta() - studente.getEta();
+    }
+    //NON toccare il codice di questa classe
+}
+
+class ComparatoreStudentePerEtaMatricola implements Comparator&lt;Studente&gt; {
+
+    public int compare(Studente s1, Studente s2) {
+        // COMPLETARE QUESTO METODO
+    }
+    
+}
+
+public class Immatricolazioni {
+    private List&lt;Studente&gt; elenco;
+
+    public Immatricolazioni() {
+        this.elenco = new ArrayList&lt;Studente&gt;();
+    }
+
+    public void aggiungiStudente(Studente studente) {
+        this.elenco.add(studente);
+    }
+
+    public List&lt;Studente&gt; elencoOrdinatoPerEtaMatricola() {
+        List&lt;Studente&gt; elencoOrdinato = new ArrayList&lt;Studente&gt;();
+
+        // COMPLETARE QUESTO METODO
+
+        return elencoOrdinato;
+    }
+    
+}</div><br><h3 style="margin: 0px 0px; ">Test di unità</h3><font size="2">(Nota: <i>Questi test non sono modificabili.</i>)</font><br><br><div id="testReadOnly" data-test-editor="c4caefee4d5b4a8a9a602d98e2dd60b8" style="display:none; border: 1px solid gray; outline: gray inset thick;">import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class ImmatricolazioniTest {
+	private Immatricolazioni immatricolazioni;
+	
+	@Before
+	public void setUp() throws Exception {
+		this.immatricolazioni = new Immatricolazioni();
+	}
+
+	@Test
+	public void testNessunoStudente() {
+		assertEquals(this.immatricolazioni.elencoOrdinatoPerEtaMatricola(), Collections.emptyList());
+	}
+	
+	@Test
+	public void testUnSoloStudente() {
+		Studente s = new Studente("AB001", 20);
+		this.immatricolazioni.aggiungiStudente(s);
+		
+		assertEquals(Collections.singletonList(s), this.immatricolazioni.elencoOrdinatoPerEtaMatricola());
+	}
+	
+	@Test
+	public void testDueStudenti_etaDiverse() {
+		Studente s = new Studente("AB001", 20);
+		Studente a = new Studente("AB002", 21);
+		
+		this.immatricolazioni.aggiungiStudente(s);
+		this.immatricolazioni.aggiungiStudente(a);
+		
+		List&lt;Studente&gt; expected = new ArrayList&lt;&gt;();
+		expected.add(s);
+		expected.add(a);
+		
+		assertEquals(expected, this.immatricolazioni.elencoOrdinatoPerEtaMatricola());
+	}
+	
+	@Test
+	public void testDueStudenti_stessaEta() {
+		Studente s = new Studente("XH001", 20);
+		Studente a = new Studente("AB002", 20);
+		
+		this.immatricolazioni.aggiungiStudente(s);
+		this.immatricolazioni.aggiungiStudente(a);
+		
+		List&lt;Studente&gt; expected = new ArrayList&lt;&gt;();
+		expected.add(a);
+		expected.add(s);
+		
+		assertEquals(this.immatricolazioni.elencoOrdinatoPerEtaMatricola(), expected);
+	}
+
+}
+</div><br></td></tr></table>
+
+</form>
+
+
+<h2>Domanda 12 - [Puntuale] - Eccezioni - Checked vs. Unchecked - (PI3)</h2>
+<form>
+<table width="100%">
+<tr><td class="tab_risp_chiusa" colspan="2">
+Cosa succede con questo codice compilando e eseguendo il seguente codice?<br><br>
+<pre>
+class MyException extends RuntimeException {}
+
+public class C {
+    private String x;
+    
+    private void m() {
+        if (this.x == null)
+            throw new MyException();
+        else
+            this.x.concat(" - tail");
+    }
+    
+    public static void main(String[] args) throws MyException {
+        C c  =  new C();
+        c.m();
+    }
+}
+</pre></td></tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150838" /></td>
+<td class="risposta_compito">Compila, ma l'esecuzione solleva un'eccezione di tipo <tt>MyException</tt>. <br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150839" /></td>
+<td class="risposta_compito">Non compila: perche' il metodo <tt>main()</tt>  dichiara esplicitamente di lanciare un'eccezione di tipo <tt>MyException</tt>. <br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150840" /></td>
+<td class="risposta_compito">Nessuna delle altre.<br><br></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150841" /></td>
+<td class="risposta_compito">Non compila: il metodo <tt>m()</tt> non dichiara di poter lanciare un'eccezione di tipo <tt>MyException</tt>. <br><br></td>
+</tr>
+</table>
+<p><input type="submit" name="button" value="salva risposta" /></p>
+
+</form>
+
+
+<h2>Domanda 13 - [Puntuale] - Classi Astratte - (PI3)</h2>
+<form>
+<table width="100%">
+<tr><td class="tab_risp_chiusa" colspan="2">
+Cosa stampa il seguente programma?<br />
+<pre>
+abstract class A {
+    
+    public abstract void a();
+    
+    public void b() {
+        System.out.println("A.b");
+        a();
+    }
+    
+    public void c() {
+        System.out.println("A.c");
+    }
+}
+
+class Y extends A {
+    
+    @Override
+    public void a() {
+        System.out.println("Y.a");
+        c();
+    }
+    
+    @Override
+    public void b() {
+        super.b();
+        System.out.println("Y.b");
+    }
+    
+}
+
+public class Quiz {
+    public static void main(String[] args) {
+        A obj = new Y();
+        
+        obj.b();
+    }
+}
+</pre></td></tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150843" /></td>
+<td class="risposta_compito">A.b<br />
+A.c<br />
+Y.a<br />
+Y.b<br /><br /></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150844" /></td>
+<td class="risposta_compito">Il codice non compila <br /><br /></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150845" /></td>
+<td class="risposta_compito">A.b<br />
+A.c<br />
+A.a<br />
+Y.b<br /><br /></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150846" /></td>
+<td class="risposta_compito">A.b<br />
+Y.a<br />
+A.c<br />
+Y.b<br /><br /></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150847" checked /></td>
+<td class="risposta_compito">Y.b<br />
+Y.a<br />
+A.c<br />
+A.b<br /><br /></td>
+</tr>
+</table>
+<p><input type="submit" name="button" value="salva risposta" /></p>
+
+</form>
+
+
+<h2>Domanda 14 - [Puntuale] - SortedSet (compareTo() incompleto) - (PI3)</h2>
+<form>
+<table width="100%">
+<tr><td class="tab_risp_chiusa" colspan="2">
+Cosa stampa il seguente programma<br />
+<pre>
+import java.util.*;
+
+class Studente implements Comparable<Studente> {
+    private String nome;
+    
+    private int eta;
+    
+    public Studente(String nome, int eta) {
+        this.nome = nome;
+        this.eta = eta;
+    }
+    
+    public String getNome() { return this.nome; }
+    public int getEta()     { return this.eta;  }
+    
+    @Override
+    public int compareTo(Studente that) {
+        return this.getNome().compareTo(that.getNome());
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        Studente that = (Studente) o;
+        return this.getNome().equals(that.getNome()) && this.getEta()==that.getEta();
+    }
+}
+
+public class Quiz {
+    public static void main(String[] args) {
+        Set< Studente > studenti = new TreeSet<>();
+        
+        Studente s1 = new Studente("Francesca", 20);
+        Studente s2 = new Studente("Luigi", 18);
+        Studente s3 = new Studente("Francesca", 19);
+        
+        studenti.add(s1);
+        studenti.add(s2);
+        studenti.add(s3);
+        
+        System.out.println(studenti.size());
+    }
+}
+</pre></td></tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150867" checked /></td>
+<td class="risposta_compito">2<br /><br /></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150868" /></td>
+<td class="risposta_compito">0<br /><br /></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150869" /></td>
+<td class="risposta_compito">Il codice non compila<br /><br /></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150870" /></td>
+<td class="risposta_compito">3<br /><br /></td>
+</tr>
+<tr>
+<td class="risposta_compito"><input type="radio" name="codice_risposta" value="150871" /></td>
+<td class="risposta_compito">1<br /><br /></td>
+</tr>
+</table>
+<p><input type="submit" name="button" value="salva risposta" /></p>
+
+</form>
+
+
+<h2>Domanda 15 - [Compilazione] - Due Mappe - (PI3)</h2>
+<form>
+Scrivere il metodo <tt>getStudente2voto()</tt> della classe <tt>OperazioniStudenti</tt>.
+Tale metodo riceve in input due mappe. La prima mappa, <tt>mat2stud</tt>, associa una matricola
+di tipo <tt>String</tt> ad un oggetto di tipo <tt>Studente</tt>. La seconda, <tt>mat2voto</tt>,
+associa una matricola di tipo <tt>String</tt> ad un voto.<br />
+Il metodo deve restituire una mappa che associa gli studenti della prima mappa ai voti della 
+seconda mappa usando la corrispondenza fra matricole (le chiavi delle mappe).<br />
+E' possibile che per certi studenti non siano riportati i voti. In quel caso lo studente non
+deve comparire nella mappa in output.<br /><br /><div id="hidden_codice_default" style="display: none;">import java.util.HashMap;
+import java.util.Map;
+
+class Studente {
+    // NON MODIFICARE QUESTA CLASSE
+    private String matricola;
+    private int eta;
+    
+    public Studente(String matricola, int eta) {
+        this.matricola = matricola;
+        this.eta = eta;
+    }
+
+    public String getMatricola() { return matricola; }
+
+    public int getEta() { return eta; }
+    
+    // NON MODIFICARE QUESTA CLASSE
+    @Override
+    public int hashCode() { return this.matricola.hashCode(); } // La matricola e' univoca
+    
+    public boolean equals(Object o) {
+        Studente s = (Studente) o;
+        return this.getMatricola().equals(s.getMatricola()); // La matricola e' univoca
+    }
+    // NON MODIFICARE QUESTA CLASSE
+
+}
+
+public class OperazioniStudenti {
+
+    public Map&lt;Studente, Integer&gt; getStudente2voto(Map&lt;String, Studente&gt; mat2stud, Map&lt;String, Integer&gt; mat2voto) {
+        Map&lt;Studente, Integer&gt; stud2voto = new HashMap&lt;&gt;();
+        // Completare questo metodo
+        
+        
+        return stud2voto;
+    }
+
+}
+</div><table width="100%" style="border-radius:6px;/*! -moz-border-radius:6px; *//*! -webkit-border-radius: 5px; */background-color: #EBEBEB;padding: 6px 6px 6px 6px;"><tr><td colspan="2" style="padding: 0px 0px 0px 0px" ><div id="resultTesting"></div></td></tr><tr><td width="20%" valign="top" bgcolor="#A2A2A2" style="border-radius: 6px"><button id="buttonTesting" type="button" style="width:100%"><table><tr><td><span class="ui-icon ui-icon-play"></td><td style="font-size:10pt">Compila, Salva ed esegui i test</td></tr></table></button><br><button id="deleteRisp" type="button"  style="width:100%"><table><tr><td><span class="ui-icon ui-icon-trash"></td><td style="font-size:9pt">Elimina risposta</td></tr></table></button></td><td width="80%" valign="top" bgcolor="#EBEBEB"><textarea data-hidden-code="19b0a1d1ed3e4bb286cc4e002ff91234" name="codice_java" id="java_code" class="textarea_domanda_compilazione" style="display:none;" >import java.util.HashMap;
+import java.util.Map;
+
+class Studente {
+    // NON MODIFICARE QUESTA CLASSE
+    private String matricola;
+    private int eta;
+    
+    public Studente(String matricola, int eta) {
+        this.matricola = matricola;
+        this.eta = eta;
+    }
+
+    public String getMatricola() { return matricola; }
+
+    public int getEta() { return eta; }
+    
+    // NON MODIFICARE QUESTA CLASSE
+    @Override
+    public int hashCode() { return this.matricola.hashCode(); } // La matricola e' univoca
+    
+    public boolean equals(Object o) {
+        Studente s = (Studente) o;
+        return this.getMatricola().equals(s.getMatricola()); // La matricola e' univoca
+    }
+    // NON MODIFICARE QUESTA CLASSE
+
+}
+
+public class OperazioniStudenti {
+
+    public Map<Studente, Integer> getStudente2voto(Map<String, Studente> mat2stud, Map<String, Integer> mat2voto) {
+        Map<Studente, Integer> stud2voto = new HashMap<>();
+        // Completare questo metodo
+        for()
+        
+        
+        return stud2voto;
+    }
+
+}
+</textarea><h3 style="margin: 0px 0px; ">Codice Java</h3><font size="2">(Nota: <i>Questa è la parte modificabile dallo studente.</i>)</font><br><br><div id="editor" data-editor="19b0a1d1ed3e4bb286cc4e002ff91234" style="display:none;">import java.util.HashMap;
+import java.util.Map;
+
+class Studente {
+    // NON MODIFICARE QUESTA CLASSE
+    private String matricola;
+    private int eta;
+    
+    public Studente(String matricola, int eta) {
+        this.matricola = matricola;
+        this.eta = eta;
+    }
+
+    public String getMatricola() { return matricola; }
+
+    public int getEta() { return eta; }
+    
+    // NON MODIFICARE QUESTA CLASSE
+    @Override
+    public int hashCode() { return this.matricola.hashCode(); } // La matricola e' univoca
+    
+    public boolean equals(Object o) {
+        Studente s = (Studente) o;
+        return this.getMatricola().equals(s.getMatricola()); // La matricola e' univoca
+    }
+    // NON MODIFICARE QUESTA CLASSE
+
+}
+
+public class OperazioniStudenti {
+
+    public Map&lt;Studente, Integer&gt; getStudente2voto(Map&lt;String, Studente&gt; mat2stud, Map&lt;String, Integer&gt; mat2voto) {
+        Map&lt;Studente, Integer&gt; stud2voto = new HashMap&lt;&gt;();
+        // Completare questo metodo
+        for()
+        
+        
+        return stud2voto;
+    }
+
+}
+</div><br><h3 style="margin: 0px 0px; ">Test di unità</h3><font size="2">(Nota: <i>Questi test non sono modificabili.</i>)</font><br><br><div id="testReadOnly" data-test-editor="054eb95e882d4c23ab405ea75cd310bf" style="display:none; border: 1px solid gray; outline: gray inset thick;">import static org.junit.Assert.*;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class OperazioniStudentiTest {
+	
+	private static final String STUDENTE_1_MATRICOLA = "001";
+	private static final String STUDENTE_2_MATRICOLA = "002";
+
+	private OperazioniStudenti operazioni;
+	private Studente studente1;
+	private Studente studente2;
+
+	@Before
+	public void setUp() throws Exception {
+		this.operazioni = new OperazioniStudenti();
+		this.studente1 = new Studente(STUDENTE_1_MATRICOLA, 24);
+		this.studente2 = new Studente(STUDENTE_2_MATRICOLA, 20);
+	}
+
+	@Test
+	public void testGetStudente2votoUnoStudente() {
+		Map&lt;String, Studente&gt; mat2stud = Collections.singletonMap(STUDENTE_1_MATRICOLA, this.studente1);
+		Map&lt;String, Integer&gt; mat2voto = Collections.singletonMap(STUDENTE_1_MATRICOLA, 30);
+		
+		Map&lt;Studente, Integer&gt; stud2voto = this.operazioni.getStudente2voto(mat2stud, mat2voto);
+		
+		assertEquals(new Integer(30), stud2voto.get(this.studente1));
+	}
+	
+	@Test
+	public void testGetStudente2votoUnoStudente_ControllaDimensione() {
+		Map&lt;String, Studente&gt; mat2stud = Collections.singletonMap(this.studente1.getMatricola(), this.studente1);
+		Map&lt;String, Integer&gt; mat2voto = Collections.singletonMap(STUDENTE_1_MATRICOLA, 30);
+		
+		Map&lt;Studente, Integer&gt; stud2voto = this.operazioni.getStudente2voto(mat2stud, mat2voto);
+		
+		assertEquals(1, stud2voto.size());
+	}
+	
+	@Test
+	public void testGetStudente2votoDueStudenti() {
+		Map&lt;String, Studente&gt; mat2stud = new HashMap&lt;&gt;();
+		mat2stud.put(this.studente1.getMatricola(), this.studente1);
+		mat2stud.put(this.studente2.getMatricola(), this.studente2);
+		
+		Map&lt;String, Integer&gt; mat2voto = new HashMap&lt;&gt;();
+		mat2voto.put(STUDENTE_1_MATRICOLA, 28);
+		mat2voto.put(STUDENTE_2_MATRICOLA, 31);
+		
+		Map&lt;Studente, Integer&gt; stud2voto = this.operazioni.getStudente2voto(mat2stud, mat2voto);
+		
+		assertEquals(new Integer(28), stud2voto.get(this.studente1));
+		assertEquals(new Integer(31), stud2voto.get(this.studente2));
+	}
+	
+	@Test
+	public void testGetStudente2votoDueStudenti_VotoAssente() {
+		Map&lt;String, Studente&gt; mat2stud = new HashMap&lt;&gt;();
+		mat2stud.put(this.studente1.getMatricola(), this.studente1);
+		mat2stud.put(this.studente2.getMatricola(), this.studente2);
+		
+		Map&lt;String, Integer&gt; mat2voto = new HashMap&lt;&gt;();
+		mat2voto.put(STUDENTE_1_MATRICOLA, 28);
+		
+		Map&lt;Studente, Integer&gt; stud2voto = this.operazioni.getStudente2voto(mat2stud, mat2voto);
+		
+		assertFalse(stud2voto.containsKey(this.studente2));
+	}
+
+}
+</div><br></td></tr></table>
+
+</form>
+   
+<div align="center"><a href="edit_metacompito.do?codice_metacompito=150724">torna indietro</a></div>
+
+
+</td>
+</tr>
+<tr>
+	<td class="footer">Universit&agrave; degli studi Roma Tre - Corso di laurea in Ingegneria Informatica</td>
+</tr>
+</table>
+</div>
+
+
+
+  
+<script src="JQuery/spin.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="JQuery/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+	<link href="JQuery/jquery-ui.min.css" rel="stylesheet" type="text/css"/> 
+	<link href="JQuery/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/> 
+	<link href="JQuery/jquery-ui.theme.min.css" rel="stylesheet" type="text/css"/> 
+<script>
+	$(document).on("click", "#buttonTesting", function(e) {
+		e.preventDefault();
+		$("#resultTesting").html("");
+		$('#buttonTesting').attr('disabled', true);
+		
+        var code = $('#java_code').val();
+        var domanda = $('#hidden_domanda').text();
+        
+        var indice = $('input[name=indice_di_domanda]').val();
+        var buttonContent = $('#buttonTesting').html();
+        var editor = ace.edit('editor');
+        
+        var testEditor = ace.edit('testReadOnly'); 
+        var opts = {
+            lines: 11,
+            length: 3,
+            width: 2,
+            radius:4,
+            left: '20px'
+          }
+          $('#buttonTesting').attr('style',"width:100%; padding:10px 10px 10px 34px;");
+          $('#buttonTesting').html("Sto eseguendo i test...");		
+          var target = document.getElementById('buttonTesting');
+		  var spinner = new Spinner(opts).spin(target);
+
+		  var tarea = document.getElementById('java_code');
+		  var isWaiting = true;
+		  $(target).data('spinner', spinner);
+          $.ajax({
+        	  type: 'GET',
+			  url: "risposta_studente.do?action=verificaDirittiStudenteAsync",
+			  timeout: 4000,
+			  success: function(responseText) {
+				  if(responseText!=null && responseText===""){
+					  $.ajax({
+						  type: 'POST',
+						  url: "richiestaTestAsync.do?action=resultRetrieveAsync",
+						  data: {codice : code,domanda : domanda},
+						  timeout: 4000,
+						  success: function(responseText) {
+								   		var str = responseText;
+										$('#buttonTesting').attr('disabled', false);
+						  				$('#buttonTesting').data('spinner').stop(); 
+						  				$('#buttonTesting').attr('style',"width:100%;");
+						  				$('#buttonTesting').html(buttonContent);
+						  		
+						  				$("#resultTesting").html(str);
+						  				$('#deleteRisp').removeAttr('disabled');
+						  		
+						  				var idcheck = "#check"+indice.toString();
+						  				$(idcheck).attr('checked', true);
+						  				$("html, body").animate({scrollTop : $('#resultTesting').offset().top}, 500);
+						  		
+										var compile = str.substring(str.indexOf("Nessun errore di compilazione."),str.length);
+										var compileCompare = compile.substring(0,30);
+								
+										if(editor!=null)		editor.getSession().clearAnnotations();	
+										if(testEditor!=null)	testEditor.getSession().setAnnotations([]);
+
+										if(compileCompare!=("Nessun errore di compilazione.")){
+											
+											var errors = [];
+									
+											var errorsStr = $(str).find('pre > b');
+											var errorsStr1 = $(errorsStr.get(0)).text();
+									
+											$.each(errorsStr1.match(/((.*\s){2}(.*)\^)*/img), function(i, val) {
+												if(val === '' || val === undefined || val == null)
+													return;
+																				
+												var errorLine = val.match(/java:(\d+): ([\S\s]*)/im);
+												if (errorLine == null) return;
+										
+												errors.push({
+													row: (parseInt(errorLine[1])-1),
+									  				column: 10,
+									  				text: errorLine[2],
+									  				type: "error" // also warning and information
+												});
+											});
+					  				
+										if(editor!=null) editor.getSession().setAnnotations(errors);		
+									}else {									
+										var errorArray = [];
+										var strLines = str.split('<li>');
+									
+										$.each(strLines, function(i, val) {
+											var errorLine = val.match(/java:(\d+).*\)\<.*\>(.*)\</i);
+											if (errorLine == null) return;
+											
+											errorArray.push({
+												row: (parseInt(errorLine[1])-1),
+									  			column: 10,
+									  			text: unescapeHtml(errorLine[2]),
+									  			type: "error" // also warning and information
+											});
+										});
+					  
+										if(testEditor!=null) testEditor.getSession().setAnnotations(errorArray);
+								}
+					  		},
+					  	 error: function() {
+					  			$('#buttonTesting').data('spinner').stop(); 
+					  			$('#buttonTesting').attr('disabled', false);
+					  			$('#buttonTesting').attr('style',"width:100%; padding:0px 0px 0px 0px;");
+					  			$('#buttonTesting').html(buttonContent);
+					  			$("#resultTesting").html("<div class=\"alert alert-warning\"><span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>Limite di tempo della richiesta esaurito.</div>");
+						  		$("html, body").animate({scrollTop : $('#resultTesting').offset().top}, 500);
+					  	 }
+					  });
+				  }else{
+					  alert("ATTENZIONE: "+responseText);
+					  window.location.assign(document.URL); 
+				  }
+			  },
+			  error: function() {
+				  	
+				  	$('#buttonTesting').attr('disabled', false);
+				  	$('#buttonTesting').attr('style',"width:100%; padding:0px 0px 0px 0px;");
+				  	$('#buttonTesting').html(buttonContent);
+		  			$('#buttonTesting').data('spinner').stop(); 
+		  			
+		  	 }
+          });
+          
+		  
+	  });    
+	
+	  function selectTextareaLine(tarea,lineNum) {
+      	lineNum--; // array starts at 0
+    	var lines = tarea.value.split("\n");
+
+    	// calculate start/end
+    	var startPos = 0, endPos = tarea.value.length;
+    	for(var x = 0; x < lines.length; x++) {
+        	if(x == lineNum) {
+            	break;
+        	}
+        	startPos += (lines[x].length+1);
+    	}
+
+    	var endPos = lines[lineNum].length+startPos;
+
+    	// do selection
+    	// Chrome / Firefox
+
+    	if(typeof(tarea.selectionStart) != "undefined") {
+        	tarea.focus();
+        	tarea.selectionStart = startPos;
+        	tarea.selectionEnd = endPos;
+        	return true;
+    	}
+
+    	// IE
+    	if (document.selection && document.selection.createRange) {
+        	tarea.focus();
+        	tarea.select();
+        	var range = document.selection.createRange();
+        	range.collapse(true);
+        	range.moveEnd("character", endPos);
+        	range.moveStart("character", startPos);
+        	range.select();
+        	return true;
+    	}
+
+    		return false;
+		}
+</script>
+<script>		
+function unescapeHtml (string) {
+	
+	  return String(string).replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+	}</script>
+<script>
+$(document).on("click", "#deleteRisp", function(e) {
+	e.preventDefault();
+	$('#deleteRisp').attr('disabled', true);
+	if(confirm('Sei sicuro di voler eliminare la risposta? Questo comperterà la cancellazione di tutte le modifiche apportate al codice.')){
+		var studente = $('input[name=codice_studente]').val();
+		var domanda = $('input[name=codice_domanda]').val();
+		var indice = $('input[name=indice_di_domanda]').val();
+		var codice_default = $('#hidden_codice_default').html();
+			
+		$.ajax({
+			  type: 'POST',
+			  url: "risposta_studente.do?action=deleteRisposta",
+			  data: {codice_studente : studente,codice_domanda : domanda,indice_di_domanda : indice },
+			  timeout: 4000,
+			  success: function() {
+				 var idcheck = '#check'+indice.toString();
+				 $('#deleteRisp').attr('disabled', false);
+			  	 $('#deleteRisp').attr('disabled',true);
+			  	 $('#java_code').html(unescapeHtml(codice_default));
+			  	 
+			  	 $(idcheck).attr('checked', false);
+			  	 
+			  	var editor = ace.edit('editor');
+			  	editor.setValue(unescapeHtml(codice_default));
+			  	//editor.setValue(codice_default);
+			  	
+			  	$("#resultTesting").html("<div class=\"success success\"><span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>Risposta eliminata con successo.</div>");
+		  		$("html, body").animate({scrollTop : $('#resultTesting').offset().top}, 500);
+			  },
+		  	 error: function() {
+		  		 window.alert("Qualcosa è andato storto!");
+		  	 }
+		  });
+	}
+
+});
+</script>
+<script src="ace-builds/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="ace-builds/src-min/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+<script>
+<!--Questo è l'editor per il codice -->
+	var editors = $('[data-editor]');
+	if(editors.length > 0) {
+		ace.require("ace/ext/language_tools");
+		
+		$.each(editors, function(i, val) {
+			var id = $(this).attr('data-editor');
+			var editor = ace.edit($(this).get(0));
+			
+			editor.setTheme("ace/theme/eclipse");
+			editor.getSession().setMode("ace/mode/java");
+			
+			editor.setOptions({
+				enableBasicAutocompletion : true,
+				enableSnippets : true,
+				enableLiveAutocompletion : false,
+				fontSize: "11pt"
+			});
+			
+			
+		
+			var myTextArea = $('[data-hidden-code="' + id + '"]');
+			editor.getSession().on('change', function() {
+				$(myTextArea).html(editor.getSession().getValue());
+			});
+			
+			$(this).css("display","block");	
+		/*			
+			var errors = [];
+			var erroriCompilazione = $('#resultTesting').find('pre > b > ul').get(0).innerHTML;
+			if(!erroriCompilazione.includes("Nessun errore di compilazione")){
+				var righeErrori = erroriCompilazione.split("<li>");
+				$.each(righeErrori, function(i, val) {
+					var errorLine = val.match(/\>.*.java:(\d+)\<.*\>:\s([\s\S]*)\</im);
+					
+					if(errorLine!=null){
+						errors.push({
+							row: (parseInt(errorLine[1])-1),
+				  			column: 10,
+				  			text: errorLine[2],
+				  			type: "error" // also warning and information
+						});
+					}		
+				});
+				
+				if(editor!=null){
+			  		editor.getSession().setAnnotations(errors);
+	  			} 
+			}
+		*/		
+		});
+		
+	}			
+</script> 
+
+<script>
+<!--Questo è l'editor READ-ONLY per i test di unità -->
+	var testEditors = $('[data-test-editor]');
+	if(testEditors.length > 0) {
+		ace.require("ace/ext/language_tools");
+		
+		$.each(testEditors, function(i, val) {
+			var editorTest = ace.edit($(this).get(0));
+			
+			editorTest.setTheme("ace/theme/eclipse");
+			editorTest.getSession().setMode("ace/mode/java");
+			editorTest.textInput.getElement().disabled=true;
+			editorTest.renderer.$cursorLayer.element.style.opacity=0;
+			editorTest.commands.commmandKeyBinding={};
+			editorTest.container.style.background="#D8D8D8";
+			
+			editorTest.getSession().selection.on('changeSelection', function (e)
+			{
+				editorTest.getSession().selection.clearSelection();
+			});
+
+			editorTest.setOptions({
+				readOnly: true,
+			    highlightActiveLine: false,
+			    highlightGutterLine: false,
+				fontSize: "11pt"
+			});
+			console.log(editorTest.getSession().getValue());
+			$(this).css("display","block");
+			
+			/* var errors = [];
+			var erroriTest = $('#resultTesting').find('pre > b > ul').get(0).innerHTML;
+			if(erroriTest.includes("Errore a")){
+				var righeErrori = erroriTest.split("<li>");
+				$.each(righeErrori, function(i, val) {
+					var errorLine = val.match(/java:(\d+).*\)\<.*\>(.*)\</i);
+					
+					if(errorLine!=null){
+						var unescaped = unescapeHtml(errorLine[2])
+						errors.push({
+							row: (parseInt(errorLine[1])-1),
+				  			column: 10,
+				  			text: unescaped,
+				  			type: "error" // also warning and information
+						});
+					}		
+				});
+				console.log(editorTest!=null);
+				if(editorTest!=null){
+					editorTest.getSession().setAnnotations(errors);
+	  			} 
+			}
+			*/
+			
+		});
+	}
+</script> 
+
+<script>
+
+function goToLineTest(line){
+	var testEditors = $('[data-test-editor]');
+	if(testEditors.length > 0) {		
+		$.each(testEditors, function(i, val) {
+											   var editorTest = ace.edit($(this).get(0));
+				$('html, body').animate({
+									     scrollTop: ($('#'+$(this).get(0).id).offset().top)
+									     }, 500);
+											   editorTest.resize(true);
+											   editorTest.scrollToLine(line, true, true, function () {});
+											   editorTest.gotoLine(line, 0, false);
+	   	 									  }
+		      );
+	}
+}
+
+
+function goToLineCode(line){
+	var testEditors = $('[data-editor]');
+	if(testEditors.length > 0) {		
+		$.each(testEditors, function(i, val) {
+											   var editorTest = ace.edit($(this).get(0));
+				$('html, body').animate({
+									     scrollTop: ($('#'+$(this).get(0).id).offset().top)
+									     }, 500);
+											   editorTest.resize(true);
+											   editorTest.scrollToLine(line, true, true, function () {});
+											   editorTest.gotoLine(line, 0, false);
+	   	 									  }
+		      );
+	}
+}
+</script>
+<script>		
+function unescapeHtml (string) {
+	
+	  return String(string).replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+	}</script>
+
+
+
+</body>
+</html>
