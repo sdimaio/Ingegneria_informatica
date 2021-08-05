@@ -1,0 +1,93 @@
+# Lezione martedì 23 marzo
+
+### Trasformata di Laplace
+
+La trasformate di Laplace sono più di una ma noi in questo corso utilizzeremo la trasformata unilatera sinistra.
+
+Questa traformata è un funzionale, quindi trasforma una funzione in un altra funzione, e comprende lo zero.
+![laplace](img1.png)
+
+s è la nuova variabile complessa. Questo vuol dire che la trasformata trasforma una funzione a valori reali in una funzione complessa definita su campo complesso. La traformata può essere applicata su tutte la funzioni a patto che l'integrale sopra citato esista.
+
+>La soluzione delle equazioni differenziali a corfficienti costanti(che sono solo polinomi ed esponenziali) sono perfette per applicare la trasformati di laplace ed avere la sommabilità delle funzioni
+
+![sommabilità](img2.png)
+
+Questo perché pasta moltiplicare un polinomi o un esponenziale per un altro aspenenzione che va a zero più velocemente di quando il primo vada ad infinito per avere un convergenza a zero se fatto il limite che tende ad infinito.
+
+##### Trasformata fondamentale
+
+![traformata](img3.png)
+
+Il semipiano a sinistra dello zero non va considerato perché a noi non interessa il passato di un sistema dato che esso è tutto racchiuso nel suo stato iniziale di t=0.
+
+Andando ad applicare a questa funzione la definizione di trasformata di Laplace(integrale sopra citato) otteniamo:
+
+![l_esponenziale](img4.png)
+
+Come sappiamo l'integrale di un esponenziale è ancora un esponenziale ma in questo caso dato  che t è moltiplicato per qualcosa dobbiamo dividere per quel qualcosa il tutto calcolato in zero meno e +infinito.
+
+Ora calcolata l'ascissa di convergenza(sigma),cioè che la parte reale di _s_ sia maggiore della parte reale di _p_, possimia effettivamente risolvare l'integrale.
+Noteremo che per **t** che vale infinito l'integrale vale zero(dovuto dal fatto che p-s<0) mentre l'integrale calcolato in **t=0** avremo come risultato uno su p-s. Alla fine facendo la sottazzione dei due risultati avremo 1/s-p.
+
+Non avendo fatto ipotesi particolari sulla natura di **p** esso può anche essere una numero immaginiario. La cosa ci è utile per la trasformate dei seni e dei coseni utilizzando anche le formule di Eulero.
+
+![lgoniometriche](img5.png)
+
+Possiamo anche fare la trasformata del gradino(funzione di Heaviside) ed otterremo:
+
+![lGradino](img6.png)
+
+#### Priprietà notevoli della Trasformata di Laplace
+
+Laplace è un operazioen lineare quindi la combinazione lineare di funzioni da come risultato la combinazione lineare della trasformate di Laplace.
+
+![linearità](img7.png)
+
+
+Esiste un teorema detto il **Teorema del valor finale** il quale enuncia che presa la trasformata di una funzione poi moltiplicata per *s* e calcolato il limite per *s* che tende a zero da sinistra si otterà un risultato pari al limite calcolato per t che tende a + infinito della funzione originaria(prima di trasformarla con laplace). L'unica "regola" è che il limite della funzione originaria deve esistere.
+
+![valor_finale](img8.png)
+
+Analogamente esiste il **Teorema del valor iniziale** che però si può calcore sempre.
+
+![valor_iniziale](img9.png)
+
+Un ultima proprietà e la proprietà della coniugazione. Se data una funzione coniugo la variabile ottengo la coniugata della funzione.
+
+![coniugata](img10.png)
+
+La moltiplicazione di una funzione del tempo per un esponenziale equivale in laplace ad una traslazione in frequenza della funzione
+>MOLTILICAZIONE NEL TEMPO, TRASLAZIONE IN FREQUENZA
+
+![moltiplicazione](exf.png)
+
+Analogamente una traslazione nel dominio del tempo equivale ad una moltiplicazione per un ecponenziale nel dominio di laplace.L'unica differenza è che per traslare nel tempo non basta scrivere f(t-a)(altrimeti avremo la curva fucsia) ma bisogna anche moltiplicare per un gradino che è zero fino ad **a** e poi vale 1.
+
+![traslazione](img11.png)
+
+###### Dimostrazione della traslazione
+
+![dim](img12.png)
+
+Ci sono considerazioni da fare:
+-  L'integrale è inutile che parta da **-a** dato che la funzione comincia ad essere diversa da zero solo in zero. Se partiamo da zero allora è inutile anche il gradino, quindi eliminiamo anche quello.
+
+![dim1](img13.png)
+
+Essendo e^-sa non dipentente da t_1 possiamo portarlo fuori dell'integrale ed ecco dimostrata la proprietà della traslazione.
+
+## Convoluzione
+
+L'uscita di un sistema è data dell'integrale di convoluzione tra la risposta impulsiva del sistema e l'ingresso dello stesso. Può capitare che l'integrale sia molto difficile da risolvere ma è qui che ci viene in aiuto Laplace.
+
+![convoluzione](img14.png)
+
+Osserviamo che alla fine della dimostrazione otteniamo che per fare una convoluzione nel dominio di Laplace non ci serve altro che moltiplicare le due trasformate.
+
+## Derivazione
+Supponiamo di voler fare la trasformata di laplace della derivata di una funzione perché i nostri sistemi sono descritti da equazioni differenziali le quali contengono delle derivate e ci sarà più semplice lavorare sui sistemi.
+
+![derivazione](img15.png)
+
+Dall'immagine Osserviamo che la derivarione del tempo corrisponde in laplace ad una moltiplicazione per **s** e se esistono alla sottazzione delle condizioni iniziali (f(0-)). Il numero di volte che moltiplico per **s** è proporzionele al grado di devivazione e poi, ad esempio per la derivata terza, vanno sottratte le condizioni iniziale moltiplicate per s^2, fa derivata prima calcolati in zero meno per s ed la derivata seconda calcolata in zero meno.
