@@ -1,0 +1,100 @@
+# Lezione mercoledì 24 marzo
+
+#### Proprietà di integrazione 
+Per dimostrare l'integrazione bisogna partire dalla convoluzione. La trasformata di Laplace della convoluzione tradue funzioni equivale al prodotto della due trasformate.
+
+![integrazione](img1.png)
+
+Immaginiamo che una delle due fuzioni possa essere una gradino, quindi poniamo la funzione g(t) pari ad un gradino.
+
+![dim](img2.png)
+
+Il gradino si chiama delta alla meno 1 e se lo mettiamo nell'integrale e otteniamo:
+
+![dim2](img3.png)
+
+*Questo integrale è pari all'integrale di f di tau?*
+Per rispondere a questa domada rappresentiamo graficamente le due funzioni.
+
+![step](img4.png)
+
+La funzione gradino di meno tau è quella rossa ma se andiamo a sottrarla a t(per ottenere quella che abbiamo nell'integrale) otteniamo la funzione verde.
+
+![funzione](img5.png)
+
+La nostra f è la curva nera che sovrapposta al gradino di t-tau otteniamo quello in figura.
+Noi dobbiamo calcolare l'integrale tra zero e **t** di queste due funzioni la siccome in gradino vale 1 per tutto il periodo(tra 0 e t) sarà come calcolare l'integrale solamente di f.
+
+Quindi arriviamo alla conclusione che l'integrale di una funzione in laplace equivale alla trasformata della funzione moltiplicata per 1/s.
+
+#### Impulso e Risposta impulsiva
+Sappiamo che se abbiamo un sistema descritto da un'equalzioen differenziale del primo ordine:
+
+![eq](img6.png)
+
+Sappiamo che y(t) è uguale all'evoluzione libera(che tralasceremo) più la convoluzione tra e^at e u(t).
+
+![risp_imp](img7.png)
+
+Tralasciamo l'evolizione libera perché nello studio dei controlli automatici le condizioni iniziali non sono molto importanti, a noi interassa più la stabilità del controllore dopo tanto tempo che è stato acceso.
+
+A questo punto possiamo rappresentare il nostro sistema in questo modo:
+
+![risp_imp2](img8.png)
+
+e^at è chiamata risposta impulsiva perché è la risposta del sistema quando u(t) è un impulso.
+
+Se scriviamo l'integrale di convoluzione
+
+![risp_imp3](img9.png)
+
+e u(t) è un impulso possiamo riscrivere l'integrale come:
+
+![risp_imp](img10.png)
+
+e sappiamo che la sua soluzione è semplicemente la funzione calcolata nel punto dell'impulso e nel notro caso l'impulso si trova in tau=0
+
+![risp_imp](img11.png)
+
+Se sostituiamo la risposta impulsiva con la sua trasformata di laplace possiamo calcolare l'uscita, almeno quella forzata, come:
+
+![](img12.png)
+
+*Non ci resta altro che capire come sia fatto un impulso*
+
+Secondo i testi di matematica l'impulso non è una funzione ma è il limite di una successione di funzioni.
+
+###### *FACCIAMO UN ESEMPIO*
+Prendiamo una funzione così fatta
+
+![f_epsilion](img14.png)
+
+L'unica cosa certa è che faccio l'integrale tra **-a** e **a** il sua risultato sarà l'area del rettangolo in figura che sarà ovviamente 1
+
+![ris](img13.png)
+
+L'area sotto il rettangolo non è funzione di epsilon infatti per un epsilon infinitamente grande oppure infinitamente piccolo, l'area rimane sempre pari a 1. Detto tutto ciò possiamo definire l'impulso come il limite di epsilon che tende a zero della funzione appena descritta
+
+![impulso](img15.png)
+
+#### Tabella delta
+
+![delta](img16.png)
+
+- Delta alla meno 1 di t sappiamo tutti che è un gradino e la sua trasformati di laplace è 1/s
+- Delta alla meno 2 di t è l'integrale del delta alla meno 1 ed e detto rampa linerare, vale zero fino a t=0 poi vale t, la sua trasformata di laplace è 1/s^2
+- Delta alla meno 3 di t è l'integrale del delta alla meno 2 ed è detto rampa parabolica, vale zero fino a t=0 poi vale t^2/2, la sua trasformata di laplace è 1/s^3
+- Delta alla meno 4 di t è l'integrale del delta alla meno 3 ed è detto rampa cubica, vale zero fino a t=0 poi vale t^3/3!, la sua trasformata di laplace è 1/s^4
+- Delta zero è l'impulso che viene rappresentato graficamente come in figura con una freccia. Sembra essere la derivata del delta alla meno 1(ma non è corretto dire ciò), sicuramente l'integrale dell'impulso e il delta alla meno 1.
+
+*Adesso abbiamo tutti i mezzi per fare la trasformata di laplace di un polinomio*
+
+![trasf_pol](img17.png)
+
+L'espressione generale da ricordare per fare la trasformata di un polinomio è:
+
+![trasf_pol](img18.png)
+
+Se avessi un polinomio moltiplicato un esponenziale ricordo che una moltiplicazione per un esponenziale nel tempo equivale ad una traslazione in laplace quindi la regola generale da ricordare è:
+
+![trasf_pol*esp](img19.png)
