@@ -1,0 +1,100 @@
+# Lezione martedì 30 marzo
+
+#### Calcolo della risposta impulsiva
+
+![](img1.png)
+
+*Cosa succede in uscita?*
+
+Poiché la trasformata di Laplace di:
+
+![](img2.png)
+
+L'uscita corrisponde all'antitrasfomata della risposta impulsiva
+
+![](img3.png)
+
+Adesso calcoliamo i resudui
+
+![](img4.png)
+
+Una volta risolto il limite vedrem che il risultato sarà:
+
+![](img5.png)
+
+Questa espessione graficamente viene riprodotta come :
+
+![](img6.png)
+
+Il fatto che questo oggetto oscilli e converga è una proprietà del sistema e non dipende dall'ingresso(che in questo caso è un impulso), quindi si può iniziare a parlare di stabilità o instabilità di un sistema 
+
+**Come definisco la stabilità o l'instabilità di un sistema?**
+
+Appilcando un impulso ad un sistema ne studio l'evoluzione che ne consegue e se questa evoluzione converge posso dire che il sistema è stabile
+
+Se ho un sistema, l'unica condizione che io abbia per vedere se è stabile è assicurarmi che tutti i poli del denominatore siana a parte reale negativa
+
+>Un sistema si dice asintiticamente stabile se la sua risposta impulsiva tende a zero oppure se la parte reale delle radici del denominatore è strettamente negativa
+
+Immaginiamo di avere un sistema di trasferimanto asintoticamente stabile, in altre parole il denominatore della sua funzione dei trasferimento(G(s)) ha tutti i poli a parte reale negativa.
+
+![](img7.png) 
+
+Adesso proviamo ad applicare un ingresso qualunque U(s), quindi l'uscita Y(s)=G(s)U(s). Se dovessi fare l'antitrasformata dovrei andare a cercare tutte le radice del denominatore derivato dal prodotti di G(s) e U(s).
+Immaginiamo che G(s) abbia una serie di poli e che U(s) ne abbia altri.
+
+Il risultato sarà una serie di radici del sistema ed altre radici dell'ingresso. I poli del sistema si dicone **modi propri** che sono quei modi che osserviamo qunado applichiamo un impulso, quindi quando facciamo l'natitrasformata della funzione di trasferimento vediamo tutti i modi propri che sono le modalità con le quali il sistema è capace a muoversi da solo.
+
+La parte restante una la parte condizionata dell'ingresso i quindi sono i **modi dovuti all'ingresso**, in poche parole sono i poli dovuti all'ingresso
+
+![](img8.png)
+
+se l'ingresso fosse stato un gradi nei modi dovuti all'ingresso avremo avuto 
+![](img9.png)
+mentre se fosse stata una parabola avremmo osservato in termine 
+![](img10.png) e così via.
+
+Se dicessi che G(s) è asintoticamente stabile quando vado a fare l'antitrasformata di tutte le frazioni dell'uscita quando *t* tende a valori grandi (infinito) in Y(s) rimarrà solo l'antitrasfomrmata dei modo divuti all'ingresso perché solo quella parte è composta da gradini, rampe, ecc.
+Quindi se in ingresso ad un sistema metto un gradino in uscita avrò sempre un gradino e così via per tutti gli altri tipi d'ingresso
+
+Nel caso precedente se in ingresso al sistema metto una rampa per **t** sufficientemete grande avrò una rampa, ma tra zero ed un certo *t* dato che i modo propri del sistema sono composti da due poli complessi che inducono una un'oscillazione il sistema a grnadi linee si comporterà così:
+
+![](img11.png)
+
+#### Definizione alcune parole
+
+###### Uscita permanente di un sistema
+
+Supponiamo di avere il nostro sistema G(s) e di aver calcolato l'uscita Y(s) come una serie poli(alcuni che derivano dal sistema e altri dall'ingresso). Alcuni di questi immaginiamo che sia asintoticamente stabili(che andranno ad esaurirsi), tutto quella che rimane si chiama **uscita permanente**.
+
+![](img12.png)
+
+Per rifarci al sistema di prima, immaginiamo che l'ingresso sia un gradino allora avremo un comportameno ad esempio di questo tipo:
+
+![](img13.png)
+
+L'uscita permanente di questo sistema non considerando le dinamiche oscillatorie sarà anch'essa un gradino di valore pari al valore al quale si stabilizza l'uscita del sistema(la linea gialla tratteggiata)
+
+![](img14.png)
+
+###### Uscita transitoria
+
+Data l'uscita totale sottratta l'uscita prermanente ecco qui che avremo **l'uscita transitoria**
+
+![](img15.png)
+
+in questo caso l'uscita transitoria e quell'uscita che va a zero ed è associata alle dinamiche stabili
+
+![](img16.png)
+
+###### Tempo di assestamento al 5%
+
+Se all'uscita di un sistema si tirano due linee a +-5% del valore di regime, si può definire tempo di assestamente al 5% quel punto in cui il grafico resta racchiuso i quelle due linee e non ne esce più.
+
+![](img17.png)
+
+Quando si raggiunge in tempo di assestamento a 5% l'oscillaizone residua e minore del 5% del valore di regime.
+
+Si poù definire in valore di assestamente a qualunque percentuale.
+
+###### Sistema al limite di stabilità

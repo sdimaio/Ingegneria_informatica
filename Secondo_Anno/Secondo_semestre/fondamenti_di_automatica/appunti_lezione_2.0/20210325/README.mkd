@@ -1,0 +1,50 @@
+# Lezione giovedi 25 marzo
+
+### **Antitrasformata di Laplace**
+
+![antitrasformata](img1.png)
+
+Questo metodo ti permette calcolando i residui di andare ad individuare quali sono i coofficienti del numeratore di una determinata trasformata. Questo metodo però non funziona se ci sono radici com molteplicità multipla al denominatore
+
+>Chiameremo sempre poli le radici del denominatore e zeri quelle del numeratore di una trasformata di Laplace
+
+Se ho poli multipli non mi dispero perché la regola della decomposizione funziona sempre ma coo un piccolo cambiamento
+
+![poli_multipli](img2.png)
+
+Se ho un polo che ha molteplicità pari ad **r** avrò **r** fratti con s-p fino ad s-p alla **r** per il denominatore, mentre per il numeratore la regola si complica un po'ed è quella illustrata sopra
+
+### Termine singolo polo reale
+
+![polo_semplice](img3.png)
+
+Se abbiamo al denominatore un polo reale che possiamo trovare nella decomposizione in fratti semplici come R/s-p darà luogo ad un termine come Re^pt(quindi un esponenziale). Nel caso in cui **p** sia negativo avremo in esponenziale decrescente che converge a zero. Esiste un importante parementro chiamato costante di tempo *tau* che viene calcolato meno il figura(l'inverso do p cambiato di segno). Questa costante è importante perché è un punto vche viene intersecato dalla tangente all'esponenziale in t=0. Questo parametro è molto importante perché in tre tau è già avvenuta il 95% dell'evoluzione del polo reale.
+
+*Utile da anche per i plot perché un polt di tre tau è già un plot accettabile*
+
+### Termini complessi e coniugati
+
+![](img4.png)
+
+Pertendo dal polo complesso calcoliamo i residui ma dato che abbimo due radici complesse e coniugate anche i residui saranno uno il coniugato dell'altro. A questo punto possiamo riscrivere il polo sotto forma di esponenziale.
+
+![](img5.png)
+
+Fatto ciò riscriviamo i due resudui come ![](img7.png) e riscriviamo di nuovo y(t) separando ![](img8.png) ib due esponenziali deversi
+
+![](img6.png)
+
+Una volta fatto questo raggruppiamo a fattor comune e moltiplichiamo e dividiiamo per due per ottenere la formula di Eulero del coseno. Abbiamo così ottenuto una funzione la cui oscillazione dipende da un esponenziale. In particolare dovremo fare attenzione al segno di sigma.
+
+![](img9.png)
+
+In particolare con:
+- Sigma<0 -> si avrà un moto oscillatorio che converge a zero
+- Sigma>0 -> si avrà un moto oscillatorio che diverge ad infinito
+- Sigma=0 -> si avrà un adndamento oscillatorio persistente e costante
+
+##### Un grafico riassuntivo  
+
+![](img10.png)
+
+
