@@ -1,0 +1,87 @@
+# Lezione giovedì 8 aprile
+
+##### Reiezione dei disturbi
+
+Dato un sistema G(s) il quale è chiusi in controreazione con un blocchetto al cui interno c'è 1/Kd perché l'uscita che desidero è ![](img1.png) ma si gia che non ci riuscirò per che la W(s) è ![](img2.png). Se sono bravo riesco a farla assomigliare il più possibile a Kd ma non uguale.
+
+A rigime permanente e per ingressi appertenenti ai polinomi con un numero opportuo di integratori in catena diretta riesco ad ottenere un sistema "buono". Una cosa da ricordare è che la stabilità sia verificata.
+
+----
+__Si può fare un discorso simile nel momento in cui analizziamo la risposta a rigime permanente di un disturbo?__
+
+Come abbiamo già visto gli unici disturbi che possono essere rigettati dal sistama sono quelli che entrano in catena diretta. Quelli che entrano in catena di controreazione sono indistinguibili dall'ingresso e quindi non possono essere rigettati.
+
+![](img3.png)
+
+In questa figura abbiamo fatto l'ipotesi che il disturbo entri tra G1(s) e G2(s) ma poteva anche esserci il caso dove G2(s) non ci fosse. Che G1(s) non esista questo non è possibile perché altrimenta l'ingresso e in disturbo entrerebbero dallo stesso punto e sarebbe impossibile distinguerli.
+
+Se ci mettiamo nella condizione in cui _z_ sia un disturbo polinomiale per t>0
+
+![](img4.png)
+
+Per capire quale affeto può avere un disturbo di questo tipo in uscita ed è sufficiente cancolare la funzione di trasferimento disturbo-uscita.
+
+![](img5.png)
+
+Se voglio sapere l'effetto di questo disturbo in uscita dovrei calcolarmi Y(s)
+
+![](img6.png)
+
+Analizzare questa uscita per t che tende ad infinito è possibile con il teorema dela valor finale
+
+![](img7.png)
+
+è possibile che l'effetto del disturbo in uscita possa essere pari a zero? Certo ma dobbiamo pretendere che non nel numeratore della Wz(s) degli zeri in zero(termini alla s alla qualcosa) in quantità sufficiente da cancellare ![](img8.png).
+
+Come fare a far capitare delle radici in zero al numeratore della Wz(s)?
+- Potremo avere delle radici in zero nella G1(s)
+
+Facciamo l'ipotesio che la G1(s) abbia un certo numero di termini in s al denominatore
+
+![](img9.png)
+
+Avendo fatto questa ipotesi il teorema del valor finale diventa:
+
+![](img10.1.png)
+
+Con un numero adeguato di poli nell'origine a monte dell'ingresso del disturbo posso migliorare di molto le cose.
+
+Supponiamo di avere questo sistema:
+
+![](img11.png)
+
+Immaginiamo che _z_ sia un gradino, disturbo costante.
+
+![](img12.png)
+
+Dopo di che abbiamo h=1 cioè i poli a monte del disturbo sono 1, quindi il limite del valor finale è:
+
+![](img13.png)
+
+Quindi un integratore in catena diretta a monte del disturbo a regime permanente va a cancellare il disturbo. Tutto questo vale solo se il sistema è stabile a ciclo chiuso.
+
+__Questo sistema è stabile?__
+
+![](img14.png)
+
+Questo sistema essendo di tipo 1 riesce a riprodurre bene anche un ingresso di tipo 1.
+
+Se avessi introdotto un disturbo a rampa iin catena diretta per eliminare l'errore avrei avuto bisogno di due integratori.
+
+![](img15.png)
+
+Questo sistema con due integratori in catena diretta è in grado di rigettare disturbi a rampa, ma tutti questo solamente se è stabile a ciclo chiuso. Verifichiamo se è stabile:
+
+![](img16.png)
+
+è instabille ma possiamo stabilizzarlo aggiungiendo un zero al numeratore del nostro controllore. Dobbiamo calcolarlo calcolando la funzione di trasferimento del sistema.
+
+ ![](img17.png)
+
+ E poi facendo il criterio di routh per scegliere un valore di tau che ci darà la stabilità del sistema
+
+ ![](img18.png)
+
+ A questo punto sostituendo questo controllore al precedente otterrò un sistema stabile che rigetta anche disturbi a rampa
+
+ ![](img19.png)

@@ -1,0 +1,128 @@
+# Lezione giovedì 4 aprile
+
+##### Esempio di rappresentazione di un sistema di equazioni differenziali con uno schema a blocchi
+
+![](img1.png)
+
+Dato questo sistema come prima cosa per ognuna delle due masse dobbiamo scrivere delle equazioni differenziali. Partiamo dalla considerazione che il sistema sia stabile.
+
+Se vado a scrivere l'eqauzione della prima massa _m1_ avrò :
+
+![](img2.png)
+
+K dovrà essere positivo perché se sposto a destra tutt i termini che dipendono da x_1 otterro:
+
+![](img2.1.png)
+
+Osservando il polinomio a sinistra noterò che ho scritto un'equazione differenziale omogenea con tutti i coefficienti positivi quindi con radici a parte reale negativa e quindiu stabile.
+
+Mentre quando andrò a scrivere l'equazione della seconda massa _m2_ la costante K dovrà essere negativa per lo stesso motivo di prima.
+
+Im detinitiva otterrò:
+
+![](img3.png)
+
+L'equazione sottolineata in giallo è a puro scopo esemplificativo per determinare il segno della costante K
+
+Arrivati a questo punto facciamo le trasformate di Laplace del sistema di equazioni prima di poterlo trasfornare in un sistema a blocchi. Ancora prima di procedere con le trasformate riscrivo le equazione come :
+
+![](img4.png)
+
+Adesso possiamo procerere ed otterremo:
+
+![](img5.png)
+
+Possiamo osservare che possiamo ricavare X_1 dalla prima equazione ed x_2 dalla seconda.
+
+![](img6..png)
+
+Ossevado il sistema possiamo dire che i due termini cerchiati in giallo possono essere inseriti in due blocchi.
+
+Inseriamo in un blocco il termine cerchiato in alto e daquesto sistema potrebbe uscire x_1 se in ingresso allo stesso entrasse tutto a destra del termine cerchiato. Bisogna far entrare la somma tra F(s) e poi sommare K che moltiplica la differenza tra x_1 ed x_2.
+Inseriamno K e per ottenere x_2 utilizziamo la seconda equazione e da questo sistema può uscire x_2 se in ingresso abbiamo -K per x_2 meno x_1.
+
+![](img7.png)
+
+A questo punto se prendessi come uscita x_2 e volessi calcolare la funzione di trasferimento tra X_2 e F(s) come potrei fare? Non è molto facile perché abbiamo ottenuto due loop incastonati l'uno nell'altro. Per rendere l'operazione di calcolo della funzione di trasferimeto più agevole devo mettere tutti i blocchi di seguito.
+
+![](img8.png)
+
+Questi oggetti sono troppo interlacciati quindi non posso calcolare facilemente la sua funzione di trasferimento però posso provare a trasformare questo sistema per renderela più agevole
+
+![](img9.png)
+
+Per ora provo a spostare il collegamneto cerchiato in rosso dopo il blocchetto.
+
+![](img10.png)
+
+se invece di prendere il segnale in A lo prendo il B non é la stessa cosa perché sarebbe viene moltiplicato per quello che si trova nel blocchetto. per far si che il segnale sul filo sia lo stesso devo moltiplicare il segnale per l'inverso di quello che si trova nel blocco.
+
+![](img11.png)
+
+Dopo questa trasformazione le cose sono diventate più semplici perché non ho più due loop interlacciati ma un loop dentro l'altro che si risolve in mondo semplice cioè partendo dal più piccolo per arrivare al più grande. In pratica è come se facessi un taglio, calcolassi la funzione di trasferimento di quella porzione e poi la inserissi al posto del taglio nel sistema completo coem un unico blocco.
+
+![](img12.png)
+
+La funzione di trasferimento da **IN** ad **OUT** è:
+
+![](img13.png)
+
+che andrò a sostituire alla porzione di sistema tra __IN__ e __OUT__
+
+![](img14.png)
+
+Adesso posso andare a calcolare la funzione di trasferimento di tutti il sistema.
+
+![](img15.1.png)
+
+__Questo sistema è asintoticamente stabile?__
+
+Intuitivamente direi di si, ma c'è un metodo guardando i coefficenti _a,b,c,d,e_ per determinarlo e si chiama criterio di Routh.
+
+### Criterio di Routh
+IL criterio di Routh è un tecnica per verificare la stabilità di un sistema a ciclo chiuso andando ad analizzare la posizione dei poli della funzione di trasferiment sul piano immginario.
+
+![](img16.png)
+
+Immaginiamo di avere un polinomio di grado _n_. Adesso con questo polinomio disegnamo una tabella denominata tabella di Routh. Le prime due righe si riempiono facilmente, basta inserire i coofficienti del polinomio come in figura. Le altre righe si completano calcolando il deteminante di una matrice. Prendiamo ad esempio il termine __b1__, per calcolarlo bisiogna calcolare il determinante della matrice ottenuta dai primi due valore delle prime due righe della tabella e dividerlo per meno il primo valore della seconda righa. Per calcolare __b2__ la procedura è quasi la stessa solo che invece dei due elementi della seconda collonna prenderò in considerazione quelli della terza colonna e così via anche per __c1__ e __c2__
+
+__Dice il Teorema di Routh:__
+Andiamo a considerare i cofficienti della prima colonna, se non hanno tutti lo stesso segno ci saranno delle radici a parte reale positiva, tante quante sono le variazioni di segno. Quindi il polinomio che stiamo studiando sarà un polinomio di Hurwitz(con tutte le radici a parte reale negativa), e quindi il sistema sarà stabile, se e solo se sulla prima colonna avrò tutti cooficienti con lo stesso segno.
+
+>La condizione da rispettare nel criterio di Routh è una condizione necessaria. Se non viene verificata sicuramente il sistema sarà asintiticamente instabile.
+
+##### Piccolo esempio numerico
+
+![](img17.png)
+
+I coefficienti del polinomio devono essere tutti, se ne manca uno vuol dire che è zero e non è vero che sono tutti dello stesso segno.
+
+###### Per quale motivo dobbiamo usare il criterio di Routh quando potremo far calcolare le radici da da un calcolatore?
+
+Immaginiamo di trovarci in una situazione di questo tipo: 
+
+![](img18.png)
+
+Le radici di questo polinomio sono : 
+
+![](img19.png)
+
+Lasciato a se stesso il sistema avrebbe una smorzamento moolto basso perché l'angolo con l'asse immaginario è molto piccolo.
+
+Una volta chiuso in un sistema a controreazione mi chiedo se esiste un valore di K che mi permette di continuare ad avere un sistema stabile. Per fare questo ci basta calcolare la funzione di trasferimenta a ciclo chiuso:
+
+![](img20.png)
+
+Ora l'unica cosa che posso fare è applicare il criterio di Routh.
+
+![](img21.png) 
+
+Adesso otteniamo un sistema di disequazioni che deve areve una soluzione ed attraverso la sua risoluzione troveremo per quali valori di K il sistema rimane stabile.
+
+![](img22.png)
+
+Algebricamente la soluzione sarebbe -1<K<8 e quindi stiamo comprendendo anche lo zero. è giusto dire che per K=0 il sistema rimane stabile? No, perché se K fosse uguale a zero sparirebbe tutti il loop di controreazione. Aggiungendo la condizione che K debba essere maggiore di zero la soluzione è:
+
+![](img23.png)
+
+>L'utilità del criterio di Routh da la sua utilità proprio nei casi in cui usiamo dei simboli come K in questo esempio

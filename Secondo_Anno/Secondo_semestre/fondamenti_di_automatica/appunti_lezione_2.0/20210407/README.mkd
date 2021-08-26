@@ -1,0 +1,168 @@
+# Lezione mercoledì 7 aprile
+
+##### Criteri di Routh
+
+![](img1.png)
+
+Voglio sapere se questo polinomio è un polinomio stabile(tutte le radici a parte reale negetiva). Applico il teorema di Routh dato che tutti i coefficienti sonone delle stesso segno.
+
+![](img2.png)
+
+Non ci sono variazioni di segno quindi l polinomio è stabile ma con so con quale velocità converge a zero.
+
+![](img3.png)
+
+Con questo Criterio siamo andati a vedere se tutte le radici si trovavano nella parte tratteggiata. Come detto prima non so con quale velocità il polinomio converge a zero ma potrei verificare si converge alla stessa velocità di un qualche esponenziale.
+
+![](img4.png)
+
+Traccio la curva di questa funzione e calcolo la costante di tempo che è pari ad 1 adesso per verificare se le dinamiche del mio polinomio converge almeno come e^-t basta che immgini una variabile s', traslata rispetto ad s,che è definita come s-1 ed andarla a sostituire nel polinomio iniziale. Se attraversi il criterio di Routh non riscontro variazioni di segno vuol dire che che tutte le radici di questo polinomio altre a trovarsi a sinistra dello zero di trovano anche a sinistra di -1(in questo caso).
+
+Dopo la sostituzione di s' otterremo:
+
+![](img5.1.png)
+
+A questo punti applico il criterio di Routh e scopro che non ci sono variazioni di segno quindi è stabile.
+
+![](img6.png)
+
+---------
+
+![](img7.png)
+
+Provo ad applicare il criterio di Routh a questo polinomio ma ottengo :
+
+![](img8.png)
+
+Non posso calcolare il valore da inserise sulla riga 1 perché non posso dividere per zero.
+
+__Quindi cosa faccio?__
+
+Pertubo il sistema aggiungendi un epsilon direttamente dovemi compare lo zero. Questa perturbazione può essere maggiore o minore di zero ed andremo a studiare i due casi in seguito.
+
+![](img9.png)
+
+Dopo aver perturbato i coefficienti del sistema sono ingrado si calcolare il termine sulla riga 1
+
+![](img10.png)
+
+Analizzando la situazione in cui epsilon tende a zero da destra otterro due variazioni di segno quindi il polinomio non è stabile.
+
+![](img11.png)
+
+Mentre analizzando la situazione di epsilon che tende a zero da sinistra si otterrà lo stesso risultato, ciò che il polinomio ha due radici a parte reale positiva.
+
+![](img12.png)
+
+Si che epsilon tenda a zero da destra o da sinistra si hanno sempre sue radici a parte reale positiva quindi per epsilon uguale a zero ho due radici sull'asse immaginario.
+
+![](img13.png)
+
+-------
+###### Teorema di Kharitonov
+
+ Il teorema di Kharitonov dice sostanzialmente che se hai dei coofficenti a_i non ben definiti ma compresi tra un low-bound e un upper-bound puo verificare la stabilità del polinomio con il criterio di Routh appicandolo quattro volte a quattro polinomi ottenoti come tutte le combianzioni di possibili di coppie di low-bound e upper-bound
+
+ ![](img14.png)
+
+ ----------
+
+ ##### Comportamento a regime permanente polinomiale
+
+ Il regime permanente polinomiale è lo studio di cosa succede in un sistema di controllo dove ho un sistema da controllare P(s) ed un controllore C(s) quando applico come riferimento il polinomi che conosciamo.
+
+ ![](img15.1.png)
+
+ Supponiamo che questo sistema a ciclo chiusi sia asintoticamente stabile
+
+ ![](img16.1.png)
+
+ Se il sistema è stabile abbiamo gia detto che in uscita avremo lo stesso andamento dell'ingresso a regime permanente a parte un transitorio. L'uscità sarà uguale all'ingresso ma non è detto che abbiano la stessa pendenza
+
+ ![](img17.png)
+
+ Questo errore __e__ è l'errore in uscita ma che ancora dobbiamo definire e per farlo dobbiamo andare una passo indietro.
+
+ Immaginiamo di avere un sistema che in catena diretta abbia una qualcosa chiamato G(s), la domanda che sorge è: nello controreazione non c'è qualcosa di semplice?
+
+ ![](img18.1.png)
+
+ Voglio fare un sistema di controllo dove l'uscita _y_ segua l'ingresso _u_. Allora qual è il Comportamento ideale del nostro sistema? In maniera semplicistica potrei scrivere:
+
+ ![](img19.png)
+
+ Cioè che uscita desiderata fosse uguale all'ingresso e per ottenere questo la funzione di trasferimento W(s) dovrebbe essere pari ad 1.
+
+ Ma per generalizzare, per non avere necessariamente un rapponto uguale ad 1 dirò che la W(s) mi piacerebbe fosse pari ad un certo _Kd_ e che l'uscita sarà pari a questo Kd per l'ingresso.
+
+ ![](img20.png)
+![](img21.1.png)
+
+Come faccia a rendere
+![](img22.png)
+più vicina possibile ad una costante?
+
+Questi sistemi di controllo sono sistemi basati sull'errore e funzionano bene quando l'errore va a zero.L'errore è ottenuto da ![](img23.png) e anche se tendesse a zero avremo un uscita che sarà pari a ![](img24.png) che può sembrare diverso dall'uscita che desideravamo.
+
+Non e così perché per ottenere l'uscita che volevamo ci basta che H(s) sia pari a _1/_Kd_
+
+![](img25.png)
+
+Anche se H(s) e pari a 1/Kd la W(s) diventerebbe :
+
+![](img26.png)
+
+La funzione di trasferimento potrebbe diventare uguale a Kd?
+
+Ridisegnamo il sistema aggiungendo un blocchetto in parallelo per definire l'errore in uscita che è pari all'uscita che vorrei meno l'uscita che avrò
+
+![](img27.png)
+
+L'errore in uscita quanto vale, si riesce a mandare a zero?
+
+Alla domanda di quanto vale l'errore ci sono tre risposte possibili e sono che e->0, e->infinito e e->ad una costante
+
+![](img28.png)
+
+>Un sistema di controllo si dice di tipo K se, applicato un ingresso di tipo K, errore tende ad una costante
+
+Quell che adesso vogliamo fare è continuare i calcoli cominciati prima per determinare quando un sistema si possa definire di tipo K.
+
+Per prima cosa va determinato l'errore che nel tempo è:
+
+![](img29.png)
+
+Adesso facciamo la trasformata di laplace di questa espressione per poter applicare il teorema del valor finale
+
+![](img30.png)
+
+In questa esperssione sappiamo chi è U(s) che è
+![](img31.png)
+adesso andiamo a calcolare l'errore per t che tende all'infiniti applicando il teorema del valor finale
+
+![](img32.png)
+
+Sembrerebbe che per qualunque valore dell'ingresso, eccetto per K=0(gradino), questo limite denda ad infinito. Cosa posso fare per evitarlo? Dovrei avere degli integratori al denominatore di G(s) allora immgini che io possa scricerla così:
+
+![](img33.png)
+
+Aggiungendoli nel coltrollore nel caso non ci fossero. Così facendo il limite del valor finale diventa questo:
+
+![](img34.png)
+
+Essendo La G'(s), a questo punto priva di integratori, otteniamo un un numero finito Kg che andiamo a chiamare guadagno generalizzato.
+
+>Il guadagno di una funzione è l'uscita che ottengo quando al suo ingresso applico un gradino
+
+Prendendo in cosiderazione il limite appena ottenuto ci porta a diverse opzioni:
+
+![](img35.png)
+
+In parole povere il numero di integratori in catena diretta determinano il tipo del sistema.
+
+-----
+#### Importante
+
+Nel caso in cui il denominatore dalla W(s) del sistena non abbia tutte radici a parte reale negativa quanto detto fin ora non può essere applicato.
+
+-----

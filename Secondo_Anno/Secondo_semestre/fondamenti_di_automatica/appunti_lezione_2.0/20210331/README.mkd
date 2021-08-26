@@ -1,0 +1,3 @@
+# Lezione mercoledì 31 marzo
+
+Addiamo fatto un lavoro per andare a definire un sistema utilizzando un blocco che avrà un ingresso e un uscita.
