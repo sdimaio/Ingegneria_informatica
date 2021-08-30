@@ -1,0 +1,73 @@
+# Lezione mercoledì 14 aprile
+
+Continiuiamo con la rappresentazione nei diagrammi di Bode del termine binomio e il termine trinomio
+
+- Termine binomio
+
+Andiamo a calcolare il modulo del termine binomio
+
+![](img1.png)
+
+Procediamo col fare una sorta di analisi asintotica per omega abbastanza piccolo e omega abbastanza grande.
+
+- Caso in cui omega si molto più grande di uno su tau.
+
+ Se omega è molto più grande di uno di tau e chiaro che il termine omega quadro per tau quadro è un numero molto più grande di 1 e diovente sempre più grande man man che omega cresce. Quindi in questa parentesi ![](img2.png) 1 è molto piccolo e trascurabile. Cosi facendo è come se avessimo
+
+ ![](img3.png)
+
+ La parte costante in quanto tale rimane sempre la stessa all'aumentare di omega, quindi ancora una volta possiamo trascurare la costante ottenendo
+
+ ![](img4.png)
+
+ Quindi per omega molto grandi anche quest'oggetto è una retta che sale con una pendenza di 20 decibel per decade
+
+ ![](img5.png)
+
+ - Caso in cui omega è molto più piccolo di uno su trascurare
+
+ Se omega è molto più piccolo di uno su tau nella parentesi non ci rimane altro che 1, quindi otteniamo
+
+ ![](img6.png)
+
+ Quando sono tutto a sinista del grafico ho una retta che vale 0
+
+ ![](img7.png)
+
+ Dato che stiamo facendo un disegno a mano in modo leggermente approssimato, possiamo prolungare i due asintoti facendoli incontrare sul punto 1 su tau ed otterremo così il grafico del modulo del termine binomio.
+
+ ![](img8.png)
+
+ Per avere un grafico più preciso potrei andare a calcolare quanto vale il modulo in 1 su tau
+
+ ![](img9.1.png)
+
+ Avendo calcolato che il modulo è circa uguale a tre un grafico più corretto sarebbe
+
+ ![](img10.png)
+
+ Per quanto riguardala fase invece otteniamo il suo valore graficamente
+
+ ![](img11.png)
+
+ Quindi se la fase sarà compresa tra zero e uno il diagramma asintotico di Bode sarà
+
+ ![](img12.png)
+
+ Come approssimazione la fase uguale a zero è stata fatta arrivare fino ad una decade prima di 1 su tau, dove la fase vale 45°, mentre dove la fase vale 90° e stata portata fino ad una decade dopo il punto 1 su tau.
+
+ L'andamento reale della fase sarebbe(linea gialla)
+
+ ![](img13.png)
+
+ con un errore massimo di non più del 10%
+
+ Se avessi un oggetto di questo tipo ![](img14.png) io grafici di modulo e fase sarebbero i seguenti
+
+ ![](img15.png)
+
+ Siccome il termine è al denominatore la fase ed il modulo invece di salire scenderà
+
+ >Il punto 1/tau è detto punto di rottura perché è il punto in cui il grafisco si rompe
+
+ >Questi grafici di solito vengono disegnati un sotto l'altro per praticità

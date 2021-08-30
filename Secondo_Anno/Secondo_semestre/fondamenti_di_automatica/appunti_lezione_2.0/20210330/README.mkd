@@ -1,5 +1,9 @@
 # Lezione martedì 30 marzo
 
+
+
+
+
 #### Calcolo della risposta impulsiva
 
 ![](img1.png)

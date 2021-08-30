@@ -1,0 +1,109 @@
+# Lezione martedì 13 aprile
+Oggi parleremo di un altro regime permanente, quello in cui applichiamo una sinusoide in ingresso ad un sistema.
+
+Prendiamo un blocchetto ed al suo interno inseriamo una generica funzione G(s) Che ipotiziamo essere asintoticamente stabile.Questa ipotesi è fondamentaale per ché solamente se la G(s) è stabile quando inseriamo un ingresso sunisoidale in uscita avremop sempre una sinusoide con la stessa pulsazione omega però non è detto che abbia la stessa fase e lo stesso modulo.
+
+![](img1.png)
+
+__Perché se G(s) è stabile in uscita avrò una sinusoide se applici una sinusoide in ingresso?__
+
+Questo perché come abbiamo gia detto l'uscita di un sistema si calcola come:
+
+![](img2.png)
+
+scomponendo in poli e residui la G(s) e l'ingresso avremo che i poli della G(s) per t che tende ad infinito tenderanno a zero dando origine alla __risposta transitoria__ mentre i poli dell'ingresso essendo a parte immaginaria nulla e quindi trovandosi sull'asse immaginario non potranno dare origine a dimaniche che tendono a zero ed andranno a formare la __risposta al permanente__
+
+![](img3.png)
+
+Adesso andiamo a calcolare i due residui dell'ingresso utilizzando la formula
+
+![](img4.png)
+
+L'altro polo dato che è il coniugato del primo non vale neanche la pena fare i calcoli di nuovo ma basta coniugarlo appunto
+
+![](img5.png)
+
+Adesso esprimiano in modo più semplice la funzione G(jw) attraverso modulo e fase, e di conseguenza anche il suo coniugato
+
+![](img6.png)
+
+Adesso dato che ho calcolato i residui posso andare a sostituirli nell'espressione della risposta permanente 
+
+![](img7.png)
+
+Se prendioamo il nostro sitema originario la funzione in uscita avrà un modulo e una fase che ricaviamo dalla funzione di trasferimento calcolata in _s=jw_. Se disponessi dei valori del modulo e della fase di G(s) potrei avere un'immagine abbastanza chiara di come questo sistema si comporta alle varia frequenze. Quindi i valori del modulo e della fase di G(s) diventano interessanti ed hanno diverse rappresentazioni:
+- Il diagramma di Nyquist->
+ Rappresentazionedi tipo polare in cui la G(jw) viene raffigurata come una curva che viene ottenuta rappresentando i punti al variare di modulo e fase
+ 
+ ![](img8.png)
+ 
+- Il diagramma di Nichols-> 
+La rappresentazione del modulo e della fase di G(jw) sul piano cartesiano sul quale viene tracciata uan curva che rappresenta l'andamento di G(jw) al variare di omega
+
+  ![](img9.1.png)
+
+- I diagramma di Bode-> Il modulo e la fase vengono rappresentate sepatatamente in due diagrammi
+
+  ![](img10.png)
+  
+  Mentre i primi due utilizzano una scala lineare i diagrammi di bode no. Utilizzano una scala semilogaritmica per le ascisse. Anche il modulo nel diagramma di bode ha un problema perché viene espesso in decibel.
+  
+  ![](img11.png)
+  
+  ---
+  Prendiamo una funzione di trasferimento che contenga tutti i termini che noi potremo incontrare e cerchiemo di disegnare il diagramma di Bode per ogniuno di questi termini
+  
+  ![](img12.png)
+  
+  Le tipologie di termini che possiamo incontrare sono:
+  
+  - Costante
+  
+    Dato che Kg è un valore costante devo solo calcolare quanto vale in decibel e riportarlo sul diagramma del modulo
+    
+    ![](img13.1.png)
+    
+    Il grafico del Kg si troverà sopra lo zero se il guadagno è maggiore di 1 metre si troverà sotto lo zero se in guadagno è compreso tra zero e 1. Coindicerà con lo zero ce Kg e prorpio uguale ad 1.
+    
+    Per quanto riguarda la fase se Kg è positivo la fase sarà pari a zero mentre per un Kg negativo la fase sarà -180
+    
+    ![](img14.png)
+    
+  - Polo nell'origine 
+    
+    Adesso andiamo ad analizzare lo zero nell'origine.
+    
+    Per quanto riguarda il modulo dobbiamo ricordare che dobbiamo calcolare il modulo di G(jw) per questo 
+    
+    ![](img15.1.png)
+    
+    Ora se tentiamo di disegnare questa cosa a mano non ce la faremo, per questo ricorriamo ad un piccilo strataggemma, cambiamo sistema di riferimento. Facendo questa cosa il modulo verrebbe 
+    
+    ![](img16.png)
+    
+    Nella scala di lambda l'espressione del mio modulo in decibel è una retta. Per esempio per h=1 avrebbe pendenza di 20 decibel per decade, per h=2 la pendenza sarebbe di 40 decibel per decade e così via. Per h negativi avremo delle rette con perndenza negativa, ad esempio per h=-1 la rettaavrebeb pendenza di -20 decibel per decade
+    
+    ![](img17.2.png)
+    
+    Adesso vogliamo tornare con omega sulle ascisse, e dato che lambda è l'esponente da dare a 10 per ottenere omega quando lambda vale 1 omega vale 10, quando lambda vale 2 omega vale 100 e così via
+    
+    ![](img18.png)
+    
+    Una decade è lo spazio che intercorre tra una 10 e 100 o tra 100 e 1000 e così via
+    
+    Per la fase del polo nell'origine è abbastanza facile. Rappresentando il termine jw sul pino di Gauss osserviamo che a fase 90 gradi 
+    
+    ![](img19.1.png)
+    
+    questo vuol dire che quando elevo per _h_ il temine jw è come moltiplicarlo h volte per se stesso e dato che per la fase la moltiplicazione di due termini è pari alla loro somma per ottenre la fase dil termine jw dovrò sommare h volte 90 gradi
+    
+    ![](img20.1.png)
+    
+    Ad esempio un diagramma potrebbe essere: 
+    
+    ![](img21.png)
+    
+  - Termine binomio 
+  - Termine trinomio
+  
+

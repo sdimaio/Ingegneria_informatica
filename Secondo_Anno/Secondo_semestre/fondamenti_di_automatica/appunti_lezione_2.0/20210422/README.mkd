@@ -1,0 +1,158 @@
+# Lezione giovedì 22 aprile
+
+#### Criterio di Nyquist
+
+Questo criterio ci permette di mettere in relazione delle proprietà che si possono calcolare nel ciclo aperto con delle proprietà del ciclo chiuso
+
+Ci possimo trovare in una situazione di questo tipo: 
+
+![](img1.png)
+
+LA funzione di anello F(s) he sappiamo essere il prodotto di tutte le funzione di trasferimento lungo l'anello
+
+![](img2.png)
+
+E la funzionne di trasferimento a ciclo chiuso se sappiamo essere:
+
+![](img3.png) 
+
+A questo punto ci domandiamo che se ciò che ci interessa della W(s) e la risposta è: la sua stabilità e il transitorio.
+
+Come detto prima il criterio di Nyquist ci per mette di mettere in  relazione alcune proprietà del ciclo aperto e del ciclo chiuso. Per quanto riguarda la stabilità e il transitorio riusciremo a darne una lettura indiretta guardando proprio i diagrammi di Bode della F(s) e scopriremo che alterare le prorpietà del ciclo aperto è molto più semplice che andare al alterare le proprietà del ciclo chiuso.
+
+Per andare a correggere il comportamento a ciclo chiuso come prima cosa ci serve andare a difini un oggetto con un prorpietà che si chiama __Teorema dell'indicatore logaritmico__ che per semplpicità andiamo a dimostrare con un esempio.
+
+Immgginiamo di avere un piano di Gauss, di definire un punto _s_ su questo piano e traccara una curva _c_ sullo stesso sulla quale il punto s possa percorrere un giro intero in senso orario. Tutti i valori che s assume li attribbuiamo da una funzione che chiamiamo G(s).
+
+![](img4.png)
+
+ In particolare dato che stiamo facendo un esempio diciamo che la G(s) sia fatta in questo modo
+ 
+ ![](img5.1.png)
+ 
+ a e b sono due numeri complessi ed immagino che a sia un punto fuori dalla curva e b sia un punto al suo interno.
+ 
+ ![](img6.png)
+ 
+ è chiaro che mam mano che mettiamo dei valori di s nella G(s) la G(s) assume dei valori. Per esempio se la s assume il valore del puntino azzurro sulla curva la G(s) vale 
+ 
+ ![](img7.1.png)
+ 
+ Mentre s assume tutti i valori sulla curva c anche la G(s) avrà un suo percorso. Potrà fare un percorso qualunque ma l'unica cosa certa che sappiamo è che ad un certo punto la G(s) tornerà al suo punto di partenza perché s è tornata sullo stesso punto. Stiamo immaginando che non ci siano punti di singolarità ad esempio b che si trovi  sulla curva(tratteremo questo caso come un caso particolare).
+ 
+ ![](img8.png)
+
+Adesso dobbiamo ristondere ad una domanda: __G(s) gia intorno all'origine?__
+
+Nelal figura  sopra G(s) gira intorno all'origine, ma non è detto che lo faccia. 
+
+Girare intorno all'origine vuol dire sostanzialmente che la fase di G(s)(il vettore verde in figura)
+
+![](img9.png)
+
+Dovrebbe fare un giro completo e quindi variare di 2pi-greco. Posso rispondere a questa domanda in modo molto semplice, basta vedere dove sono posizionati a e b. I vettori s-a e s-b sono rispettivamenti i vettori che da a e da b vanno verso s
+ 
+ ![](img10.png)
+ 
+ Se io mi chiedo quanti giri fa la G(s) intorno all'origine, cioè quanto varia la fase di G(s), come faccio a misurare quanto varia la fase di G(s). Dato che la G(s) è scritta come un numeratore ed un denominatore la sua variazione totale di fase sarà la variazione di fase del numeratore meno la variazionde di fase del denominatore. Dato che a è un punto estreno alla curva il vettore s-a quando s si sposta sulla curva oscillerà un po' ma poi tornerà alla sua posizione originale senza che la sua fase sia cambiata.Per quanto riguarda b che invece si trovaa all'interno della curva quando s si sposta lungo al curva compirà un giro completo e poi tornesà alla sua posizione originale, cambiando la sua fase. Questo ci fa capire che la fase della G(s) dipende solamente dagli ottetti all'interno della curva. Se questi oggetti si trovano al numeratore mi danno una rotazione completa di +360 gradi mentre se sis trovano al denominatore la ratazione sarà di -360 gradi. Arrivati a questo punto possiamo scrivere uan formuletta:
+ 
+ ![](img11.png)
+ 
+ Il numero di rotazioni della G(s) è pari al numero di zeri nella curva c meno il numero di poli nella curva c
+ 
+ Questo è il teorema dell'indicatore logaritmico ch associa il numero di oggetti al numeratore e denominatore che stanno all'interno di una certa curva conb quante rotazioni compie quella data curva.
+ 
+ Questa formula appena scritta ci sarà utile per contare poli e zeri in una porzione di piano all'interno di una curva. 
+ 
+ __Vediamo come sfruttare questo risultato per scrivere il criterio di Nyquist__ 
+ 
+ Bisogna fare un paio di considerazioni.
+ 
+ Dato in sistema si fatto 
+ 
+ ![](img12.png)
+ 
+ Vaso a scrivere la W(s) di questo sistema ed immagino che la F(s) si possa scivere come
+ 
+ ![](img13.png)
+ 
+ se scrivo in questo modo la F(s) la sua W(s) diventerebbe 
+ 
+ ![](img14.png)
+ 
+ e 1 + F(s) la scirvere come 
+ 
+ ![](img15.png)
+ 
+ Se osservo queste relazioni posso scrovere due cose:
+ - il denominatore della W(s) è del tutto uguale al numeratore di 1+F(s)
+ - Il denominatore di 1+F(s) è del tutto uguale al denominatore di F(s)
+ 
+__Adesso vado ad applicare il teorema dell'idicatore logaritmico__
+ 
+Per applicare questo teorema ho bisogno di una funzione ed una curva.
+ 
+Come funzione vado a scegliere 1 + F(s) e la curva _c_ di cui ho bisogno sarà una curva di questo tipo
+ 
+  ![](img16.png)
+ 
+In pratica è una semicirconfarenza che racchiude il semipiano reale posistivo nel piano di Gauss che ha raggio pari a ro con ro che tende ad infinito. Oggetti il questa curva sono solo oggetti a perte reale positiva.
+
+Possiamo riscrive la formula precedentemente scritta per il calcolo del numero di rotazioni il relazione la precorso di Nyquist
+
+ ![](img17.png)  
+ 
+ Possimia riscriverla ulteriormente utilizzando la F(s) e la W(s) come segue
+ 
+ ![](img18.png)
+ 
+![](img19.png)
+
+Con l'ultima equazione scritta è un criterio per determinare se la W(s) è stabile o meno. 
+
+Faccio un'ulteriore trasformazione perché è difficile determinare il numero di rotazioni di 1+F(s)
+
+Comea faccia a determinare questa relazione? Come faccia a sapere se la F(s) routa o non ruota quando percorre quela percorso? Sapendo che la s quando percorriamo il percorso di Nyquist vale jw
+
+![](img20.png)
+
+Allora la F(s) con s=jw è il diagramma di bode che abbiamo gia tracciato con l'unica accortezza che dovrò anche calcolare i valori per w negativo che avrò lo stesso modulo di quella calcolata dal diagramma con il diagramma di bobe ma con fase cambiata di segno.
+
+![](img21.png)
+
+A questo punto bisogna solo trovare un sistema per chiudere questo grafico e ecco ottenuta la nostra curva.
+
+Adesso dato che 1 + F(s) ruota intorno allo zero con una semplice traslazione possiamo scrivere un modo analogo le rotazioni di F(s) intorno al punto -1
+
+![](img22.png)__e questo è il criterio di Nyquist__
+
+![](img23.png)
+
+__Criterio di Nyquist ridotto__ il quale dice che se ma F(s) è stabile quindi privadi poli a parte reale positiva il criterio si riduce
+
+![](img24.png)__criterio di Nyquist ridotto__
+
+---
+__Esempio__
+
+Prendiamo un sistema molto semplice e chiediamoci se è stabile a ciclo chiuso utilizzanso il criterio di Nyquist.
+
+![](img25.1.png)
+
+Per prima cosa dobbiamo tracciare il diagramma di bode
+
+![](img26.1.png)
+
+Ricordiamo che il diagramma di Bode è solo per w>0 e nel diagramma di Nyquist noi potremo tracciare solo una parte della curva.
+
+Facendo un'analisi che va da destra a sinistra dei diagrammi di bode osservo che il modulo nella parte sinistra vale 20dB(quindi 10)mentre la fase vale zero; nella parte destra il modulo vale meno infinto in dB e quindi zero e la fase vale -90. Da queste considerazioni e dal fatto che i diagrammi di bode per omega negative hanno lo stesso modulo e fase cambiata di segno ottengo: 
+
+![](img27.png)
+
+Dato che il numero di poli a parte reale positiva di F(s) sono zero e che la curva non ruota mai attorno al punti -1 che sicuramente si trova a sinistra dell'asse immagginario, ne segue che la W(s) è stabile perché i due valori coincidono.
+
+![](img28.png)
+
+
+
+ 
