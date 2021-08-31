@@ -1,0 +1,100 @@
+# Lezione giovedì 29 aprile
+
+#### Sistemi con ritardo finito
+
+Quando paliamo di sistemi a ritardo finito stiamo parlando di sistemi con un ritardo costante.
+
+![](img1.png)
+
+All'interno di un blocchetto entra un segnale u(t) ed esce lo stesso segnale sfasato di a secondi.
+
+Dato il sistema precendente vogliamo cercare di scrivere qualcosa di più matematico al su interno. Ricordiamo di avre già studiato la trasformata di Laplace del segnale ritardato che era pari a
+![](img2.png), allora se nel ssitema scrivessi la funzione di trasferimento e^-as non sbagliarei di certo perché questa introduce un ritardo pari ad a
+
+![](img3.png)
+
+Quest'oggetto, cioè il ritardo, può portare facilmente all'istabilità un loop di controllo. __Ma per quela motivo?__
+
+Se andiamo ad analizzare il termine e^-as e vado a disegnare il diagramma di Bode di questo oggetto ottengo:
+
+![](img4.png)
+
+Per quanto  riguarda i moduli possiamo stare tranquilli perché il moduli in dB di questo oggetto vale 0dB. Per quanto riguarda la fase sarebbe una rette che scende linearmente se la scala della omega fosse lineare ma così non è.
+
+Immaginiamo che __a__ sia un valore piccolissimo, e quindi il nostro sistema avrà un ritardo piccolissimo, ma anche si in w=1 il ritardo di fase fosse piccolissimo il 10 sarebbe 10 volte il ritardo iniziale, in 100 cento volte il ritardo iniziale e così via. Quindi la fase scende in modo rapidissimo dato che un andamento lineare in una scala logaritmica si tramuta il un andamento esponenziale.
+
+![](img5.png)
+
+Quindi se in un sistema è presente un oggetto di questo tipo si mette a rischio la stabilita dello stesso perché porterebbe velocemente la fase sotto il -180°.
+
+L'unica cosa che possiamo sperare è che a sia molto piccolo così che quando crescerà saremo già e frequenze elevate ed avremo già superato l'omega di taglio.
+
+Mettiamo il caso di avere un sistema si fatto:
+
+![](img6.png)
+
+Ci andiamo a domandare se sia stabile a ciclo chiuso. Se non ci fosse il ritardo sarebbe un sistema stabile. Andiamo a disegnare il diagramma di Bode del sistema senza il ritardo.
+
+![](img7.png)
+
+Il sistema ha un margine di fase molto ampio, quindi è un sistema che oscilla molto poco
+
+![](img8.png)
+
+Adesso però andiamo ad inserire nei diagrammi anche il ritardo. Sul modulo non dobbiamo fare nulla ma sulla fase se inseriamo un ritardo pari ad un secondo la fase scenderebbe troppo rapidamente e renderebbe il sistema instabile.
+
+Andiamo a provare con un ritardo decisamente più piccolo, pari ad un decimo di secondo. Con a pari a 0.1 secondi avremo che la fase del ritardo sarà:
+![](img9.png)
+
+Inserendo l'andamemto della fase del ritardo otterremo un nuovo diagramma della fase
+
+![](img10.png)
+
+La curva gialla denota la fase senza il ritardo mentre quella rossa la fase con il ritardo.
+
+Questo significa che il margine di fase si è ridotto notevolmente ma il sistema è rimasto comunque stabile perché abbiamo inserito un ritardo molto piccolo e pari ad 0.1 secondi.
+
+Adesso andiamo ad inserire un ritardo con a pari a 0.2 secondi ed avremo una variazione di fase pari a
+![](img11.png)
+
+Andando a riportare questa variazione di fase in verde sul diagramma osseveremo che la fase scenderà sotto i -180° e quindi renderebbe il sistema instabile.
+Per ovviare a ciò potremmo ridurre il guadagno facendo spostare l'omega di taglio verso sinistra(a frequenze più basse) e riporteremo la stabilità nel sistema pur ottenendo un sistema meno reattivo.
+
+![](img12.png)
+
+---
+#### Sistemi a fase non minima
+
+I sistemi a fase non minima sono un'altra classe di sistemi interessanti che presentano un fenomeno di instabilità. Questa classe è definita da sistemi che hanno uno o più zeri a parte reale positiva.
+
+Prendiamo due sistemi così definti
+
+![](img13.png)
+
+Andiamo ad applicare il teorema del valor finale su questi due sistemi
+
+![](img14.png)
+
+Adesso adesso però andiamo ad applicare anche il teorema del valore iniziale
+
+![](img15.png)
+
+Dopo avere appicato il teorema del valor iniziale ci accorgiamo che G1(s) parte da 10 mentre G2(s) parte da -10. Andando a ridisegnare il grafico di queste due funzioni averemo
+
+![](img16.png)
+
+Si denota che il sistema G2(s)(curva rossa) appena si applica il gradino risponde andando verdo il basso mentre il sistema G1(s)(curva violetto) risponde andando in alto.
+
+Andado a disegnare i diagrammi di Bode dei due sistemi otterremo che i diagrammi dei moduli sono li stessi per entrambi i sistemi
+
+![](img17.png)
+
+mentre per quanto riguarda il diagramma della fase di G1(s) avremo
+
+![](img18.png)
+
+Il diagramma di G2(s) avrà lo zero a parte reale positiva che che andrà a sottrarre fase, e questo non ci piace perché tutti gli oggetto che vanno a sottrarre fase stanno inficiando sulla stabilità del sistema facendo ridurre i margini di fase.L'andamento della sua fase sarà quello in rosso
+
+![](img19.png)
+
+---
