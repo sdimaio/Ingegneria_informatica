@@ -1,0 +1,77 @@
+# Lezione martedì 27 aprile
+
+#### Nyquist
+
+Oggi termineremo il criterio di Nyquist trattando anche il caso particolare che non abbiamo trattato la volta scorsa e definiremo qualche indice utile alla stabilità.
+
+![](img1.png)
+
+Questa è una classica analisi di Nyquist solo che in questa analisi ci stiamo perdendo un pezzo importante cioè i poli nell'origine. Come dobbimo comportarci con dei poli nell'origine?
+
+
+
+----
+Dato questo diagramma è possibile che io noo riesca proprio ad evitare queste rotazioni intorno al punto -1?
+
+![](img2.png)
+
+e se riuscissi a fare una cosa del genere?
+
+![](img3.png)
+
+dovrei operare una mofifica di modulo e fase tra w1 e w2. Operando questa modifica sulla curva rossa dovrò farla anche su quella azzurra e il grafico che otterrò sara
+
+![](img4.png)
+
+A questo punto potri verificare se il grafico gira ancora intorno al punto -1. Centrando un vettore in -1 e facendogli percorrere tutta la curva mi accorgo che adesso questa figura non gira più intorno a punto -1.
+
+>Le modifiche che abbiamo apportato al grafico per far si che non giri più intorno al punto -1 si ottengono aggiungendo poli e zeri nella F(s)
+
+---
+Il diagramma di nyquist ci è utile anche per definire alcune proprietà estremamente importante nei sistemi a controreazione.
+
+Immaginiamo un generico diagramma di nyquist
+
+![](img5.png)
+
+Una cosa di dui sono sicuro è che le cose non avvengono a scatti, quindi supponendo che la W(s) sia stabile io posso aumentare un po' il guadagno prima che il diagramma si espanda a tal punto da inglobbare il punto -1.
+
+Disegnamo una curva che partendo dal diagramma qui sopra ed amplificnadolo fa passare questa curva sul punto -1
+
+![](img6.png)
+
+Adesso chiediamoci : __Quanto posso amplificare prima che il sistema diventi instabile?__
+
+Chiamo il punto dove la curva rossa e quella azzurra intersecano l'asse reale come il punto __-a__ e definosco 1/a come il __margine di guadagno__ che mi dice quanto sono lontano dal punto -1 in termini di guadagno che posso aggiunggere in catena diretta.
+
+![](img7.png)
+
+Se il guadagno che posso aggiungere è tanto dico che sono lontano dal'instabilità metre se in guadagno che posso aggiungere è poco dico che sono vicino.
+
+---
+Immaginiamo di tracciare una circonferenza di raggio unitario sul nostro diagramma di nyquist ed andiamo ad osservare l'angolo che si forma tra l'asse dei reali ed il punto in cui il modulo della F(s) vale 1.
+
+![](img8.png)
+
+E chiediamoci : __Quanto sfasamento posso aggiungere prima di arrivare all'nstabilità?__
+
+Chiamado il punto in giallo __A__ andando ad agire solamente silla fase del sitstema, il punto A percorrerà la circonferenza il senso orario sino ad arrivare sul punto -1.
+
+![](img9.png)
+
+Quindi chiameremo l'angolo un giallo nella figura __margine di fase__ ed è la quantità massima di fase che possiamo aggiungere prima di arrivare all'instabilità
+
+>Questi due margini appena definiti prendono il nome di margini di stabilirà
+
+Questi due margini per nostra fortuna possiamo andare a leggerli anche sui diagrammi di Bode in questo modo:
+
+- __MARGINE DI FASE__
+
+  Per quanto riguarda il margine di fase devo prendere il punto in cui il modulo della F(s) vale 1 ma questo nella scala logaritmica vuol dire prendere il punto in cui il modulo vale 0 e quindi sull'omega di taglio. Identifico lo stesso stesso punto sul diagramma della fase e vado a misurate la distanza tra l'asse dei -180° con la posizione del grafico della fase al valore di omega pari all'omega di taglio.  
+  __ATTENZIONE__: è il magine di fase solamente che la curva della nostra fase si trova sopra i -180° perché nel caso in cui si travasse al di sotto vorrebbe dire che LA F(s) è già passata oltre il punto -1 e quindi che il sistema non è più stabile.
+
+- __MARGINE DI GUADAGNO__
+
+  Per quanto riguarda il margine di guadagno devo trovare l'omega in cui la fase interseca l'asse dei -180° e riportarla sul diagramma del modulo. A questo punto calcolo la distanza dall'asse delle omega con il grafico della nostra fuzione che dovrà trovarsi al di sotto dell'asse delle omega per farsi che il sistema sia stabile.
+
+    ![](img10.png)
