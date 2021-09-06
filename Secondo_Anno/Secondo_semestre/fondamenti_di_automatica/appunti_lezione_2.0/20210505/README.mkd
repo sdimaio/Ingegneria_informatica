@@ -1,0 +1,66 @@
+# Lezione mercoledì 5 maggio
+
+Ieri avevamo iniziato da dare delle relazioni tra le quantiità che avevemo trovato nel tempo e quelle in frequenza ed avevamo detto che la sovrelongazione è proporzionale al modudo di risonanza(risonanza è uguale a poli complessi e coniugati).
+
+Oggi vorremo dare una identificare una relazione tra il tempodi salita e la banda passante.
+
+![](img1.png)
+
+Si effivamente una relazione tra queste due grandezze c'è e l'andremo ad illustare con il mathlab.
+
+Dpo aver sperimentato un po' con il mathlab abbiamo notato che anche se con una piccola differenza, il prodotto tra il  tempo di salita e la banda passante rimane pressoché costante.Questa è una relazione forte che ci permette di scrivere :
+
+![](img2.png)
+
+Una cosa molto importate è quella di mattere in relazione il ciclo aperto con il ciclo chiuso preché noi nel ciclo aperto sappiamo lavorarci.
+
+Oggi andremo ad introdurre l'ultimo strumento di analisi che utilizzaremo proprio per mettee in relazione il ciclo aperto con il ciclo chiuso. Lo strumento che andremo ad utilizzare prende il nome di carta di Nichols
+
+#### Carta di Nichols
+
+Come abbimo sempre detto la W(s) è fatta così:
+![](img3.png)
+
+Ma possiamo invertirla? Certo, infatto grossomodo lo abbiamo già fatto quando abbiamo fatto la sintesi diretta.
+
+![](img4.png)
+
+A cosa ci serve questa cosa? Intanto pensiamo di voler riportare la nostra F(jw) su una carta dove sulle ascisse è riportata la fase e sulle ordinate il modulo. Poi potremo riscrivere la W(s) come modulo e fase
+
+![](img5.png)
+
+Poi potremo fissare un modulo della W e disegnare una curva che rappresenta i valori della W per il modulo che abbiamo fissato e tutti i valori della fase possibili ed otterremo qualcosa del genere
+
+![](img6.png)
+
+Arrivati a questo punto andiamo a disegnare i diagrammi di bode della F(jw) e poi andiamo a disegnare una curva sulla carta che abbiamo realizzato in precedenza riportando i valori del modulo e della fase di F(jw) ed otterremo così questo grafico
+
+![](img7.png)
+
+Disegnata la curva della F(jw) questa andrà ad intersecare la curva di W(s) e quindi noi sapremo nel punto dell'intersezione anche quanto sarà il valore del modulo W(s) dato che per disegnare la curva rossa abbiamo imposto un modulo costante.
+
+Noi abbiamo disegnato una curva solo per una valore del modulo della W(s) se andiamo a disegnare curve per tutti i valori possibili del modulo otterremo una carta si fatta
+
+![](img8.1.png)
+
+Una carta fatta in questo modo prende il nome di carte di Nichols che sarà anche l'ultimo strumento che ci servirà per studiare i nostri sistemi.
+
+Proviamo ad utilizzare la carte di Nichols con un generico diagramma di Bode in modo da riuscirne a capire l'utilità.
+
+Dato questo diagramma di Bode
+
+![](img9.png)
+
+vado a disegnare una curva sulla carta di Nichols. In modo abbastanza approssimato atterrò una curva di questo tipo:
+
+![](img10.png)
+
+Gardando la curva noto che posso trovare tutte le quantità che abbiamo descritto in precedenza e riusciamo a scrivere altre due relazioni.
+
+![](img11.png)
+
+Le altre due realzioni che riesco a ricavare sono che
+- il margine di fase è inversamente proporzionale al modulo di risonanza
+- L'omega di taglio e la banda passante a -3 decibel sono proporzionali.
+
+Adesso non ci resta che studiare le reti correttrici le quali ci permetteranno di inserire coppie polo-zero in maniera strategica in modo da alterare localmente l'andamento in frequenza delle nostre funzioni.

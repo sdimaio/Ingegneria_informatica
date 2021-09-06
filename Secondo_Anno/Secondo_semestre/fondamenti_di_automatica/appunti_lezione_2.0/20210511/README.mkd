@@ -1,0 +1,127 @@
+# Lezione martedì 11 maggio
+
+#### Funzione di sensibilità
+
+LA definizione della funzione di sensibilità è un rapporto di variazioni percentuali tra la variazione percentuale di una funzione Q e la variazione percentuale di un suo parametro alfa.
+
+Quindi immaginiamo di avere una funzione Q(a) e ci chiediamo in valore assoluti quando il parametro alfa varia del 3% quanto sarà la variazione di Q. Se alfa non incidesse su Q la sensibilità sarabbe zero, mentre alfa potrebbe incidere moltissomo su Q arrivanda a valori molto elevati. In formule avremo:
+
+![](img1.png)
+
+È anche possibile di immaginare di calcolare la sesibilità rispetto a parametri composti. Nel senso che Q potrebbe dipendere da un'altra funzione  F che a sua volta dipende da un paremetro alfa. In questo caso potri calcolare la sensibilità di Q rispetto ad F, la sensibilità di F rispetto ad alfa e la sensibilità totare verrebbe tramite il semplice prodotto delle due sensibilità.
+
+##### Nell'ambito dei sistemi di controllo come possiamo utilizzare la funzione di sensibilità?
+
+Mattiamoci nella situazione di avere un sistema a controreazione
+
+![](img2.png)
+
+Potrie immaginare di chiedermi, se c'è un parametro dentro la G(s) la W(s) in che misura è influenzata dalla variazione per esempio della massa(parametro). Se sto ad esempio progettando un sistema di controllo per far andare una motocicletta a 50 chilometri orari cosa cambia se il pilota pesa 60 kg oppure ne pesa 80. Il sistema diventa pericoloso?
+
+È interessante sapere quanto W(s) possa essere influenzata da uno dei parametri presenti in catena diretta o in catena di controreazione solo che non potendo fare discorsi particolari non facendo ipotesi ne su G(s) ne su H(s) posso solo chiedermi quanto la W(s) sia influenzata da G(s) o da H(s) nella sua globalità.
+
+ Per calcolare la sensibilità di W(s) rispetto a G(s)(sensibilità diretta) mi basta applicare la definizione ed ottengo:
+
+ ![](img3.png)
+
+ Dato che G(s)H(s) costituisce l'anello per guadagni d'anello molto elevati la sensibilità tende a 0. una cosa che stiao scoprendo ora è ceh il guadagno d'anello, oltre a migliorare la risposta ad un segnale di riferimento, oltre a limitare l'effetto dei disturbi, migliora anche la sensibilità di W(s) rispetto a G(s).
+
+ Calcolando la sensibilità di W(s) rispetto ad H(s)(sensibilità complementare) dovremo di nuova applicare la definizione ed otteremo:
+
+ ![](img4.png)
+
+ Questa espressione è come scrivere:
+
+ ![](img5.png)
+
+ Dato che H(s) è una costante e W(s) dovrebbe assomigliare ad una costante se il guadagno d'anello dente a valori elevati la sensibilità di W(s) rispetto ad H(s) tende a 1.
+
+ Questo ci da l'ennesima riprova che tutto ciò che succede nella H(s) lo ritroveremo tale e quale nella W(s), quindi nella H(s) non ci devono essere variazioni parametriche.
+
+ Inontre facendo la differenza tra la sensibilità di W(s) rispetto a G(s) e la sensibilità di W(s) rispetto a H(s) otterremo 1, da questo si evince che è impossibile minimizzare entranbe le sensibilità.
+
+ Nel nostro caso quella che tenteremo di rendere il più piccolo possibile è la sensibilità di W(s) rispetto a G(s), se non altro perché nella G(s) c'è anche il processo che io non controllo più di tanto
+
+##### Sensibilità rispetto ai disturbi
+
+Si può calcolare la sensibilità anche rispetto hai disturbi ma comunque rimane il fatto che la sendibilità di W(s) rispetto a G(s) è il parametro più importante perché più piccola è sensibilità in catena diretta minore sarà l'effetto dei disturbi.
+
+![](img6.png)
+
+Mentre per quanto riguarda un disturbo che entra nella catena di controreazione c'è poco da fare dato che la sensibilità della W rispetto ad H vale 1.
+
+![](img7.png)
+
+##### Errore per ingresso sinusoidale
+
+Fin ora abbiamo analizzato solo errori polinomiali. Prendiamo un sistema e mettiamo in ingresso una sinusoide e siccome sto analizznado il regime permanente anche in uscita avrò una sinusoide. 
+
+![](img8.png)
+
+Dopodiche immaginiamo che l'errore in uscita sara uguale a:
+
+![](img9.png)
+
+quindi la funzione di trasferimento dell'errore è solamente:
+
+![](img10.png) che chiameremo We(s)
+
+La funzione di trasferimente dell'errore sarà pari a 
+
+![](img11.png)
+
+Questa però è solamente la funzione di trasferimento. Posso immaginare di avere una specifica che mi dica che l'errore deve essere inferiore di una certa quantità fino ad una certa omega massima
+
+![](img12.png)
+
+A questo punto nulla mi impedisce di fare una analisi frequenza per frequenza, e quindi di scrivere la We(jw)
+
+![](img13.png)
+
+presa la condizione che abbiamo imposto e presa la funzione di trasferimento divifa per Kd posso traduela come segue
+
+![](img14.png)
+
+La F(jw) avrà il suo andamento ad esempio così
+
+![](img15.png)
+
+__Per soddisfare la condizione cosa dovrò fare?__
+
+Per prima cosa dovro mettermi in un punto in cui il modulo della F(jw) sia abbastanza grande. Se il modulo di F è abbastanza grande posso trascurare l'1 nella formula e scrivere:
+
+![](img16.png)
+
+Questo ci fa creare una spece di finestrella di ampiezza Kd su errore massimo fino all'omega massima.
+
+![](img17.png)
+
+Se la funzione si troverà sopra quella finestrella sarò sicuro che fino all'omega massina l'errore sarà inferiore dell'errore massimo che mi ero prefissato. Se eventualmente ci passasse sopra dovrei intraprendere delle azioni correttrici
+
+![](img18.png)
+
+##### Reiezione dei disturbi aleatori
+
+Un discorso simile si può fare per i disturbi aleatori. I disturbi aleatori sono tutti quei disturbi che si collocano in un certo range di frequenze per i quali non viene dato un valore particolare.
+
+Prendiamo questo sistema
+
+![](img19.png)
+
+Immaginiamo che non avessi la controreazione e un disturdo entrasse tra G1 e G2 e il rapporto ingresso uscita sarebbe:
+
+![](img20.png)
+
+am siccome ho la controreazione la fuzioen di trasferimento sarebbe:
+
+![](img21.png)
+
+__Ci domandiamo cosa ci guadagno con la controreazione?__
+
+Facciamo il rapporto tra yzc e yz0 e questo rapporto è quantità di reiezione che solo perché sto utilizzando la controreazione. Una specifica che potrei dare è che questo rapporto potrebbe essere minore ad 1/k. Se vado a vedere bene il rapporto tra questi due termini è pari a 1+F. immaginando che 1 sia trascurabilke rispetto ad F questa specifica mi porta a dire che il modulo di F deve essere maggiore ad un certo guadagno K
+
+__Principio del modello interno__
+Il quale dice: affinche un sistema di controllo un errore nullo a regime permanente deve possedere al sui interno dei sistemi che siano in grado di generare i segnali che tu devi inseguire
+
+
+

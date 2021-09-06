@@ -1,0 +1,253 @@
+# Lezione martedì 18 maggio
+
+#### Linearizzazione
+In questa lezione parleremo sempre di linearizzazione. Questo argomento è molto importante perché tutti i sistemi che andiamo a studiare  in questo corso sono dei sistemi lineari. Noi abbiamo studiato sempre seistemi lineari, e quando ci troviamo difronte a sistemi che non lo sono ed hanno comportamenti diversi da quelli che abbiamo studiato, come ci possiamo comportare? dobbimao esguire una linearizzazione intorno ad un punto di equilibrio. Cosa vol dire linearizzazione intorno ad un punto di equilibrio?
+
+Sappiamo tutti che se ho una curva f(t)
+
+![](img1.png)
+
+è possibile immaginare che intorno ad un certo punto t0 in cui la curva assume il valore f(t0)
+
+![](img2.png)
+
+è pissibile immaginare che in quel punto l'andamento della curva può essere approssimato alla tangente all curva in quel punto.
+
+![](img3.png)
+
+L'nadamento della tangente è uguale all'andamento della curva se mi trovo vicino all'istante t0, non è vero se mi allontano.
+
+È possibile a questo punto portarci nell'ambito dei sistemi dinamici e provare a passare da una descrizione non lineare di un sistema ad uan descrizione approssimata utilizzando la tecnica della linearizzazione.
+
+LA tangente si calcola facendo la derivata allora perché non utilizzare l'espanzione nella serie di Taylor che utilizza le derivate per approssimare delle funzioni.
+
+----
+Andiamo ad analizzare in che situazione ci troviamo. Intanto stiamo trattando un sistema dinamico quindi potremo scriverlo in questo modo
+
+![](img4.png)
+
+Se io avessi un'espressione di questo tipo in cui f è una funzioni non lineare posso provare a vedere se è possibile sostituire la f(x) con quancosa di differente. intanti x non è detto che sia uno scalare ma per ora immaginiamo che lo sia e che appartenga ai reali. L'espanzione di Taylor ha bisogno un punto iniziale, e quale potrebbe essere un punto interessante in questa funzione. sucuramente lo sarebbe un punto di equilibrio, dal'altro canto, se la descrizione che stiamo per dare vale solo se ci troviamo vicino ad un punto. se il punto scelto è un punto di equilibrio è facile che rimarremo nei suio dintorni.
+
+Come si trovano i punti di equilibrio di un'equazione differenziale ? Basta porre a zero tutte le derivare.
+
+![](img5.png)
+
+Chiamati xe tutti i punti di equilibrio vale sempre che F(xe) è uguale a zero.
+
+Allora proviamo a scrivere l'espanzione in serie di Taylor da xe
+
+![](img6.png)
+
+Noi potremo andare ad aggiungere  termini nall'infinito na nel nosto caso tralasciamo i termini di ordine superiore al primo.
+
+![](img7.png)
+
+alal formula precedente manca un dettaglio e cioè che tutte le derivate vanno calcolate in un punto di equilibrio.
+
+![](img8.png)
+
+---
+###### Facciamo un esempio
+
+![](img9.png)
+
+Calocolo i punti di equilibrio e quando pongo a zero x punto ottengo che l'unici punto di equilibrio è in zero.
+
+![](img10.png)
+
+In generale le equazioni differenziali non lineari hanno infiniti punti di equilibrio, questa casualmente ne ha uno solo.
+
+Adesso possiamo provare a fare l'espanzione in serie e scriverò che :
+
+![](img11.png)
+
+In questo caso molto particlare la fuznione viene approssimato con zero quindi è quasi come se sparisse.
+In realtà supponendo di approssimare anche x punto otterrei :
+
+![](img12.png)
+
+L'equazione definitiva è
+
+![](img13.png)
+
+la quale è l'equazione linearizzata.
+
+----
+##### Altro esempio
+
+![](img14.png)
+
+Questa è un'equazione in più variabili ma ricordiamo che l'espanzione in serie di Taylor si può applicare anche si equazioni di questo tipo. Si può approssimare in questo modo:
+
+![](img15.png)
+
+quindi anche se abbiamo due variabili possiamo comunque applicare l'espanzione in serie di Taylor
+
+![](img16.png)
+
+Come posso notare, quando ho equazioni a più variabili non trovo esattamente un punti di equilibrio ma trovo delle realzioni tra i diversi ingressi. Ad esempio posso scegliere il punto di equilibrio come:
+
+![](img17.png)
+
+e l'espressione derivata avrà la seguente espanzione di Taylor
+
+![](img18.png)
+
+Come possiamo verede è un'equazione lineare ed in quanto lineare può essere trasformata con Laplace
+
+![](img19.png)
+
+E se vado a cercare delta x fratto delta questo diventa
+
+![](img20.png)
+
+Questa espessione possiamo inserirla in un blocchetto che andrà a rappresentare la nostra funzione di trasferimento tra delta u e delta x
+
+![](img21.png)
+
+per il quale potremo anche scrivere una sistema di controllo. proviamo a realizzarlo.
+
+![](img22.png)
+
+Questo sistema con K maggiore di 4 è sicuramente stabile perché i poli delle W(s) sarebbero a parte reale positiva.
+
+Se scegliessi K uguale a 10 il sistema sarebbe linearizzato e K sarebbe il controllore che prende in ingresso delta x e lo trasforma in delta u. Ma il sistema non sarebbe questo
+![](img23.png)
+perché questo è il sistema linearizato, il mio sistema non è realmente descritto da quella espressione, ma da questa 
+![](img24.png) in cui in ingresso ho u ed in uscita ho x.
+
+![](img25.png)
+
+Posso ricondurre il sistema con l'equazione differenziale ad estraendo la dinamica linearizzata ed ecco che dovrebbe funzionare.
+
+![](img26.png)
+
+ma cosa mi garantisce che a ciclo chiuso il sistema sia stabile essendo comunque non lineare?
+
+Ricordiamoci che il sistema linearizzato funzione intorno al punto di equilibrio:
+
+![](img27.png)
+
+Cosa succede se ci allontaniamo da questo punto di equilibrio? Nel caso di questo sistema possiamo allontanarci paracchio a sinistra del punto -1 ma di pochissimo verso destra.
+
+Esistono però dei sistemi non lineari che hanno un solo punto di equilibrio con una convergenza globale e quindi anche allontanandosi di molto dal punto di equilibrio il sistema rimane stabile.
+
+----
+Immaginiamo di lavorare con un pendolo.
+
+![](img28.1.png)
+
+- Tau è la coppia
+- D è l'attrito
+- theta è l'angolo dalla verticale
+- M è la massa del pendolo
+- l è la lunghezza del braccio del pendolo
+- g è la forza di gravità
+
+il modello di questo pendolo è:
+
+![](img29.png)
+
+La prima cosa da fare è calcolare i punti di equilibrio che dipenderanno da theta e da tau. Facciamo una cosa semplice e diciamo di volerlo linearizzare intorno alla verticale quindi:
+
+![](img30.png)
+
+Andiamo a definire
+
+![](img31.png)
+
+e derivando entrambi membri otteniamo
+
+![](img32.png)
+
+È da notare che non tutti i membri dell'equazione differenziale non sono lineari
+
+![](img33.png)
+
+Quindi potremo linearizzare soltanto il pezzo non lineare
+
+![](img34.png) 
+
+allora l'equazione che era non lineare diventa
+
+![](img35.png)
+
+Questa linearizzarioen non ci piace perché il pendolo verso il basso è già lineare di suo. Proviamo a linearizzarlo sempre sulla verticale ma nella posizione superiore ed andrà a cambiare anceh il punto di equilibrio.
+
+![](img36.png) 
+
+Rispetto a prima cambierà una sola cosa cioè il valore del coseno in pi-greco.
+
+![](img37.png)
+
+Questo è il pendolo linearizzato in questa posizione
+
+![](img38.png)
+
+sappiamo tutti che questa è una posizione di equilibrio instabile, riusciamo a stabilizzarla con un controllore?
+
+Facciamo la trasformata di laplace per calcolare la funzione di trasferimento
+
+![](img39.png)
+
+Come si può notare il ssitama è instabile ma proverò a sintetizzare una controllore.
+
+![](img40.png)
+
+Anche in questo caso un controllore di tipo K me la cavo perché la W(s) è
+
+![](img41.png)
+
+Anche qui scopriamo che se 
+![](img42.png)
+riusciremo a rendere il sistema stabile ed il pendolo rimane sulla verticale. Come prima abbiamo stabilizzato il sistema lineare ma rispetto a quello non lineare cosa dobbiamo fare?
+
+![](img43.png)
+
+----
+##### Linearizzazione operata dalla controreazione
+
+Immaginiamo di avre un sistema non lineare ma statico(cioè che non c'è un'equazioen differenziale)
+
+![](img44.png) 
+
+a monte di questo sistema io metto un controllore che 1/epsilon(che in fin dei conti è una K)
+
+![](img45.png)
+
+Se volessi calcolare la relazione ingresso uscita fra __r__ e __y__ posso farlo traquillamento come l'ho sempre fatto per tutti gli altri sistemi. Vado a segnare alcune relazioni tra le grandezze
+
+![](img46.png)
+
+L'epsilon al denominatore mi da fastidio e moltiplico tutto per epsilon al quadrato
+
+![](img47.png)
+
+Se epsilon tende a zero, che vuol dire avere un guadagno molto elevato, che cosa rimane dell'equazione precedente
+
+![](img48.png)
+
+ma questa equazione ha una sola soluzione che dice che __y=r__. Che sostanzialmente sta a significare che la relazione ingresso uscita tra il riferimento __r__ e l'uscita __y__ è una retta
+
+![](img49.png)
+
+C'è una relazione lineare tra l'ingresso e l'uscita. Questo vuol dire che anche se sono partito da in sistema statico ma non lineare applicando un controllore ad alto guadagno ho ottenuto una relazione lineare tra ingresso e uscita anche se non sistema continua ad essereci in blocchetto non lineare.
+----
+L'effeto linearizzante della controreazione non funziona solamnete con in sistemi statici per questo na faremo un esempio utilizzando il modello del pendolo che abbiamo studiato precedentemente.
+
+Dato questo sistema
+
+![](img50.png) 
+
+ci domandiamo se esiste un controllore ad alto guadagno che porta il suo comportamento a quello di un sistema lineare.
+
+![](img51.png)
+
+![](img52.png)
+
+Del sistema rimane solamente un integratore, ma dov'è la fregatura?
+
+Al contrario di prima questo è un sistema dinamico ed alzando il guadagno il sistema potrebbe diventare instabile. Quindi tutto il discorso fatto prima va bene solamente se il sistema controreazionato rimane stabile.
+
+
+

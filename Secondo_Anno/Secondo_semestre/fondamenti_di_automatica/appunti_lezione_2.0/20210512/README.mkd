@@ -1,0 +1,55 @@
+# Lezione mercoledì 12 maggio
+
+#### Reti compensatrici
+Oggi andremo a correccere l'andamento della funzione a ciclo aperto aggiungendo una coppia polo-zero attreverso le reti compensatrici
+
+Quando noi pensiamo di poter utilizzare una coppia polo-zero possiamo procedere immaginando di rappresentarlo in questa maniera
+
+![](img1.png)
+
+questa è uan rappresentazione parametrizzata ed i due parametri sono __tau__ ed __m__. Faccio l'ipotesi che m sia positivo maggiore di 1. Quindi Tau/m è più piccolo di tau e rimane chiaro che questa rappresentazione va bene solo per oggetti per cui la radice del numeratore è più piccola di quella del denominatore. RAprpesentiamolo graficamente con il diagramma di Bode
+
+![](img2.png)
+
+Vediamo dove ci porta questa situazione lavorando in maniera asintotica.
+
+![](img3.png)
+
+Immaginiamo che questa coppia polo-zero è anche un po' idealizzata perché è un oggetto al limite di causalità perché è impossibile avere uan risposta armonica costante fino all'infinito, ci saranno dei poli distanti cha fanno riscendere la risposta. Questo oggetto da 1/tau in poi tira su i moduli. Come fa la fase?
+
+![](img4.png)
+
+La domanda che ci possiamo fare è quanto salirà il modulo e quanto salirà la fase. Intanto questo non dipende da tau perché appare sia nel poloche nello zero. Cambiare tau significa traslare tutto verso desta o verso sinistra. Non cambia nulla sulla forma ma solo le frequenza sulle quali andiamo ad agire. Mentre la m distanzia il polo e lo zero. Per m molto piccola avremo una bassa correzione delle fase e del modulo. Modidifando la m ottengo forme completamente diverse.
+
+![](img5.png)
+
+Questo è lo stesso grafico di prima ma disegnato in modo più esatto per diveris valori di m.
+
+Il risultato è ceh abbiamo ottenuto una famiglia di curve parametrizzata in m, ha effetti diversi su modulo e fase in funzione di m e con tau possiamo spostarlo a destra e a sinistra.
+
+Per quanto riguarda questa rete dato che alza la fase possiamo definirla una rete anticipatrice. Esiste una reche che fa l'esatto contrario della rete anticipatrice e viene detta rete attenuatrice.
+
+La cosa iteressante è ceh queste reti possono essere utilizzate in vari modi.
+
+Capiamo come si utilizzano, proviamo a lavoreare con la rete attenuiatrice.
+
+![](img6.1.png)
+
+Possiamo osservare che nella zona nel riquadro verde abbiamo
+- una grande modifica dei moduli(dipendente da m)ù
+- la fase è poco modificata
+
+Questa zone potrebbe essere utile quando noi volgiamo andare a diminuire l'andamento del modulo ma non vogliamo diminuire troppo la fase(ricordiamo che diminuire la fase potrebbe essere pericoloso per la stabilità).
+
+Per quanto riguarda la rete anticipatrice invece
+
+![](img7.png)
+
+Nella rete anticipatrice denoto due zone che potrebbero essere interessanti
+La zona verde:
+- il modulo aumenta quasi sempre della stessa qunatità
+- la fase aumenta molto in funzione di m
+
+La zoma rossa:
+- il modulo aumenta molto in funzione di m
+- la fase aumenta di poco

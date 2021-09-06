@@ -1,0 +1,139 @@
+# Lezione martedì 4 maggio
+
+#### Diagramma di Bode a ciclo chiuso
+
+Prendiamo un sistema che abbia un processo G(s) ed un controllore K per poter alterale il guadagno d'anello, in controreazione mettiamo 1/Kd.ù
+
+![](img1.png)
+
+Poi andiamo a calcolare la W(s)
+
+![](img2.png)
+
+Chiedendosi quale sarà il compurtamento di questo oggetto in frequenza la risposta non è immediata.
+
+Proviamo a riscrivere la G(s) mettendo in evidenza eventuali integratori e ricalcoliamo la W(s).
+
+![](img3.png)
+
+Cosa succede se calcola la W(s) in s=0?
+Da questo calcolo posso avere due possibilità.
+- Se h=0 e per K che tende all'infinito la W(s) tende a Kd.
+- Se h è maggiore uguale ad uno la W(s) sarà sempre uguale a Kd
+
+![](img4.png)
+
+Per s molto piccolo la W(s) è comunque una costante e comincerà da un punto che è Kd oppure che è vicino a Kd ed il suo modulo sarà costante.Sarà costante fino a che non incontrerà un poli o uno zero. Saremmo molto contenti se W(s) rimanesse pari a Kd in interno la così non è e molto spesso ciò che succede è che è scostante fino ad un certo punto poi si ha una risonanza e lentamente il sistema declina.
+
+![](img5.1.png)
+
+Questo tipo di risposta in frequenza è molto frequente tanto che sono stati definiti parametri caretteristici di questa risposta in frequenza.
+- Il primo parametro carratteristico è il __modulo alla risonanza mr__ che definisce quanto la risposta risuano rispetto a Kd.
+
+  ![](img6.png)
+
+  È chiaro che essedo una risonanza è sempre piuttosto pericolasa perché il sistema eccitato a quella frequenza ha una risposta più ampia.
+- Una altro parametro molto importante è la banda passante a 3 decibel che vie realizzata tirando una linea 3 decibel sotto il Kd fino ad arrivare ad intersecare il grafico dove l'amplificazione del sistema è tre decibel sotto Kd
+
+  ![](img7.png)
+
+  Meno tre decibel cosa significa, che tipo di attenuazione è?
+
+  ![](img8.png)
+
+  Come possiamo osservare il sistema passata la banda passante a tre decibel comincia a rispondere male, ha una risposta fiacca.
+
+  ---
+#### Sintesi diretta
+
+Dato che io voglio che la W(s) assomigli il più possibile a Kd posso in qualche modo decidere come deve essere fatto il controllore per riuscire nel mio intento?
+
+Mi trovo in una sistazione di questo tipo :
+
+![](img9.png)
+
+Calcolo la fuzione di trasferimento e dico che quell'oggetto deve essere uguala ad una scostante
+
+![](img10.png)
+
+Scrivendo questa equazione e risolvendola per C(s) otterro immediatamente come deve essere fatto il nostro controllore
+
+![](img11.png)
+
+Ma le cose non sono così semplici perché 1/P(s) potrebbe essere anticausale o a limite di causalità. Quello che abbiamo fatto fin ora non è stata fatica buttata per per ottenere qualcosa dobbiamo abbassare le nostre pretese. Non potremo mai avere la w(s) sempre costante e pari a Kd.
+
+Possiamo ripartire imponendo che la W(s) invece di essere pari a Kd può essere pari a questo oggetto
+![](img12.png)
+
+![](img13.png)
+
+Questo equivale a chiedere che l'andandamento della W(s) sia così:
+
+![](img14.png)
+
+Come prima andiamo a risolvere questa equazione per C(s) ed otterremo
+
+![](img15.png)
+
+Come prima abbiamo il termine 1/P(s) ma d'altro canto questa si chiama sisntesi diretta prorpio perché cerchiamo di cancellare il processo se possibile. A differenza di prima però questo tipo di approccio è possibile perché il polinomio che andiamo ad aggiungere ci servirà per bilanciare l'eccesso poli-zeri della P(s). l'unico problema che rimane è che noi operiamo una cancellazione del processo.
+
+---
+
+###### Cancellazione polo-zero/stabilità interna
+
+Immaginiamo di avere un sistema così fatto:
+
+![](img16.1.png)
+
+Con due processi però c'è una cancellazione polo-zero e il polo che sto cancellando è un polo instabile, cioè a parte reale posistiva, o un zero a parte reale positiva quindi a fase non minima .
+
+Calcolando la W(s) avremo
+
+![](img17.png)
+
+Andandola a semplificare otterremo
+
+![](img18.1.png)
+
+Dato che il polo si trova in
+
+![](img19.png)
+se questo polo è negativo allora il sistema è stabile.
+
+Posso verificare se sia posistivo andando a risolvere questi due sistemi
+
+![](img20.png)
+
+A questo punto ancora non abbiamo dimostrato nulla perché il sistema sembra stabile dato che la W(s) per opportuni K non ha poli a parte reale positiva ma comunque nel sistema ho due blocchetti separati che hanno due dinamiche distinte. Una delle quali è instabile e quindi in una frase posso dire
+
+>Qualunque loop di controllo io realizza se c'è una cancellazione devo comunque preservare la stabilità interna
+
+Questo che volendo fare una cancellazione poli-zero con poli a parte reale negativa possi farla semza problemi.
+
+---
+
+Come abbiamo detto a inizio lezione il ciclo chiuso presenta una serie di caratteristiche che abbiamo già enunciato
+
+![](img21.png) il modulo alla risonanza e la banda passante a -3 decibel
+
+Elenchiamo gli altri parametri nel ciclo chiuso, cioè quelli della risposta nel tempo.
+- Tempo di salita, che è il tempo per andare dal 10% al 90% dell'uscita a regime
+- Sovrelongazione
+- Tempo di assestamento, il quale è il tempo che ci vuole prima che l'uscita sia confinata "in un tubo"
+
+![](img22.png)
+
+Adesso andiamo a riportare i parametri a ciclo aperto:
+
+![](img23.png)
+
+Ricordiamo che il margine di fase e il margine di guadagno sono legati, se cresce uno creace l'altro e vicecersa.
+
+Andiamo ad elencare tutte le quantità citate fin ora sia nel ciclo aperto che nel ciclo chiuso.
+
+![](img24.png)
+
+Esistono dei legami tra tutte queste quantità?
+Se non proprio dei legami, esistemo degli andamenti simili, del tipo cresce una cresce anche l'altra?
+
+- il modulo alla risonanza è proporzionale alla sovrelongazione
