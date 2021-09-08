@@ -1,0 +1,318 @@
+# Lezione martedì 8 giugno
+
+Il teorema del campionamento ci dice che se ho un segnale continuo prodotto dall'uscita di un sistema
+
+![](img1.png)
+
+Dopodiche passo questo oggetto all'interno di un campionatore che molto spesso è indicato con una spacie di interruttore
+
+![](img2.png)
+
+ed ecco che ho una sequenza di campioni. Secondo Shannon poi il segnale campionato dovrebbe passare in un sistema la cui risposta armonica è una Rect. E teoricamente posso far passare il mio segnale in questo oggetto il segnale che otteniamo in uscita dalla somma di tutte le sinc potrebbe essere simile se non uguale al segnale di partenza.
+
+![](img3.png)
+
+Come abbiamo detto la lezione scorsa, queste cosa non è possibile in real time perché questo approccio utilizza anche i campioni futuri.
+
+Quindi per quando riguarda i sistemi di controllo norlmalmente l'unica cosa che posso fare è utilizzare un D/A che ha un busche entra portando dei numeri a n bit e poi ha un'uscita analogica. DAto che tutti i D/A ad intervalli regolari convertono il numero che ricevonon in ingresso in un segnale di tensione. Imamgino di avre questi numero ad una cadenza regolare e l'unica cosa che il D/A riesce a fare è convertire il numero quando gli arriva e poi mantenere costante la tensione per tutto l'intervallo sino all'arrivvo del nuove numero. Quindi quello che si ottiene è sempre una gradinata
+
+![](img4.1.png)
+
+Nel momento in cui uso un oggetto di questo tipo ma ricostruisco veramente il segnale che avevo campionato? In realtà per dare uan risposta e abalizzare quello che succede devo ricavare il modello matemetico del convertitore D/A. Il modello matematico alla fine non è troppo difficile, in realtà è un sistema che prede il nome di organo di tenuta indicato con T(s) e avrà una funzione di trasferimento. Prende in ingresso un segnale che è una sequenza di impulsi e in uscita produrrà la gradimata di prima
+
+![](img5.1.png)
+
+Rocordiamo che il segnale in ingresso campionato era
+
+![](img6.png)
+
+in realtà questo sono tutti gli impulsi sfalzati nel tempo. E la sua trasformata di laplace è questadato che la trasformata dell'impulso è 1 e quello che rimane da scrivere è solo l'esponenziale della traslazione
+
+![](img7.png)
+
+In uscita cosa abbiamo? in KTc arriva il campione Xk che rimane costante fini al prossimo intervallo, Quindi l'output di questo oggette tra KTc e (k+1)Tc è una costante pari a Xk.
+
+![](img8.png)
+
+Notiamo che una costante di questo tipo può essere ottenuta sommando due gradini uno positivo che  in KTc assume un valore pari a Xk ed un altroche in (k+1)Tc assume un valore unguale ma negativo.
+
+![](img9.png)
+
+La somma di questi due gradini da esattamente il contriduto che si serve tra KTc e (k+1)Tc, in pratica una rettangolo che sarà alto Xk. Posso scrivere questo segnale come sommatoria di tutti i rettangoli che si ottengono e i rettangolo come sommatoria di questo gradini?
+
+Il singolo rettangolo rosso posso scriverlo come
+
+![](img10.png)
+
+La formula appena scritte rappresenta il rettangolino rosso e se li sommo tutti insieme ottengo la gradinata
+
+![](img11.png)
+
+Di questa espressione posso fare tranquillamente la trasformata di Laplace
+
+![](img12.png)
+
+Vediamo bene che c'è qualcosa che può essere portato fuori dalla sommatoria
+
+![](img13.png)
+
+Quello che otteniamo non è altro che il segnale in ingresso moltiplicato per un qualcosa e quel qualcosa non può essere altro che la funzione di trasferiment dell'organo di tenuta T(s) detto anche di ordine zero. Di ordine zero perché il realtà considera solo l'ultimo campione o lo tiene costante. Esistono anche tenute di altri ordini. Ad esempio nella tenuta di ordine 1 l'uscita non è una costante ma prende in considerazione i due campioni precedenti
+
+![](img14.png)
+
+Una volta che ho stabilito che la tenuta di ordine zero è
+
+![](img15.png)
+
+Vogliamo sapere come è fatta, non è molto facile disegnare il diagramam di Bode di quest'oggetto perché al numoratore abbiamo un esponenziale. Però possimo provare a fare un diagramma approssimato utilizzando l'espanzione il serie dell'esponenziale.
+
+![](img16.png)
+
+io potrei approssimarlo al primo ordine dicendo che
+![](img17.png)
+
+mentre l'esponenziale ch stiamo considerando è
+![](img18.png)
+
+Sostituiamo questa cose nell'organo di tenuta e avremo
+
+![](img19.png)
+
+il che ci fa anche capire una cosa che se anche all'inizio abbiamo pensato che ci fosse un integratore, saltare al conclusioni con al numeratore un esponenziale non è possibile.
+
+Quello che abbiamo scritto però potrebbe valere per
+
+![](img20.1.png)
+
+Comunque ci darà delle buone indicazioni andando a tracciarne in diagramma di Bode. T(s) ha un guadagno pari a Tc ed un polo
+
+![](img21.png)
+
+Notiamo che non è tanto diverso dal filtro ideale, anche se taglia prima e la sua discesa è più lenta.
+
+![](img22.png) in bianco il filtro ideale
+
+Se facciamo lo stesso discorso fatto nella scorsa lezione avremo anche
+
+![](img23.png)
+
+Quindi l'omega c dovrebbe esse 6 volte più grande dell'omega massima ma la scelta ingegneristica che sa fa per metterci al riparo dal fenomeno dell'aliasing qunado si usa l'organo di tenuta è
+
+![](img24.png)
+
+Quindi in un sistema di controllo l'omega c deve essere 1o volte più grande della massima frequenza che vogliamo riprodurre. La cosa buona che che abbiamo capito ceh possimo tranquillamente usare l'orgnano di tenuta ma dibbiao tenerci più larghi.
+
+----
+
+Andiamo a cosiderare la seconda modalità per andare ad approcciare i sstemi a segnali campionati. Con quell detto fin ora siamo riusciti a rispondere alla domanda di come scegliere il Tc ma ancora non abbiamo risposto a come facciamo a implementare un controllore continuo nel discreto.
+
+Per rispondere a questa seconda domanda dobbiamo renderci conte che l'unica cosa che possiamo implementare in un controllore discreto e un'equazione alle differenze.
+
+![](img25.png)
+
+Questa è un'equazione computabile in maniera ricorsiva partendo da delle condizioni iniziali. Questa apppena scritta è un'equazione di ordine 1 perché utilizza un solo campione indietro. Stiamo implementando un sistema discreto che prende come ingresso la sequenza uk e in uscita avremo la sequenza yk
+
+![](img26.png)
+
+E partendo da delle condizioni iniziali pari a zero in questo caso posso calcolarmi l'uscita per tutti i valori di k
+
+![](img27.png)
+
+Quindi il grafico dell'uscita sarà
+
+![](img28.png)
+
+Quest ooggetto posso implementarlo all'interno di un controllore. Posso immaginare che la u sia l'errore  e la y il segnale di controllo e quindi il controllore viene calcolato in base alla stato precedente del controllore più il segnale di errore che arriva dall'esterno. Solo che questo oggetto non è un'equazione differenziale mentre non controllore noi abbiamo una descrizione che è un'equazione differenziale. Quindi dobbiamo capire come passare da una all'altro. Per fare questo siamo costretti ad utilizzare una nuova trasformata
+
+##### La trasformata Z
+
+La trasformata Z è una trasformata molto semplice che per alcuni versi assomiglia alla trasformata di Laplace. Solo che prende in ingresso una sequenza e produce un funzione razzionale fratta con un numeratore e un denominatore che sono due polinomi.
+
+Andiamo a vedere come è definita:
+
+![](img29.png)
+
+Come facciamo a scriverla come rapporto tra polinomi? Bisogna ricordare che le seria a volte convergono. Se io ho una serie geometrica del tipo
+
+![](img30.png)ù
+
+so che può essere scritta come in figura a patto che il modulo di x sia minore di 1.
+
+Questo vuol dire che abbiamo qualche speranza che anche la trasformata Z converga.
+
+Dato che noi siamo interessati a sequenza originate dal campionamento di un sistema continuo. E siccome abbiamo detto che il campionamento di sistemi continui significa campionare andamenti esponenziali abbiamo ancora una volta poche funzioni note che andremo a trattare. Immginiamo di avre un andamento nel continuo di questo tipo
+
+
+![](img31.png)
+
+Imamaginiamo di campionare questa funzione ed avremo diversi valori e potremo definire il campione yk che poi andrà trasformato in Z
+
+![](img32.png)
+
+Se proviamo a fare la trasformata Z di questa sequenza
+
+![](img33.png)
+
+Questo lo possiamo manipolare un po' perché il k sta da tutte due le parti ed otterremo
+
+![](img34.png)
+
+Noteremo che fissato Z quello che è nella parentesi è una costante quindi questa è una serie geometrica. Questa cosa è possibile se il modulo della funzione è minore di 1
+
+![](img35.1.png)
+
+Immaginiamo sempre che z sia complesso questo significa che la serie converge se il suo modulo e maggiore di qual'esponenziale
+
+![](img36.png)
+
+L'eponenziale disegna una circinferenza e la quindi la serie converge all'esterno di questa circonferenza.Quindi possiamo definire quell'esponenziale come ascissa di convergenza
+
+![](img37.png)
+
+Questo ci fa piacere perché vuol dire che in certi casi eseste il limite della serie che possiamo calcolare
+
+![](img38.png)
+
+Quindi quest'oggetto ha uno zero in zero e un polo in e alla pTc.
+
+Notiamo che che ![](img39.1.png) in laplace da ![](img40.png), invece la sequenza ![](img41.png) mi dai in Z ![](img42.png). Notiamo che il s abbiamo un polo in p e in z un polo in e alla pTc
+
+![](img43.png)
+
+Questa relazione dobbiamo ricordarla preché la ritroveremo
+
+---
+Possiama andare a calcolare dei casi particolari
+
+![](img44.png)
+
+---
+##### Proprietà
+
+- Ritardo
+
+Immaginiamo di avere una sequenza base
+
+![](img45.png)
+
+Questa trasformata in z mi darebbe
+
+![](img46.png)
+
+Immaginiamo la stessa sequenza ritardata di un campione che vuol dire che nella nuova sequenza si ha
+
+![](img47.png)
+
+Se trasformiamo in z avremo
+
+![](img48.png)
+
+Possimo notare che tra la prima e la seconda la differenza è che la sequenza ritardata è uguale a alla sequenza non ritardata moltiplicata per z alla -1
+
+![](img49.png)
+
+Quindi z alla meno 1 rimane definito come una specie di operatore di ritardo
+
+![](img50.png)
+
+- Teorema del valor finale
+
+Ci servirà per ricavare il guadagno. Ho una sequenza e ci sottraggo campione per campione la sequenza ritardata
+
+![](img51.png)
+
+È chiaro che man mano che vado avanti quello che rimane è sempre soltanto l'ultimo campione. Questa sottrazzione possiamo scriverla come
+
+![](img52.png)
+
+Adesso se voglio andare all'infinito, ma l'infinito nel tempo corrisponde a z=1 devo
+
+![](img53.png)
+
+----
+Detto questo andiamo ad utilizzare la trasformata Z con un'equazione alle differenze
+
+![](img54.png)
+
+A questo punto possiamo cacololare la trasformatad i qualunque equazione alle differenze e anche in quel caso possiamo calcolare una funziine di trasferimento
+
+![](img55.png)
+
+Quindi il problema di implementare in controllore discreto C(z) partendo da un controllore continuo C(s) è pressoché risolto.
+
+Quindi la domanda che mi sto facendo è
+
+![](img56.png)
+
+Facciamo un esempio
+
+![](img57.png)
+
+![](img58.1.png)
+
+e questa è chiaramente un'equazione alle differenze implementabile in qualunque controllore.
+
+----
+Il passaggio da C(s) a C(z) è molto complicato ma cerchiamo di formalizzarlo.
+
+Nel continuo abbiamo
+
+![](img59.png)
+
+Mentre per le sequenze abbiamo
+
+![](img60.png)
+
+L'ultima equazione del continuo e del discreto sarebbero uguali se
+
+![](img61.png)Questa relazione possiamo chiamarla relazione esatta tra s e z
+
+In effetti la relazione tra il piano z e il piano s è quella che abbiamo trovato ma una relazione problematica perché non possiamo invertirla. Partendo da una funzione razionale frata non arrivo ad una funzione razionale fratta anche se comunque resta una ralzione corretta tra il piano s e il piano z.
+
+Per provare a capire questa relazione e vedere che effetti ci da, possiamo provare ad applicarla al piano s e vedere come il piano s. Prendo un piano s e vado a considerare la striscia centrale sinistra.
+
+![](img62.png)
+
+Questa semistriscia per il piano s rappresenta una zona di convergenza. Questa striscia posso dividerla in tre pezzi
+
+![](img63.png)
+
+E ci chiediamo la relazione esatta come proietta questa semistriscia sul piano z? Andiamo prima a vedere cosa succede su c. Intanto
+
+![](img64.png)
+
+ora se applico la trsformazione esatta che dicevamo prima
+
+![](img65.png)
+
+Possiamo osservare che la z per omega che viaggia tra meno omega c mezzi e più omega c mezzi, viaggia tra e alla j più pi-greco e alla j meno pi-greco
+disegnado una circonferenza.
+
+![](img66.png)
+
+Il semipiano sinistro del piano s è contenuto in questa circonferenza o no?
+
+Per verificarlo basta che prendo un altro segmento sigma
+
+![](img67.png)
+
+e scrivo
+
+ ![](img68.png)
+
+ la fase sarà sempre la stessa ma il modulo dato che sigma è negativo sarà più piccolo e quindi avremo una circonferenza più piccola all'interno della circonferenza precedente
+
+ ![](img69.png)
+
+ Quindi la semistriscia sinistra si trova tutta dentro la circonferenza. Questo vuol dire che tutti i sistemi che hanno dei poli a parte reale negativa se li trasformo con la relazione esatta avremo dei poli all'interno del cerchio unitario.
+
+ Con questa affermazione siamo arrivati ad un criterio di stabilità di z
+
+ ![](img70.png)
+
+ Mentre a e b sono
+
+ ![](img71.png)
+
+ ----
+ 

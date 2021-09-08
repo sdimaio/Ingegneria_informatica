@@ -1,4 +1,4 @@
-# Lezione giovedì 6 giugno
+ # Lezione giovedì 6 giugno
 
 Da oggi cominciamo a lavorare con modelli e rappresentazioni nel digitale. Se abbiamo capito qual è il processo che deve essere ocmpioto cioè il campionamento del segnale, il calcola della legge di controllo e la trasformazione del segnale da digitale da analogico però anon abbia nessuno strumento che ci consente di:
 1. capire se stiamo facendo un buon lavoro
@@ -80,7 +80,7 @@ Scritto in questa maniera ci aiuta, LA rastrelliera potremo scriverla come
 Però la scrittura della rastrelliera in questo modo non ci è congeniale, potremo svilopparlo in serie di Fourier
 
 ---
-####### Inciso sulla serie di Fourier
+###### Inciso sulla serie di Fourier
 
 Se ho una funzione periodica questa può essere scritta come la sommatoria di k= - infinito fino a + infinito di uan serie di coefficenti per e alla jk omega c per t
 
