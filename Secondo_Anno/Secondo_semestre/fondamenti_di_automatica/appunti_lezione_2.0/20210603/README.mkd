@@ -1,0 +1,242 @@
+# Lezione giovedì 6 giugno
+
+Da oggi cominciamo a lavorare con modelli e rappresentazioni nel digitale. Se abbiamo capito qual è il processo che deve essere ocmpioto cioè il campionamento del segnale, il calcola della legge di controllo e la trasformazione del segnale da digitale da analogico però anon abbia nessuno strumento che ci consente di:
+1. capire se stiamo facendo un buon lavoro
+2. di procedere in maniera analitica e precisa all'implementazione di un controllore che potremo aver scritto come una funzione contunua
+3. non abbiamo nessun indizion su come scegliere in tempo di campionamento, tempo di campionamento sul quale dobbiamo lavorare parecchio
+
+Intano per lavorare su queata cosa dobbiao scegliere una modellistica che ci da una maniere matematica per rappresentare i segnali che dobbiamo trattare. Questi modelli non sono univochi, infatti anche noi in questo corso utilizzaremo almeno due modelli. una che si rifà alla teoria del contunuo e una che si rifà alle serie.
+
+Immaginiamo di avere un segnale x(t) continuo
+
+![](img1.png)
+
+Dopodichè per utilizzare gli strumenti che si siamo proposti di utilizzare, cioè un processore, che ciclicamente va a vedere quanto vale il segnale e poi fa dei calcoli. Per questo noi dovremo definire una serie di istanti ai quali dobbiamo andare a campionare e quindi a convertire il digitale il segnale. Fissati questi istanti sappiamo che i valori che possiamo recuperare  sono
+
+![](img2.png)
+
+Per lavorare in "serenità" per evitare di utilizzare equazioni troppo complicate faremo finta che la quantizzazione non esista. Se vogliamo utilizzare delle teorie lineari più o meno note dobbimo ricorrere a questo escamotage. Poi sappiamo che all'aumentare il numero di bit il problema della quantizzazione diminuisce ma non sparisce mai del tutto, ce lo terremo come un disturbo.
+
+Dal campionamento di un segnale continuo avremo una serie di numeri
+
+![](img3.png)
+
+Una possibilità è quella di seguire l'approccio di Shennon, cioè immaginiare di mettere in corrospondenza di ogni campione un impulso di ampiezza pari alla funzione che sto campionando
+
+![](img4.png)
+
+Allara il segnale campionato potrebbe essere scritto come una sommatoria
+
+![](img5.png)
+
+Notiamo che questa è sempre e soltanto una modellazione, non confondiamolo con la realtà delle cose. Però nella rappresentazione tempo continuo il segnale campionato vogliamo rappresentarlo come una sommatoria di impulsi. È corretto perché se vediamo bene il contenuto informativo è preservato. Mentre x(t) p un oggetto infiniti dimensionale, per ogni valore di t posso trovare una valore di x(t), trovo infiniti punti anche in un intervallo finito. Invece il contenuto informativo del segnale campionato sono i campioni Xk. Il contenuto informativo è correto, quindi cosa decreta il successo di una rappresentazione? È che quella rappresentazione sia manipolabile con strumenti matematici tramite i quali si è in grado di fare considerazioni, magari anche delle previsioni per poi vengono verificate dall'esperienza.
+
+Una delle primissime considerazioni che possiamo fare le possiamo fare facendo la trasformata di laplace di quest'oggetto.
+
+![](img6.png)
+
+Una  caratteristica di questa trasformata si può notare subito. Essendo s una variabile complessa
+
+![](img7.png)
+
+Notiamoche la prima parte dell'esponenziale è un numero reale mentre la seconda parte è periodica
+
+![](img8.png)
+
+Se io vado a rappresentare questa trasformata i valori di Xc(s) si ripetono sempre uguali ogni volta che la parte immaginaria si sposta di un moltiplo di omega c. Questo vuol dire che posso individuare una striscia centrale. ad una volta che so quali valori assume la trasformato in quella striscia so anche che valori assume nell successiva o in quella precedente
+
+![](img9.png)
+
+Questo ovviamente succede anche sull'asse immaginario, se dovessi mettere s=jw  e rappresentare solo l'asse immaginario
+
+![](img10.png)
+
+Quello che succede tra meno omega c fratto due e più omega c fratto due me lo ritrovo tale e quale negli infiniti intervalli successivi.
+
+Questo tipo di analisi per quanto semplice e immeddiata non mi dice come è fatto il segnale campionato. Per arrivare a determinare questo risultato abbiamo bisogno del teorema di Shennon o teorema del campionamento.
+
+##### Teorema del campionamento
+
+Andiamo a vedere un passaggia abbastanza semplice che ci consente di scrivere una trasformata di Laplace in modo diverso. Per fare questo dobbiamo introdurre la rastrelliera di impulsi.
+
+![](img11.png)
+
+La rastrelliera di impulsi è una sequenza di impulsi unitari, Se moltiplichiamo la rastrelliera per un segnale continuo dobbiamo immaginare che ogni impulso va moltiplicato per l'ampiezza del segnale nella posizione dell'impulso
+
+![](img12.png)
+
+il risultato di questa moltiplicazione è proprio il segnale campionato che abbiamo descritto prima
+
+![](img13.png)
+
+Sostanzialmente quello che abbiamo detto è che il segnale campionato si può anche scrivere come il prodotto tra la rastrelliera e il segnale continuo
+
+![](img14.png)
+
+Scritto in questa maniera ci aiuta, LA rastrelliera potremo scriverla come
+
+![](img15.png)
+
+Però la scrittura della rastrelliera in questo modo non ci è congeniale, potremo svilopparlo in serie di Fourier
+
+---
+####### Inciso sulla serie di Fourier
+
+Se ho una funzione periodica questa può essere scritta come la sommatoria di k= - infinito fino a + infinito di uan serie di coefficenti per e alla jk omega c per t
+
+![](img16.png)
+
+Sritta in modo equivalente ma utilizzando seni e coseni è:
+
+![](img17.png)
+
+Questa ad esempio è un'espressine che considera solo k positivi
+
+__Come si calcolano i coefficienti ck?__
+
+Sostanzialmente come tutte le cose che hanno a che vedere con una scomposizione in serie, specialmente con delle funzioni ortogonali tra di loro, si calcolano con una specie di prodotto interno che andiamo a definire
+
+![](img18.png)
+
+Che questo sia un prodotto interno accettabile potrei verificarlo andando a vedere se due funzioni di base sono ortogonali tra di loro. In pratica dovrei fare il prodotto innterno tra due esponenziali.
+
+![](img19.png)
+
+Adesso dato che ci siamo accertati che il prodotto interno è stato definito correttamente posso andare a calcolare i Ck. E ricordiamo che la finzione che voglio espandere in serie di Fourier è la rastrelliera
+
+![](img20.png)
+
+Se vado a calcolare l'integrale in questo intervallo l'unico impulso che ci casca dentro è quello con k=0 che casca in zero. L'esponenziale calcolato in zero vale 1 quindi l'integrale vale 1/Tc.
+
+![](img21.png)
+
+detto questo abbiamo finito perché questo risultato ci consente di scrivere che delta di t possimo espanderla in serie di Fourier.
+
+![](img22.png)
+
+I Ck sono tutti uguali a 1/Tc e poi abbiamo la funzioen base. Quindi quando faccio il prodotto x(t) per la rastrelliera
+
+![](img23.png)
+
+Lo posso scrivere come
+
+![](img24.png)
+
+adesso se faccia la trasformata di Laplace posso andare a trasformare ogni singolo elemento di quella sommatoria
+
+![](img25.png)
+
+E dato che abbiamo la moltiplicazio di un segnale per un esponenziale quando andiamo a trasformarolo con laplace otteniamo una traslazione. Poi c'é da osservare che a destra abbiamo la traformata di Laplace del segnale non campionato.
+
+![](img26.png)
+
+Quindi alla domanda che ci eravamo fatti prima di cosa c'e nella striscia centrala possiamo rispondere dicendo  che c'é la trasfrmato so laplace del segnale non campionato. Quindi l'unico effetto del campionamento é la multiplazione lungo l'asse immaginario di quello che era il segnale non campionato. Non sto creando un oggetto nuovo sto ricopiando quello che avevo prima un po' sopra e un po' sotto. Questo significa che anche se considero solamente lo spettro comunque ottengo
+
+![](img27.png)
+
+Per fare un disegno fatto meglio rispetto a prima. imamgininamo di avere l'asse delle omega e Immaginiamo chce prima del campionamento il nostro segnale non campionato abbia una spettro fatto in qualche modo tipi un andamento passa basso. Questo diagramma ha anche omega negative e il diagramma di Bode a cui siamo abbituati é solo la parte a destra dell'asse delle ordinate
+
+![](img28.png)
+
+Supponiamo di campionaelo e supponiamo anche che omega c  mezzi si trovi oltre la fine del segnale campionato
+
+![](img29.png)
+
+Questo  vuol dire che il segnale ha senso fino ad un omega massima e poi ci rimane poco e niente. Vuol dire che il suo diagramma di Bode sta andando giú molto rapidamente.
+
+![](img30.png)
+
+Il modulo del segnale campionato a quelo punto sará una sommatoria di oggetti ,alterati nel guadagno ma non nella forma, traslatia di Wc a destra e a sinistra dello zero. Dato che la sommatoria é di k che va da meno infinito a piú infinito posso andare a disegnare questi oggetti infinitamente a dastra o infinitamente a sinistra dello zero.
+
+![](img31.1.png)
+
+Questa faccenda che viene una moltiplicazione in frequenza di suo non sarebbe nulla apparte il fatto che uno deve chidersi, se ho i campioni del mio segnale sono in grado di ricostruire il mio segnale di partenza?
+
+Mi faccia questa domanda perché mi sto chiedendo se mi sto perdendo informazioni o meno. Se sto perdendo informazioni anche l'effetto del mio controllore che sta lavorando su informazioni campionate sará ridotta. Mi farebbe piacere lavorare in maniera tale che l'informazione non si perda. LA condizione affinche l'informazione non si perda e che io partendo dai campioni posso ricostruire il segnale continuo é prorpio che questi lobi siano belli separeti tra di loro. Dice Shannon che se sono separati tra di loro posso immaginare di prendere il segnale campionato(che matematicamente é un segnale continuo) lo faccia passare attraverso un filtro passa basso ideale che lascia passare sole le frequenza tra meno omega c mezzi e omega c mezzi
+
+![](img32.png)
+
+Se esistesse un filtro di questo tipo, in sistema  che fa esattamente questa cosa, di tutti questi lobi potrei andare a recuperare solo il lobo centrale e quindi dire che ho nella pratica ricostruito il segnale continuo. Peró dire di far passare in segnale in un filtro passa bassa ideale sono parole vuote se non si dice come si fa. Far passare un segnale qualunque all'interno di un filtro significa avere un sistema che accetta al suo ingresso il segnale campionato e tira fuori un segnale y(t) e passa per un filtro che ha una risposta impulsiva h(t)
+
+__Com'é fatta la risposta impulsiva h(t) di un oggetto simile ?__
+
+Sappiamo tutti che se ho una Rect in frequenza e ne faccio l'antitrasformata di Fourier ottendo una Sinc. Quindi la corrispondenza é questa: se ho un filtro passa basso ideale, questo trasfoemato al contrario nel tempo corrisponde ad una Sinc.
+
+![](img33.png)
+
+Com'é fatta questa sinc in particolare ?
+
+![](img34.1.png)
+
+Allora a cosa corrisponde la frase faccio passare il segnale campionato attraverso un filtro passa basso descritto da questa risposta impulsiva? Se quella é la risposta impulsiva e il segnale campionato é pari ad una sequenza d'impulsi
+
+![](img35.png)
+
+Avró  una sommatoria di risposte impulsive
+
+![](img36.1.png)
+
+E la somma di tutte le componenti bianche dovrebbe ricreare il segnale non campionato. In pratica dovrei avere tutte queste sinc, piazzarle correttamente nel tempo, sommarle e dovrebbe tornare il signale originale.
+
+![](img37.png)
+
+Ricordiamo che la condizione ideale per cui vale questa cosa é che omega c sia maggiore di omega massima
+
+![](img38.png)
+
+Questa é anche la condizione del teorema di Shannon che dice che se é verificata le cose stanno messe bene. imamgininamo infatti che in questo caso le cose siano messe bene, teniamoci questa relazione ma chiediamoci se questa cosa si possa sempre fare.
+
+Il problema di questa cosa é che il filtro non e causale perché la risposta impulsiva e diversa da zero per valori maggiori di zero che andrebbe anche bene ma é diversa da zero anche per valori negativi quindi anvrebbe una risposta prima che l'impulso arrivi.
+
+![](img39.png)
+
+La parte in rosso é causalissima ma la parte in giallo non lo é. O se vogliamo, quando l'andiamo ad usare nella convoluzione(la y(t) é il risultato dell'integrale di convoluzione) la cosina gialla é quella che punta verso il futuro. Quindi questo filtro per funzionare ha bisogno dei campioni futuri che si puó fare se ho giá creato tutti i campioni e li ho reggistrati da qualche parte.
+
+-----
+
+LA cosa é ancora peggiore se la condizione che la omega c sia maggiore di due volta l'omega massima
+
+Se per caso
+
+![](img40.png)
+
+il lobo centrale sarebbe sempre lo stesso ma i lobi laterali non sarebbere distanziati abbastanza ed avremo una cosa del genere
+
+![](img41.png)
+
+Se mi trovo in questa situazione e provo ad utilizzare il filtro passa basso di prima succedono due fenomeni importati:
+- Qualcosa  rimane fuori e quindi mi sono perso tutto il contenuto informativo che si trova oltre omega c mezzi(la frequenza omega c mezzi prende il nome di frequenza di Nyquist) anche se perdere informazioni ad alta frequenza non é sempre male perché potremo avre delle cose poco significative a quelle frequenze, tipo il rumore.
+- Un'altro problemna che posso trovare e che il segnale che non campiono lo trovo ribaltato ad una frequenza piú bassa. Quindi cominciano a presentarsi degli alias ed il fenomeno si chiama aliasing ed é la creazione di componenti in frequenza ceh prima non esistevano. Questo problema é dovuto al fatto di aver campionato male.
+
+__Come posso uscire fuori dal fenomeno dell'aliasin?__
+
+Ne posso uscire fuori in due modi:
+
+1. Aumento l'omega c cioé l'omega di campionamento. Peró aumentare omega c puó essere un'operazione molto costosa.
+2. Uso  un filtraggio a monte del campionatore. cosa vuol dire che uso un filtraggio? in pratica vuol dire che prima di andare a campionare uso un filtro chiamato filtro anti aliasing che é simile ad un filtro passa basso e quindi quello che vado a campionare poi é il segnale in uscita da quel filtro
+
+![](img42.1.png)
+
+quello che otterremo é in segnale i cui lobi saranno larghi esattamente omega c e quindi non saranno sovrapposti l'uno con l'altro.
+
+![](img43.png)
+
+Il risultato é che in fase di ricostruzione utilizzando la sinc vado ad estrarre solo il lobo centrale
+
+![](img44.png)
+
+Quindi dopo tutto questo abbiamo evidenzato il fatto che il filtro ideale non si possa utilizzare nei sistemi di controllo per ricostruire il segnale ma ancora non abbiamo trovato un modo per farlo.
+
+----
+
+Nel caso reale il segnale da campionare non é detto che sia perfettamente limitato in frequenza e quello che si trova tra meno omega massima e omega massima sia tutti buone a volte ci possono essere dei lobi chge sono solo rumore
+
+![](img45.png)
+
+in realtá il filtro anti aliasing é un filtro necessario e tutti gli schemi di controllo sono  fatti cosí
+
+![](img46.png)
+
+Quindi il filtro anti-alising é un filtro che si trova fuori dal sistema di controllo. Qualche volta il filtro anti aliasing puó essere fatto anche digitalmente. Se potremo sovreccampionare potremo implementare un filtro anti aliasin digitale altrimenti deve essere per forza esterno e analogico.
+
+L'unico problema a cui non abbiamo risposto é il seguente: cosa fase visto che il filtro di Shannon non é realizzabile? Questo lo vedremo nella prossima lezione e si tratterá dell'organo di tenuta

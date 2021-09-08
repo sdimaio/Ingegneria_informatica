@@ -1,0 +1,146 @@
+# Lezione mercoledì 26 maggio
+
+###### Sistemi di controllo a segnali campionati
+
+Sappiamo tutti che il cuore di qualsiasi sistema digitale in grado di eseguire un programma è sicuramente il microprocessore. Allora imaginiamo di avere un microprocessore.
+
+![](img1.png)
+
+I processori hanno molti pregi e difetti ed uno dei difetti è che comunicano con l'esterno attraverso i bit, quindi usano delle reppresentazioni numeriche bianrie. Il problema che tutti questo mondo digitale vive a contatto con il mondo reale che non è digitale. Tra il mondo digitale e il modo continuo noi dovremo inserire qualcosa. Noi possiamo continuare a rappresentare il nostro processo con una scatolina
+
+![](img2.png)
+
+il quale ha una grandezza di ingresso che chiamiamo __u__ e se questa u è una tensione che fa muovere qualcosa deve essere dotata di in amplificatore.
+
+![](img3.png)
+
+La caratteristica degli amplificatori non è solo quelle di amplificare la tensione ma quella di fornire corrente sufficiente ad un carico che non può essere collegato direttamente ad un microprocessore che è in grado di erogare solamente pochi milli-amper. Mentre un amplificatore operazionele accette ingressi a bassa potenza consumando corrente nell'ordine dei mill-amper. Si però e sempre una tensione analogica che vai in un range. mente i microprocessori producone dei bit, ad esempio 0 o 5 volt. Quindi tra l'amplificatore e il processore va inserito qualcosa che chiamiamo DAC.
+
+![](img.png)
+
+Il DAC(digital-analog-converter) è un oggetto che perende in ingresso una rappresentazione ad n bit. Sappiamo che con n bit possiamo avere 2 alla n livelli, questa rappresentazione potrebbe corrispondere ad un range all'uscita del convertitore potrebbe essere  
+
+![](img4.png)
+
+Questo significa che il DAC è l'anello di collegamento tra il mondo digitale e il mondo continuo.
+
+![](img5.png)
+
+Certamente lo è ma se andiamo a vedere con grafico la relazione ingresso uscita di un DAC ad otto bit
+
+![](img.png)
+
+L'uscita del DAC, che è una tensione in questo caso, quando in entrata ha zero la tensione sarà zero, mentre quando in ingresso c'è il numero più grande rappresentabile con quei bit avrò il massimo della tensione. Però ogni volta che da zero c'è un incremento di uno posso aumentare la tensione solo di un 256-esimo in questo caso con 8 bit. Quindi in uscita avremo una cosa fatta così:
+
+![](img6.png)
+
+Avrò una specie di gradinata perché il mio processore può incrementare solo di numeri interi. Quindi il sarò costretto a quantizzare l'uscita. La quantizzazioen può diventare un problema e sarà meno visibile all'aumentare di n(gradini più piccoli) preché il passo di quantizzazione sarà più piccolo. Il passo di quantizzazione si calcola come la tensione massima erogabile diviso 2 alla n
+
+![](img7.png)
+
+Un approccio incentrato allo studio ci porta per semplicità ad approssimare la gradinata in uscita dal DAC con una retta. Se andiamo a fare la sottrazzione tra la retta e la gradinata abbiamo il segnale in violetto
+
+![](img8.png)
+
+Questo segnale(violetto) viene detto rumore di quantizzazione e viene studia a paarte dopo avere studiato l'uscita del DAC come lineare.
+
+>Nello studio del digitale le simulazioni sono fondamentali perché ci sono alcuni fenomeni poco lineari che vi avidenziano meglio con una simulazione.
+
+Valori tipici di uscita dei DAC:
+
+![](img9.png)
+
+Quindi il DAC in uscita può avere anche una corrente questo perché se il DAC è molto lontano dall'amplificatore operazionale collegato al processo da controllare se in uscita avessi una tensione con grandi distanze avrei una perdita di tensione. Se in uscita invece ho una corrente anche a grandi distanze questa rimane inalterata.
+
+![](img10.png)
+
+Tornando al nostro loop di controllo in uscita dal sistema ho un segnale magari analogico in tensione.
+
+![](img11.png)
+
+Poi prendiamo l'uscita e torniamo indietro per entrare in una scatoletta che viene definita filtro anti-aliasing, che risolve in parte il problema che si ha con la sovrapposizione del segnale.
+
+![](img12.png)ù
+
+Dopo di che all'uscita del filtro anti aliasing ho in convertitore analogico/digitale che il parole povere fa il contrario di quello che fa il DAC. Cioè trasforma in n bit un segnale analogico. Questo segnale analogico però va ricondizionato in modo che si vada a posizionare nel range dell'A/D,che potrebbe essere 0/10 volt, mentre il processo potrebbe produrre valori compresi tra 3 e 25 volt.
+
+##### Andiamo a studiare questo caso
+
+![](img13.1.png)
+
+A questo punto il convertitore analogico digitale converte 0-10 in dei bit.
+
+----
+
+__Come faccia a scegliere quanti bit utilizzare?__
+Intanto bisogna ricordare due principi fondamentali:
+1. Non controllo quello che non misuro
+
+  Ad esempio se sto facendo il posizionamento di in asse al decimo di grado, è chiaro che se non riesco al leggere il decimo di grado non potrò posizionarlo. Per misurare correttamente il dacimo di grado ho bisogno di almeno 3600 posizioni. Quindi avrei bisogno di almeno 12 bit.
+2. È inutile campionare il rumore
+
+  Nella vita reale i segnali non sono così:
+
+  ![](img14.png)
+
+  Vorrebbero essere così ma in realtà sono
+
+  ![](img15.1.png)
+
+  Perché ci potrebbe essere del rumore sovrapposto. Immaginamo che il rumore sia soltando dell'1%, se utilizzassi 12 bit, quindi 4096 livelli, andrei al leggere un 4000-esimo dei valori di fondo scala perderei tempo andando a campionare il rumore. Se avessi l'1% di rumore mi potrebbero andar bene 128 livelli anche se campionando a più di un centesimo l'ultimo bit ballerà un pochino essendo l'errore di un centesimo.Utilizzando 6 bit e quindi 64 livello andrei a perdere delle informazioni campionando a meno di un centesimo. Quindi la scelta migliore sarebbero 128 livelli e quindi 7 bit.
+
+  ![](img16.png)
+
+  Quindi il rumore ci dice di non campionare troppo, la precisione dell'azionamento ci dice che almeno dobbimo campionare in certo numero di volte e quelle che decideremo sarà una via di mezzo.
+
+  ----
+
+  Continuiamo il nostro sistema di controllo aggiungendo dei segnali di controllo che sono SOC e EOC.
+
+  ![](img17.png)
+
+  - SOC, start of convertion, il microprocessore dice al'A/D di iniziare la conversione
+  - EOC, end of convertion, l'A/C comunica al microprocessore che i dati da lui richiesti sono pronti per la lettura.
+
+  ----
+  Dato che se stiamo proggettando un sistema di controllo avremo sempre il microprocessore, il DAC e l'A/D, questi tre oggetti molto spesso si trovano nello stesso chip e vengono chiamati microcontrollore.
+
+  ![](img18.png)
+
+  Il microcontrollore e un processore dedicato all'intefecciamento con processi fisici e quindi al suo interno possiede convertitori analogici digitali e digitali analogici.
+
+  ---
+
+  Vediamo quali sono in problemi che vogliamo risolvere in queste lezioni sull'analogico.
+
+  Dato un controllore con un guadagno, degli integratori e delle reti compensatrici.Le reti compensatrici possono essere più di una perché queste reti permettono o di alzare il guadagno e alzare la fase o diminuire entrabi. Se ho in problema asimmetrico in cui devo abbassare il guadagno e alzare la fase con una sola rete non ce la posso fare. In fin dei conti questo controllore ha un numeratore ed un denominatore io però lo volglio implementare in un microcontrollore e l'equazione che rappresenta il controllore è un'equazioine differenziale continua. Come sappiamo invece un microcontrollore implementa un programma che è una cosa ciclica.
+  
+  ![](img19.png) 
+  
+  Io potrei implementare un programma 
+  
+  ![](img20.png)
+  
+  Il controllore potrebeb essere una cosa del genere che è un'equazione alle differenze del tutto ricorsiva
+  
+  ![](img21.png)
+  
+  Che vuol dire carica il DAC mandagli un numero e degli di convertire.
+  
+  ![](img22.png)
+  
+  Devo aspetta rela fine di Tc prechè tutte queste operazioni devono essere fatte a intervalli regolari e qui si presentano vari problemi. Imamginiamo di riportare sull'asse dei tempi un ciclo
+  
+  ![](img23.png)
+  
+  È chiaro che qui c'è un intervallo di tempo che va tra la fine dell'ultima conversione D/A e la prossima conversione A/D che devo aspettare
+  
+  ![](img23.1.png)
+  
+  quindi la fase 4 è importante per dare regolarità al nostro sistema di controllo. Però il tempo da aspettare non è sempre lo stesso perché ad esempio la legge di controllo potrebbe essere calcolata con tempi diversi in base al valore in ingresso, quindi di solito si fanno uso di __interupt associati al clock di sistema__. In pratica programmo il clock di sistema per produrre un'interruzione ogni Tc ed associ a quell'interruzzione il richiamo di una procedira che comprende solo per prime 3 fasi. 
+  
+  ![](img24.png)
+  
+  In questa maniere il microprocessore nel main non contiene nulla ed ogni Tc ci sarà un'interrupt che chiama questa procedura. Ogni volta che si mette in piedi una procedua associata ad un interrupt sarà precisa solamente se il sistema operativo permette un'esecuzione immediata dell'interrupt stesso, questo perché i sistemi operativi usati normalmente danno precedenzza alle routin del kernel 
+  
+  
