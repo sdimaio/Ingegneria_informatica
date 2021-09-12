@@ -232,6 +232,7 @@ ma questa equazione ha una sola soluzione che dice che __y=r__. Che sostanzialme
 ![](img49.png)
 
 C'è una relazione lineare tra l'ingresso e l'uscita. Questo vuol dire che anche se sono partito da in sistema statico ma non lineare applicando un controllore ad alto guadagno ho ottenuto una relazione lineare tra ingresso e uscita anche se non sistema continua ad essereci in blocchetto non lineare.
+
 ----
 L'effeto linearizzante della controreazione non funziona solamnete con in sistemi statici per questo na faremo un esempio utilizzando il modello del pendolo che abbiamo studiato precedentemente.
 
