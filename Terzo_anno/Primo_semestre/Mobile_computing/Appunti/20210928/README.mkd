@@ -1,0 +1,13 @@
+# Lezione martedì 28 settembre
+
+#### Breve storia di Mobile computing
+Prima di studiare architetture, modus operandi e altro dobbiamo capire da dove è nato tutto.
+
+Cos'è un device mobile?
+Ci sono diverse opinioni per quanto riguarda il mobile. Non solo i cellulari sono mobile ma qualsiasi cosa che si può spostare ad esempio portatili.
+
+![](img1.png)
+
+![](img2.png)
+
+![](img3.png)
