@@ -1,0 +1,16 @@
+# Lezione martedì 28 settembre sistemi operativi
+
+![](img1.png)
+
+![](img2.png)
+
+Il sistema operativo si frappone tra hardware e applicazioni, al suo interno ci sono delle componenti che sono, il kernel, librerie che permettono l'accesso ai servizi del kernel e poi applicazioni di sistema.
+
+Negli anni 40 metà 50 le nostre macchine non aveva sistema operativo e il software doveva interagire con l'hardware. Per lanciare un programma l'utente doveva fare tutto manualmente con la possibilità di errori. Poi non c'era nessuno scheduling, viene svolto un job alla volta e c'era il problema dell'allocazione statica dello slot temporale. Per risolvare questi problemo sono stati introdotti i sisteme Batch.
+
+---
+
+Introducendo il Batch system vengono tagliati dei costi ma ne vangono aggiunti altri. Cioè vengono dedicate delle risorse al monitor ad esempio la memoria oppure il processore.
+
+---
+Un'aspetto interessante dei sistemi operativi è come il software corre dietro l'hardware. 

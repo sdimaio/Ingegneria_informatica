@@ -1,0 +1,92 @@
+# Lezione giovedì 30 settembre basi di dati
+
+#### Modello relazionale
+
+Andremo a vedere come sono strutturati i dati nei DB.
+
+![](img1.png)
+
+I modelli logici sono modelli con i quali i dati sono mostrati in modo semplice, espressivo che ma schera la realizzazione più interna che a volta può essere molto complicata.
+
+Il modello relazionale è il più diffuso e negli ultimi anni sono nati altri modelli che non hanno avuto troppo successo anche se per alcuni aspetti molto validi.
+
+Il modello relazionale è sintetizzato da questa immagine
+
+![](img2.png)  
+
+In cui i dati sono rappresentati in tabelle.
+
+Guardando questi dati che commento viene in mente di fare?
+
+Un collega ha detto che ci sono delle chiavi ed è vero.
+
+Le varia tabelle sono relazionate tra loro studenti- esami tramite le matricola e esami-corsi tramite il codice dei corsi.
+
+In queste tabelle non c'è nulla di nascosto.
+
+Queste tabelle contengono valori che si utilizzano in pratica, nelle basi di dati relazionali non c'è nulla di nacosto solo i dati utilizzati.
+
+LA visualizzazione di queste tabelle è quella naturale(punti di forza del modello relazionale)
+
+Il modello relazionale nasce da una rielaborazione delle relazione matematica.
+
+In matematica una relazione è un sottoinsieme di un prodotto cartesiano.
+
+Supponiamo di avere due insieme uno di due elementi e una di tre
+
+![](img3.png)
+
+Il prodotto cartesiano tra questi due insieme e l'insieme di tutte le possibili coppie in cui il primo elemento appartiene ad un insieme e il secondo appartiene all'altro
+
+![](img4.png)
+
+Una possibile relazione potrebbe essere
+
+![](img5.png)
+
+e posso rappresentarla che sotto forma di tabella. In questo caso abbiamo una relazione binaria perché andiamo a prendere in considerazione due domini. Le relazioni possono essere ennarie cioè relazioni tra n insiemi diversi de una relazione può essere un qualsiasi sottoinsieme del prodotto cartesiano di insiemi.
+
+##### Osservazioni importati
+
+- __Struttura non posizioinale__
+
+![](img6.png)
+
+Richiede una convenzione nell'interpretazione dei dati. Quindi anche se la struttura non posizionale molto spesso funziona a volte è anbigua perché c'è bisogno di dare un attributo che di norma viene usato per descrivere il contenuto della colonna
+
+![](img7.png)  
+
+Osserveremo che i modelli di data base sono realizzati seguendo il modello non posizionale.
+
+- __I DB sono realizzati da valori__
+
+---
+Se noi prendiamo una relazione di questo tipo
+
+![](img8.png)
+
+Andiamo a fare delle osservazioni, Cosa sarebbe stato di diverso con l'anno scorso se ad esempio quest'orario fosse di quest'anno? In sostanza ogni tabella ho una strutture che non cambia o cambia raramente ma il contenuto delle tabelle viene cambiato spesso.
+
+In ogni DB esiste una struttura stabile nel tempo chiamo __schema__ e poi c'è il contenuto che cambiano molto rapidamente. Il contenuto viene chiamato __istanza__.
+
+- Schema di relazione -> che ha di solito un nome (il prof usa generalmente la R)
+- Attributi -> Che sono le colonne in pretica (il prof le indica con la A)
+- Dominio -> associato ad ogni attributo
+
+Il prof indica lo schema della relazione scrivendo in nome della relazione e tra parentesi l'elenco degli attributi.
+
+Schema di una base di dati sarà composto da un'insieme di schemi di relazioni con nomi diversi ognuno con i suoi attributi
+
+![](img9.png)
+
+L'istanza di relazione su uno schema sarà un insieme di ennuple(riga) dove sostanzialmente ha un valore per ciascun attributo.
+
+Un istanza di base di dati è uian relazione per  ciascuno schema di relazione nello schema della base di dati..
+
+Se abbiamo una ennupla possiamo parlare ti un valore di un suo attributo andiamo ad utilizzare questa notazione
+
+![](img10.png)
+
+Una cosa importante da dire sul modello relazionale è che le tabelle sono solo una rappresentazione dei dati con un qualche ordine tra riche e colonne ma l'ordinamente è puramente casuale. In una base di dati non ha nessun ordianamente solo relazioni tra i suoi elementi.
+
+La struttura delle tabelle è alquanto rigida

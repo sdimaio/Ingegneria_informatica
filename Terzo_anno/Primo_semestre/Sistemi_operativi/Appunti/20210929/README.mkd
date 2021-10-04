@@ -1,0 +1,100 @@
+# Lezione mercoledì 29 settembre sistemi operativi
+
+Con il sistema batch utilizziomo di più la memoria e la cpu il problema è che non è un sistema interattivo. Ci serve una macchina che ci permette di eseguire i job entro un certo liomite temporale.
+
+Dal 2005 in poi il multicore ci permette di aumentare la potenza computazionale, ma in questo caso anche le applicazioni devono essere prograsmmate in modo parallelo e concorrente.
+
+deve eeservi un 'attenzione' verso il consumo energetico perché questo cirtuiti dissipano energia e quindi calore.
+
+Osservare la storioa degli so è interessante anche guardare come si evolvo anche l'hardware.
+
+Acnhe se ci siamo fermati agli anni 60 abbiamo introdotto quesi tutti i metodi
+
+----
+
+I sistemi operativi sono guidati dagli interrupt.
+
+![](img1.png)
+cio che deve fare un SO
+
+Virtualizzazione dove i processi vedono quando sono in esecuzione vededo che la cpu è dedicata solo a loro quindi l'interupt per loro è trasparente, è come se un processore virtuale si occupoassa di loro.
+
+![](img2.png)
+
+Le istruzioni privilegiate non possono essere eseguita dal software chiendo il permesso al SO.
+
+Tutti i meccanismi sono correlato con la gestione degli interrupt
+
+##### Interrupt
+
+I ssitemi operativi moderni sfruttano moltissimo gli interrupt. Gli eventi che possono scatenare un interruzione sono :
+- Una volta scaduto il timer
+- L'esecuzione di istruzioni privilegiate che di solito ppossono essere legata all'esecuzione del programma
+
+![](img3.png)
+
+Eventi sincroni legati all'attività che il processore sta eseguendo e quelli asincroni non legati alle istruzioni che stra eseguendo in questo momento.
+
+![](img4.png)
+
+>Interrupt diversi hanno diverse gestioni
+
+All'arrivo di un interrupt ce sono alcune soluzioni per la gestione:
+- LA cpu interroga tutti i dispositivi per sapere chi è stato
+- Ogni interruzione ha una sua 'firma'
+
+![](img5.png)
+
+Supponimo di avere uan cpu che non gestisce gli interrupt, quindi esegue le istruzuioniuna dopo l'altra. Per la gestione degli interrupt inseriamo un'altro stadio
+
+![](img6.png)
+
+LA gestione degli interrupt possono essere abilitate e disabilitate
+
+L'interrupt handler è uan procedura che viene eseguita a valle di un'interruzione deviando dal normale flusso di istruzioni.
+
+##### Possibile gestioni di Interrupt
+
+Arriva un interrupt e la cpu salva da qualche parte delle informazioni dovute all'interruzione, dopodiché il firmware di dice quale routine andare ad eseguire e alla fine viene eseguito l'ìinbterrupt handler.
+
+![](img8.png)
+
+Grafico che ci fa vedere perché i sistemi interrupt driven sono più efficienti
+
+![](img7.png)
+
+Esempio di gestione dell'interrupt dovuto allo scadere del timer
+
+![](img9.png)
+
+Il processo B può andare in esecuzione peché si trovare nello stato precedente.
+
+![](img10.png)
+
+>Settare timer è un'istruzione privilegiata
+
+![](img11.1.png)
+
+Gli interrupt elencati sopra sono sincroni perché dipendono dall'attività della cpu e quindi sono TRAP.
+
+Per proteggere l'accesso in memoria posso
+
+![](img12.png)
+
+Se l'address non si trova tra base e limit viene lanciata una TRAP.
+
+Il firmware si occorge se stiamo eserguendo un'istruzione privilegiata
+
+![](img13.png)
+
+Nella cpu ci sono dei registri che ci dicono in modalità siamo se user o kernel mode. Nel momenti in cuiarriva un' istruzione privilegiata basta andare a vedere in quale mode ci troviamo nel caso si troviamo nella user mode si lancia una TRAP.
+
+La chiamata di sistema fa eseguira ad un programma delle istruzioni kernel
+
+![](img14.png)
+
+![](img15.png)
+
+L'utente fa una syscall
+
+![](img16.png)

@@ -1,0 +1,25 @@
+# Lezione martedì 28 settembre di economia applicata all'ingegneria
+
+il corso si sviluppa in tre parti:
+- __Microeconomia__ un po' di strumenti microeconomici, studieremo l'economia come un problema di ottimizzazzione. La prima parte serve a dare un po' di parole chiave. Finita la prima parte dovremo saper parlare di aspetti economici. Il tema del corso è semplice, ma non bisogna considerarlo troppo semplice per non sottovalutarla. Nella prima parte del corso ci sarà una modellazione matematica di fenomeni economici
+- __Contabilità direzionale__ Devo capire quanto mi costa quello che sto producendo. Impareremo ad utilizzare degli strumenti per determinare il costo pieno di ogni prodotto. Il problema dei costi indiretti. __La seconda parte del corso prevede un'interrogazione orale__. Dopodiche si danno i costi per scontato e si va ancora più dentro l'azienda.
+- __Valutazione dei progetti di investimento__ Impareremo delle tecniche di analisi finanziaria da utilizzare nell'ambito della valutazione di progetti di investimento. __Previsto un ulteriore esonero scritto con domande di teoria__
+
+----
+
+Parleremo del mercato, introdirremo questo concetto. Il mercato è un luogo dove vengono scambiati beni e servizi, può essere reale e virtuale ed è il luogo dove vengono scambiati bene e servizi e questo scambio è caratterizzato da un prezzo. Noi ci occuperemo di beni che vengono scambiati a determinati prezzi. In particolare analizzaremo l'impatto che ha sulla quantità e sui prezzi dei beni venduti il comportamento degli attori(agenti economici). Un ruolo sul prezzo dei prodotti sono il consumatore e i produttori. La domanda di mercato è un'equilibrio tra la domanda e l'offerta, questo sono i primi due attori. C'è anche un'altro attore ed è lo stato che monopolizza alcuni servizzi
+
+###### Consumatore
+Quando parliamo di consumantore parliamo di un attore non sazio. Nel'ipotesi microeconomica della curva di felicità del consumatore è una curva crescente o per lo meno non decrescente. Il problema che andiamo a rappresentare matematicamente è prorpio il vincolo di bilancio, cioè le disponibilità del consumantore.
+
+![](img1.png)
+
+Il prezzo può essere esso stesso funzione della x(sconti quantità). Il consumatore tipico e
+
+![](img2.png)
+
+AL suluzione X1 che si chiama suluzione di frontiera ed è il punto in cui il consumatore compra solamente un bene senza comprarne atri e spendendo tutto il budget per la condizione di non sazietà. Le suluzioni ottime si troveranno sulle rette di frontiera e sullo spigolo superiore. Se il prezzo è costante l'insieme di bilancio posso scriverlo come sopra. Cosa succede se espendo l'analisi ad un terzo bene avrò un solido mentre se ho in solo bene avrò un segmento che va da zero e arriva su m/p.
+
+![](img3.png)
+
+Cosa rappresenta il coefficiente angolare della retta? La derivata del 

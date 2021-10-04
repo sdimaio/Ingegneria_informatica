@@ -1,0 +1,118 @@
+# Lezione lunedì 4 ottobre - Basi di dati 1
+
+Oggi continuiamo i raggionamenti sul modello relazionale. Andremo a vedere elementi in più che servono per modellare i dati.
+
+#### Vincoli di integrità
+
+Non sempre i Db sono corrette
+
+![](img1.1.png)
+
+Per esempio in questo db ci sono 4 errori
+
+![](img2.png)
+
+I vincoli di integrità più impportati sono supportati dai DBMS. SE metti dati sbaglaiti ti danno una bacchettata sulle mani. Esistono anche vincoli non supportati, proprietà contorte che i DBMS non supportano.
+
+L'esempio di prima conteneva 4 categorie di vincolo che venivano violati.
+
+![](img3.png)
+
+Vincoli intrarelazionati che si trova nella stassa relazione.
+
+##### Vicoli di dominio
+
+POne restrizioni in un attributo. Per specificare questo vincolo possiamo usare una condizione booleana.
+
+###### Andiamo ad osservare i vincolo supportati dai DBMS
+
+LE istruzioni per creare la base di dati si trovano sui lucidi(dobbiamo prendere le istruzioni come un abra cadabra per ora). Gli attributi della prima tabella saranno MAtricola, voto, un booleano, ed un codice.
+
+Avendo definito il Db posso andare a definiri i vincoli
+
+![](img4.png)
+
+Andando a definire questo vincolo sulla base di dati appena creata ci darà un'errore. Eliminando l'ennupla che non rispettava i vincoli ovviamente non avremo un errore.
+
+![](img5.png)
+
+###### Vincolo di ennupla
+
+![](img6.png)
+
+![](img7.1.png)
+
+- Condizioni semplici che confrontanon un attributo con una costante o due attributi
+
+>Se durante una transazione una delle operazioni non va a buon fine tutte le operazioni di quel commit non vanno a buon fine
+
+###### Vincolo di chiave(il più importante)
+
+ Serve per l'identificazione delle ennuple
+
+ ![](img8.png)
+
+ Il concetto di chiava è legato al fatto che esiste un vincolo che definisce che un attributo è chiave e non deve essere ripetuto.
+
+ >Una relazione può avere anche più di una chiave
+
+Dire due chiave vul dire che ciascun attributo identifica univocamente le ennuple a esempio per gli studeti sia la matricola che il codice fiscale.
+
+![](img9.png)
+
+Andiamo ad osservare questo DB e vediamo che che la tabella esami ha una chiave composta da due attributi. LA chiave ha come attributo lo studente ed il corso, questo perche ad esempio solo l'attributo studente non identifica univocamente l'ennupla e questo vale anche per l'attributo corso. Le prime due ennuple hanno la stessa matricola per lo studente.
+
+![](img10.png)
+
+Se osserviamo non ci sono più ennuple con lo stesso studente e corso ma ci sono con lo stesso studente o lo stesso corso.
+
+In questo esempio [studente, corso] è la chiave, quindi noi dobbiamo sempre fare attenizione alle proprietà che modelliamo e la realtà in cui stiamo lavorando.
+
+> Superchiave è un insieme che contiene la chiave
+
+![](img11.png)
+
+Ogni insieme ha una chiave che vengono utilizzate per riferimenti tra tabelle diverse.
+
+![](img12.png)
+
+Dobbiamo fare attenzione ai valori nulli soprattuto sulle chiavi perché potremo non riuiscire a determinare un'ennupla.
+
+![](img13.png)
+
+Abbiamo una relazione con due chiavi ma con molti valori nulli, quindi non si capisce molto.
+
+Ad esempio la prima e la seconda riga potrebbero essere la stessa persona se la matricola e CF fossero li stessi.
+
+La soluzione per risolvere questo problema si potrebbe scegliere una chiave e definire che un attributi di essa non sia mai nullo.
+
+in SQL ci sono due termini che corrispondono alla chiave e alla chiave primaria
+
+![](img14,png)
+
+UNIQUE -> chiave
+PRIMARY KEY -> chiave primaria
+
+Per definire una chiave con più attributi la sintassi è
+
+![](img15.png)
+
+#####Integrità referenziale(ultimo tipo di vincoli)
+
+![](img16.png)
+
+![](img17.png)
+
+Con questa base di dati possiamo dire che serve un vincolo che ogni coppia stato targa che compare nelle infrazione deve compatire anche nella auto.
+
+Possiamo definire un vincolo interrelazionale
+
+![](img18.png)
+
+![](img19.png)
+
+Questo perché vogliamo che i valori delle infrazioni siano valori utiliozzabbiliper  identificare vigili e automobili. Questi due valori devono comparire insieme.
+
+![](img20.png)
+
+Sui vincoli di integrità referenziale si possono avere valori nulli ma in modo controllato

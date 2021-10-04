@@ -1,0 +1,64 @@
+# Lezione mercoledì 29 settembre - Economia applicata all'ingegneria
+
+Con la scorsa lezione eravamo rimasti con questa slide
+
+![](img1.png)
+
+avevamo analizzato il vincolo di bilancio che è un vincolo che se lo rappresentiamo con due variabile avremo
+
+![](img2.png)
+
+devo m sta per il reddito
+
+Viene rappresentato sul primo quadrante del piano cartesiano.
+
+Una semplice analisi del vincolo di reddito è analizzare cosa succe dese il reddito aumenta. Se aumente succede che l'insieme dei panieri ammisibili aumenta. Dal punti di vista grafico la retta si trasla.
+
+Come può aumentare il reddito disponibile di un consumatore?
+- Guadagna di più
+- Sposta le sue preferenze di acquisto su determinati beni
+- Guadagna di meno, sembra assurdo ma questo reddito è riferito a una determianta coppia e può succedere che il consumatore guadagnando meno sposta il suo reddito su beni che prima non aquistava ad esempio beni alimentari.ù
+- Diminuiscono le tasse, se diminuiscono le tasse m aumenta.
+- Quando ci sono dei sussidi riferiti per esempio ad una particolare categoria di consumatori(ad esempio sconti sui trasporti per gli studenti)
+
+Quando invece può diminuire?
+- Un aumento delle tasse
+
+Quindi la fugura sopra esprime tutti i cenno fatti ieri agli attori sulla definizione dei panieri. PErché con la tassazione e con i sussidi si interviene sul reddito, con una tassazione globale e un sussidio globale che ha effetto su tutti il beni.
+
+Il poliedro delle soluzioni che viene definito insieme di bilancio, cioè la numerosita delle coppie dei due prodotti(in questo caso). L'ampiezza dell'insieme di bilancio dipende da policy di questo tipo ma dipende anche da politiche che anno impatto non sul redditi ma sul prezzo dei beni.
+
+Può succedere che il produttore aumenti il prezzo di x1 e se il reddito resta costante succederà che la spesa del bene x1 diventa maggiore, quindi l'impatto sull'insieme di bilancio non è altro che un cambiamento del coefficiente angolare, quindi è chiaro che la retta non può far altro che avere un'inclinazione inferiore.
+
+Ad esempio in prezzo può variare al variare dell'iva. Ad esempio nel mercato italiano i beni sono esposti già con l'iva negli stati uniti invece il bene è esposto con un prezzo al netto dell'iva.
+
+La concorrezza fa abbassare i prezzi e questo fa aumentare la l'insieme dei panieri ammissibili, facendo accedere al mercato di determinati beni consumatori che altrimenti non avrebbero potuto permettersi di comprarli.
+La diminuzione di prezzi dovuta lla concorrenza permette di avere un publico più ampio quindi anche se i produttore hanno una fetta di torta più piccola la torta sarà più grande.
+
+![](img3.png)
+
+il comportamanto del consumatore è tipocamente un comportamento dove la frontiera non è spesso l'ottimo, parleremo di regolarità dei comportamenti. Per capore questo fenomeno facciamo un esempio: quando si va in autostrada(persone che non hanno il telepass) immaginiamo la coda ai caselli. LA coda e maggiore sui caselli al centro come se le persone non si fidassero a prendere il casello all'estremo e il casello non funzionasse cosa faccio? Il comportamento del consumatore è mediamente questo che cioè fa la scelta intermedia.
+
+ #### Razionamento
+
+ Graficamente vuol dire che il mio insieme di bilancio che prima era un triangolo diventa un trapezio. Ho eliminato dall'insieme di bilancio tutti i panieri che hanno, ad esempiop una x2, superiore a quello che io consento perché razionata. Coma rappresento analiticamente questo vincoli di bilancio?
+
+ Come un sistema
+
+ ![](img4.1.png)
+
+ Se vado a razionare la _r_ dovrà essere minore di m diviso p2. Perché se pongo un vincolo di razionamente più alto del vincolo di bilancio questo risulterà inefficace.
+
+ Questo è il sistema che rappresente l'insieme ammissibile.
+
+ ![](img5.png)
+
+ Tassazione da un certo punti in poi. Se acquisti più di un certo quantitativo viene tassato di più. Analiticamnete si rappresenta come:
+
+ ![](img6.png)
+
+ #### Esercizio
+
+ ![](img7.png)
+
+ ![](img9.png)

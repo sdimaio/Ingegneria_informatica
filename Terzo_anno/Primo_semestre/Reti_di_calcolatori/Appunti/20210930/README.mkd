@@ -1,0 +1,78 @@
+# Lezione giovedì 30 settembre reti di calcolatori
+
+##### Modello iso-osi (international standards organization, open system interconnection)
+
+la lezione di oggi è dedicata all'architettura a strati di un calcolatore.
+
+L'organizzazione iso a destritto tanti a anna fa uan standars che si chiama osi che è uno standard che quasin non esiste più ma viene presentato in questo corso perché la terminologia utilizzataq in questo standard ha definito la terminologia delle reti.
+
+![](img1.png)
+
+Tutti i termini scritti un questa tabella sono i livelli dell'architettura iso-osi. Questi livelli sono numerati dal basso verso l'alto.
+
+La filisofia del modelli iso-osi è che vede la rete come un'architettura a strati. L'idea del modello iso-osi è di pensare la rete come un'architetture stratificata.
+
+![](img2.png)
+
+![](img3.png)
+
+Questa è un'idea di successo?
+La tecnoligia cambia andando a cambiare i traduttore facendo lorto usare un linguaggio più efficiente.
+
+![](img4.png)
+
+i pc non comunicano comunicano tra di loro i processi. Ad eseempio se sto usando la posta elettronica e manda un messaggio ad un untente ci saranno pezzi di software nei computer che comunicano tra loro.
+
+![](img5.png)
+
+Perché si è arrivati a 7 strati?
+Perché bisogna arrivare ad un compromesso dove si hanno differenziazioni evindenti tra livelli ma non averne troppo per non generare troppo over-head.
+
+Cerchiamo di capire cosa volgiono dire questi strati nelle interconnection
+
+Lo strato più alto e quello di applicazione che è una strato software che fornisce applicazioni.
+
+![](img6.png)
+
+Lo strato livello di applicazione non sa spedire il messaggio per questo entra in gioco il livello di presentazione che ha lo scopo di tradurre il messaggio in modo da poterlo inviare da una parte all'altra.
+
+![](img7.png)
+
+Il livello di presentazione a sua volta non sa spedire il messaggio e si appoggia al livello di sessine, che si occupa di sincronizzare il messaggio tra i due interlocutori. Anche lui però non sa trasferire il messaggio dall'altra parte della rete
+
+![](img8.png)
+
+Lo strato di sessione di appoggia sullo strato di trasporto che divide il messaggio da inviare. Il livello di trasporto può anche numerare i pacchetti
+
+![](img9.png)
+
+![](img10.png)
+
+In questa rete si ha una commutazione di pacchetto a datagramma.
+
+Tutti i sistemi visti fini ad ora sono sistemi espremi che si trovano solo sui calcolatori. Nessuno dei livelli superiori è a conoscenza dei sistemi intermedi. Ed oltre ad ignorare i sistemi intermedi ignora anche la strada che i pacchetti percorrono.
+
+Il livello software della rete per spedire il pacchetto deve almeno sapere grossomodo come è fatta la rete per poter scegliere il percorso più efficiente da fa fare al pacchetto. La mappa della rete è sconosciuta a tutti i livelli superiori. Il livello della rete ha il compito di capire dove spedire il pacchetto ma non sa spedirlo e scarica la responsabilità al livello successivo.
+
+FAcciamo finta che il livello due non essista. Per il livello fisico i pacchetti sono solo sequenza di bit e li trasmetta uno per uno che vengono ricevuti da sistema immadiatamente successivo.
+
+TOrnando al livello due possiamo parlare del livello data link. Il livello data link è quello che trova una codifica delle informazioni ingrado di rilevare eventuali errori durante la trasmissione tramite il livello fisico.
+
+![](img11.png)
+
+Per fare cambiamenti a livello di rete devrei fare cambiamenti su tutti 'bussolotti' intermedi
+
+![](img12.png)
+
+![](img13.png)
+
+SAP(Service Access Point)-> interfaccai tra due livelli adiacenti
+
+![](img14.png)
+
+In ogni strato ci sonoe delle entità, pezzi di codice. Le entità tra livelli adiacenti si scambiano informazioni. Quando il livello n+1 chiede al livello n di portare delle informazioni a destinazione vengono chiamata richieste o primitive di richiesta(le frecce che vanno in giù).Il passaggio inverso alla richiesta si chiama passaggio di indicazione. A fronte delle indicazioni arriva uan risposta che passa dall'altra parte delle rete ed arriva a che aveva inviato il messaggio diventa una conferma
+
+
+Man mano che si scende lungo i livelli ai dati vengono aggiunge delle informazioni per svelgere i loro servizzi.
+
+![](img15.png)  
