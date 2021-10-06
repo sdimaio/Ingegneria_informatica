@@ -1,0 +1,78 @@
+# Lezione lunedì 4 ottobre - Reti di calcolatori
+
+![](img1.png)
+
+per noi la parola pacchetto è sinonimo di pdu. n-pdu è un pacchetto di livello ennesimo, LA pdu è fatta da una header e il payload(informazione da portare)
+
+Il termine pacchetto nelle reti nasce al livello dellla rete ma pian piano ha pervaso su tutti i livelli. Nei diversi standard vendogo utilizzate parole diverse per la parola pachcetto, nel modello iso-osi viene chiamato pdu.
+
+![](img2.png)
+
+Nella slide sembra che il pacchetto inniziale una volta arrivato a livello di trasporto sia diventato molto sostanzioso e questo è vero ma il livello di trasporto per permettere che il messaggio sia inviato sulla rete suddivide il "pacchettone" in pacchetti più piccoli. Effettuato il taglio non importa dove taglio perché alla fine il messaggio viene riconposto e riacquista il significato originale.
+
+![](img3.png)
+
+Livello fisico è quello che si interfaccia dierettamente con il mezzo trasmissivo.Offre allo strato superiore una comuicazione indipendete dal mezzo trasmissivo. Ogni livello fornisce al livello superiore dei servizi, il livello 1 fornisce al livello 2 la possibilità della trasmissione di bit. La trasfmissino è tra sistemi adiacenti, se da un pc voglio strasmettere un bit ad un server di google non lo sa fare, può trasmetterlo al livello immediatamente vicino. Poi ci sarà un'altro livello 1 che farà la stessa cosa nel passaggio sucessivo. C'è ancje la possibilità che si sia uan notifica di malfunzionalento
+
+![](img4.png)
+
+ fronteggia i malfunzionalento con te4cniche di correzione o tecniche che evitani l'errore. I pacchetti consegnati al livello due sone messi in coda perché il livello fisico può essere impegnato o non abbastanza veloce. Il livello due è il primo livello dove troviamo delle code nel senso informatico della cosa.
+
+ ![](img5.png)
+
+ Il primo strto che offre un servizio di trasferimento da estremo a estremo. Il luogo dove si fa commutazione.
+
+ ![](img6.png)
+
+PEr livelli superiori al primo ci sono due modalità operative che danno luogo a due tipologie di pretocolli. Questi due servizi sono servizi conenssi e non connessi.
+
+###### Servizio connesso
+In questi casi un servizio è un servizio di trasferimeto di dati. Il servizio è connesso quando tu ti rivolgi al livello inferiore nell'ambito di un dialogo, tu in realtà ti rivolgi al livello più basso per parlare con il tuo interlocutore dall'altra parte della rete, quando si è stabilita uan connessione si scambiano i messaggi, quando il dialogo e finito ci si diec esplicitamente che è finito.
+Qaundo il dialogo avvone in questo modo si dice che è connesso.
+
+###### Servizi non connesso
+Per far un esempio possiamo considerare la e-mail. Con questo servizio spediamo un messaggio e non sappiano se il nostro interlocutore l'ha ricevuto o meno.
+
+Da questi due tipi di servizio derivana due protocolli, il protocollo connesso e quello non connesso. In genere in protocallo connesso è più veloce perché in tutta la comunicazione c'è scambio di informazioni utili ma è meno affidabile dato che non ci sono riscontri epliciti in so se il messaggio è arrivato a destinazione .
+
+![](img7.png)
+
+![](img8.png)
+
+###### Livello 4 (trasporto)
+
+![](img9.png)
+
+Il livello 4 fa da baluardo. Il ivello 5 non di pone il problema dell'affidabilità della rate perché ci penda il livello 4. Questo è il primo strato da estremo a estremo
+
+![](img10.png)
+
+Ai livelli 2,3,4 si usano dei meccanismi di acknowledgement e si usano tecniche di controllo a finestra.__Queste espressioni verranno definite in seguito__
+
+![](img11.png)
+
+![](img12.png)
+
+![](img13.png)
+
+Esempio, il mio pc si connette con un server di google e faccio due cose di livello più alto che sfruttano la connessione di più basso livello
+
+![](img14.png)
+
+Qui si hanno due applicazioni che vorrebbero sfruttare in parallelo due connessioni di livelle più basso.
+Esempio, sullo smartphone abbiamo accesso alla rete tramite wifi e la connessione dati. Il telefono quando accede alla rete ne una solamente uno dei due alla volta, ci piacerebbe li usasse tutti e due.
+
+![](img15.png)
+
+Noi abbiamo detto che avremo usato la pila iso-osi come uno strumeto di classificazione
+
+![](img16.png)
+
+Il progetto IEEE802 si riferisce ai primi due livelli della pila iso-osi. Anche se non comesciamo questo standard ci basta sapere a quali livelli della pila iso-osi si riferisce per capire in generale di cosa si tratta.
+
+![](img17.png)
+
+
+>Non è sbagliato dire che il SErvice acces point è un indirizzo
+
+![](img25.png)
